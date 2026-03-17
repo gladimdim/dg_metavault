@@ -23,11 +23,11 @@ tags: ["index"]
 | [[performance_improvements_in_mobile_unity\|Performance gains in Unity. How I went from 15 to 60 FPS]] | 2022-01-14 | `unity` `c#` |
 | [[ukrtwi_tragedy\|Трагедія нашого інфопростору (на прикладі укртві)]] | 2021-12-13 | `dart` `flutter` |
 | [[dart_process_exceptions_in_isolates\|Dart: How to handle exceptions raised inside Isolates]] | 2021-12-13 | `dart` `flutter` |
-| [[review_dou_2\|Рецензія #2 на ДОУ Подкаст #34]] | 2021-12-10 | `dou` `огляд` |
+| [[review_dou_2\|Рецензія №2 на ДОУ Подкаст №34]] | 2021-12-10 | `dou` `огляд` |
 | [[flutter_web_showcase_1\|Flutter Web Showcases]] | 2021-12-03 | `flutter` `web` |
 | [[why_education\|Про важливість освіти.]] | 2021-11-30 | `думка` `істина` |
 | [[personal_huge_milestone\|Personal huge milestone]] | 2021-11-29 | `personal` `achievement` |
-| [[review_dou_1\|Рецензія #1 на ДОУ Подкаст]] | 2021-11-25 | `огляд` `dou` |
+| [[review_dou_1\|Рецензія №1 на ДОУ Подкаст]] | 2021-11-25 | `огляд` `dou` |
 | [[dead_simple_example_using_keys\|Dead Simple Example of Using Keys in Flutter Widgets]] | 2021-10-02 | `flutter` `dart` |
 | [[retro_of_my_3_years\|A Retro of My Last 3 Years]] | 2021-09-12 | `flutter` `dart` |
 | [[flutter_animate_interactive_viewer_as_map\|Flutter: How to Animate Movement of InteractiveViewer From One Point to Another on a Map]] | 2021-09-02 | `flutter` `dart` `animation` |
