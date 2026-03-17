@@ -16,7 +16,7 @@ tags: ["index"]
 | [[sloboda2_whats_new_sep\|Sloboda. September Changelog.]] | 2022-09-20 | `gamedev` `unity` |
 | [[games_marketing\|Думки про маркетинг інді ігр (очима ютюберів)]] | 2022-09-20 | `gamedev` `marketing` `unity` |
 | [[unity_monobehaviour_events_magic\|The Magic of Start/Update Events in Unity's MonoBehaviour]] | 2022-05-24 | `c#` `unity` `gamedev` |
-| [[unity_replace_coroutine_with_tap\|Replacing Coroutines in Unity with C# Task Async Pattern (TAP)]] | 2022-05-19 | `c#` `unity` `gamedev` |
+| [[unity_replace_coroutine_with_tap\|Replacing Coroutines in Unity with C Sharp Task Async Pattern (TAP)]] | 2022-05-19 | `c#` `unity` `gamedev` |
 | [[independent_states\|Незалежні держави будуть мати свій ламповий інтернетик]] | 2022-02-17 | `життя` `технології` |
 | [[aborigeni\|Еволюція від аборигенів]] | 2022-02-17 | `життя` `буття` |
 | [[dash-memo-leak\|What Would Happen if Dash Memo Leak Had Never Happened?]] | 2022-02-03 | `flutter` `dart` |
