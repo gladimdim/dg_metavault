@@ -37,7 +37,7 @@ tags: ["index"]
 | [[flutter_fog_of_war\|Fog of War in Flutter Game]] | 2020-12-01 | `games` `flutter` |
 | [[sloboda_versiya-290-doslidzhennya\|Слобода 2.9.0: Дослідження!]] | 2020-11-17 | `Слобода` `Ігри` |
 | [[sloboda_versiya_285_update\|Версія 2.8.5: нові вироби, вози, оновлений арт, зміни в продуктових ланцюгах]] | 2020-11-10 | `Слобода` `Ігри` |
-| [[flutter_implement_and_design_researches_in_game\|Імплементація та дизайн Досліджень для гри на Flutter / Dart]] | 2020-11-09 | `Слобода` `Ігри` `flutter` |
+| [[flutter_implement_and_design_researches_in_game\|Імплементація та дизайн Досліджень для гри на Flutter та Dart]] | 2020-11-09 | `Слобода` `Ігри` `flutter` |
 | [[dart_how_to_test_async_methods\|FakeAsync and Clock as Rescuers for Your async Game Logic Tests]] | 2020-11-02 | `flutter` `dart` |
 | [[flutter_in_game_notifications\|Add in-game Notifications to Flutter Game]] | 2020-10-13 | `flutter` `dart` |
 | [[flutter_add_sound_to_game\|Adding Sound to Flutter Game.]] | 2021-09-22 | `flutter` `dart` |
