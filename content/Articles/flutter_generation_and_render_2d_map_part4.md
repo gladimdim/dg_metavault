@@ -3,7 +3,7 @@ title: "Generation and Render of 2D Map with Terrain in Dart + Flutter. (De)Seri
 date: 2020-09-14
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/flutter_generation_and_render_2d_map_part4/thumbnail.png"
+thumbnail: "../assets/flutter_generation_and_render_2d_map_part4/thumbnail.png"
 id: flutter_generation_and_render_2d_map_part4
 ---
 # Introduction

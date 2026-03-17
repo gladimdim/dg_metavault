@@ -3,7 +3,7 @@ title: "Імплементація та дизайн Досліджень для
 date: 2020-11-09
 tags: ["Слобода", "Ігри", "flutter"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/flutter_implement_and_design_researches_in_game/thumbnail.png"
+thumbnail: "../assets/flutter_implement_and_design_researches_in_game/thumbnail.png"
 id: flutter_implement_and_design_researches_in_game
 ---
 # Введення
@@ -369,7 +369,7 @@ Widget toListTileView(BuildContext context) {
 
 Віджет являє собою розкриваємий UI елемент. Він показує іконку, свою назву і текст-опис:
 
-![Screenshot 2020-11-09 224514.png](assets/flutter_implement_and_design_researches_in_game/screen1.png)
+![Screenshot 2020-11-09 224514.png](../assets/flutter_implement_and_design_researches_in_game/screen1.png)
 
 Кожен ResearchUnitEffect в свою чергу знає, як показати себе в інтерфейсі користувача:
 

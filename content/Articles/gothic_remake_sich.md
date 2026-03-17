@@ -3,13 +3,13 @@ title: "Ремейк Готіки-Січ"
 date: 2023-03-13
 tags: ["gamedev"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/gothic_remake_sich/thumbnail.jpeg"
+thumbnail: "../assets/gothic_remake_sich/thumbnail.jpeg"
 id: gothic_remake_sich
 ---
 [Після топіка на Геймдев ДОУ](https://gamedev.dou.ua/forums/topic/42399/) хотів би нагадати, яка кінцева мета
 Всесвіту Дикого Поля.
 
-![overview](assets/gothic_remake_sich/general.jpeg)
+![overview](../assets/gothic_remake_sich/general.jpeg)
 
 Як ви знаєте, цей всесвіт включає всі ігри, які ми робимо і які стосуються періоду в історії, яке у нас знають
 під назвою "Козаччина". З кожною грою ми посилюємо свої скіли до рівня, коли зможемо зробити справжню велику рольову гру з максимальним
@@ -26,7 +26,7 @@ id: gothic_remake_sich
 
 # Витяг з головного квесту
 
-![Структура Першого квесту](assets/gothic_remake_sich/first_quest.jpg)
+![Структура Першого квесту](../assets/gothic_remake_sich/first_quest.jpg)
 
 ## ❓ Головний Квест
 

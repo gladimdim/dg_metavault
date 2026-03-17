@@ -8,17 +8,17 @@ id: do-not-quit-or-how-i-resurrected-my-7-years-old-idea
 ---
 The story started 7 years ago.
 
-![vesterfeld_example.jpg](assets/do-not-quit-or-how-i-resurrected-my-7-years-old-idea/screen1.jpeg)
+![vesterfeld_example.jpg](../assets/do-not-quit-or-how-i-resurrected-my-7-years-old-idea/screen1.jpeg)
 *(sketch created by Abraham van Westerveld in 1649. He traveled with Lithuania ruler and pictured life of Ukrainian Cossack warriors).*
 
 I like to play tactical turn-based games on smartphones. I especially liked  [Hero Academy](https://www.metacritic.com/game/ios/hero-academy):
 
-![hero_academy.jpg](assets/do-not-quit-or-how-i-resurrected-my-7-years-old-idea/screen2.jpeg)
+![hero_academy.jpg](../assets/do-not-quit-or-how-i-resurrected-my-7-years-old-idea/screen2.jpeg)
 
 I was a member of living history club  [Ukrainian XVII Century Reenactment](http://www.17c.org.ua/) and decided to create a similar game but in the scope of the Ukrainian war for independence in the middle of XVII century. It started as the multiplayer iOS app written in Objective-C. As a backend, I decided to use Clojure and MongoDB.
 
 
-![baidak.JPG](assets/do-not-quit-or-how-i-resurrected-my-7-years-old-idea/screen3.jpeg)
+![baidak.JPG](../assets/do-not-quit-or-how-i-resurrected-my-7-years-old-idea/screen3.jpeg)
 *Our club in action*
 
 Weeks passed, I progressed and could play 1vs1 via my multiplayer backend server. But it lacked a lot of features and implementing them would take a lot of time. The progress stalled. But then boom! WWDC 201* happened and Apple released the Game Center support for the multiplayer games! One of the features of the new iOS release was support for turn-based apps. Apple gave developers great SDK and backend. It fit my requirements. I had not to worry about writing Clojure and maintaining Mongo.
@@ -36,13 +36,13 @@ This moment is the beginning of [Loca Deserta](https://locadeserta.com/). It is 
 
 The story is accompanied by real photos of our reenactment actions. Each image in the game is tappable and 'sketch' filter is applied to images:
 
-![Screenshot_20190522-121005.jpg](assets/do-not-quit-or-how-i-resurrected-my-7-years-old-idea/screen3.jpeg)
+![Screenshot_20190522-121005.jpg](../assets/do-not-quit-or-how-i-resurrected-my-7-years-old-idea/screen3.jpeg)
 
-![Screenshot_20190522-120959.jpg](assets/do-not-quit-or-how-i-resurrected-my-7-years-old-idea/screen4.jpeg)
+![Screenshot_20190522-120959.jpg](../assets/do-not-quit-or-how-i-resurrected-my-7-years-old-idea/screen4.jpeg)
 
 Landing View:
 
-![Screenshot_20190522-121448.jpg](assets/do-not-quit-or-how-i-resurrected-my-7-years-old-idea/screen5.jpeg)
+![Screenshot_20190522-121448.jpg](../assets/do-not-quit-or-how-i-resurrected-my-7-years-old-idea/screen5.jpeg)
 
 ### What tech we use
 

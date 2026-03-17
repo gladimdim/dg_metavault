@@ -3,7 +3,7 @@ title: "Generation and Render of 2D Map with Terrain in Dart + Flutter. Part 1."
 date: 2020-09-09
 tags: ["flutter", "dart", "gamedev"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/flutter_generation_and_render_2d_map_part1/thumbnail.png"
+thumbnail: "../assets/flutter_generation_and_render_2d_map_part1/thumbnail.png"
 id: flutter_generation_and_render_2d_map_part1
 ---
 # Introduction
@@ -17,7 +17,7 @@ In part 1 we will implement map generation logic with two terrain types: Grass a
 # Final result
 Generated map looks like this:
 
-![Screenshot_1599636808.png](assets/flutter_generation_and_render_2d_map_part1/screen1.png)
+![Screenshot_1599636808.png](../assets/flutter_generation_and_render_2d_map_part1/screen1.png)
 
 As you see, the river can flow left and right and its main current is from top to bottom of the map. You can read later about this specific logic.
 
@@ -264,7 +264,7 @@ The Grass tiles do not need to be adjusted to nearby cells as grass does not car
 
 But it is not so with River tile. Check the following example. To render the river turns to left and right, or from left/right to bottom each tiles needs to know input and output direction:
 
-![Screenshot_1599639105.png](assets/flutter_generation_and_render_2d_map_part1/screen2.png)
+![Screenshot_1599639105.png](../assets/flutter_generation_and_render_2d_map_part1/screen2.png)
 
 To implement such behavior we need to add two more properties to **MapTile**:
 
@@ -517,7 +517,7 @@ The same trick is done for river angles. We have only one sprite for angled rive
 # Final result
 Generated map looks like this:
 
-![Screenshot_1599636808.png](assets/flutter_generation_and_render_2d_map_part1/screen3.png)
+![Screenshot_1599636808.png](../assets/flutter_generation_and_render_2d_map_part1/screen3.png)
 
 # Summary
 

@@ -3,7 +3,7 @@ title: "Flutter Web Showcases"
 date: 2021-12-03
 tags: ["flutter", "web"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/flutter_web_showcase_1/thumbnail.png"
+thumbnail: "../assets/flutter_web_showcase_1/thumbnail.png"
 id: flutter_web_showcase_1
 ---
 A week ago I asked on my Twitter [to show the examples of Flutter Web 💙🕸️](https://twitter.com/DmytroGladkyi/status/1463950103165734913).
@@ -16,7 +16,7 @@ Let's go!
 
 The site you are reading is 100% on Flutter 💙🕸️
 
-![dmytrogladkyi.jpg](assets/flutter_web_showcase_1/dmytrogladkyi.jpg)
+![dmytrogladkyi.jpg](../assets/flutter_web_showcase_1/dmytrogladkyi.jpg)
 
 The site is open source and is current a part of my #metapersona effort to make blogging fun again (and serverless :) )
 
@@ -30,7 +30,7 @@ An awesome example of the maze algorithms all done with Flutter in the Web!
 
 **Did this sometime ago just for fun :). I will probably rework on it in the future to improve the performance and add new algorithms.**
 
-![elias.png](assets/flutter_web_showcase_1/elias.png)
+![elias.png](../assets/flutter_web_showcase_1/elias.png)
 
 Link to Author's Twitter: [https://twitter.com/elias_andualem8](https://twitter.com/elias_andualem8)
 
@@ -40,7 +40,7 @@ Link to Author's Twitter: [https://twitter.com/elias_andualem8](https://twitter.
 
 **This is a proof of delivery application that’s running production since early 2021 on Zebra’s TC57 devices with built-in barcode scanners.**
 
-![sander.png](assets/flutter_web_showcase_1/sander.png)
+![sander.png](../assets/flutter_web_showcase_1/sander.png)
 
 Link to Author's Twitter: [https://twitter.com/jsroest](https://twitter.com/jsroest)
 
@@ -54,7 +54,7 @@ my old web build of the Flexfold Demo app still available here https://rydmike.c
 [His tweet with explanation](https://twitter.com/RydMike/status/1308281235723055107)
 
 
-![mike.png](assets/flutter_web_showcase_1/mike.png)
+![mike.png](../assets/flutter_web_showcase_1/mike.png)
 
 Link to Author's Twitter: [https://twitter.com/RydMike](https://twitter.com/RydMike)
 
@@ -64,7 +64,7 @@ Link to Author's Twitter: [https://twitter.com/RydMike](https://twitter.com/RydM
 
 **My Responsive Portfolio with Internationalization (Currently in 3 languages) http://pktintali.github.io**
 
-![kumar.png](assets/flutter_web_showcase_1/kumar.png)
+![kumar.png](../assets/flutter_web_showcase_1/kumar.png)
 
 Link to Author's Twitter: [https://twitter.com/pradeep_tintali](https://twitter.com/pradeep_tintali)
 
@@ -74,7 +74,7 @@ Link to Author's Twitter: [https://twitter.com/pradeep_tintali](https://twitter.
 
 ***My password generator app on Android, and this is the web version https://wassword.albertobonacina.com***
 
-![alberto.png](assets/flutter_web_showcase_1/alberto.png)
+![alberto.png](../assets/flutter_web_showcase_1/alberto.png)
 
 Link to Author's Twitter: [https://twitter.com/polilluminato](https://twitter.com/polilluminato)
 
@@ -86,7 +86,7 @@ Link to Author's Twitter: [https://twitter.com/polilluminato](https://twitter.co
 https://abhilash-chandran.com
 Still wip.. Not mobile friendly, yet..!***
 
-![abhilash.png](assets/flutter_web_showcase_1/abhilash.png)
+![abhilash.png](../assets/flutter_web_showcase_1/abhilash.png)
 
 Link to Author's Twitter: [https://twitter.com/scabhilash](https://twitter.com/scabhilash)
 
@@ -99,12 +99,12 @@ My game universe called [Loca Deserta](https://locadeserta.com/index_en) already
 And the builds are deployed as 💙🕸️ PWA apps:
 
 Hex Puzzle:
-![hex.jpg](assets/flutter_web_showcase_1/hex.jpg)
+![hex.jpg](../assets/flutter_web_showcase_1/hex.jpg)
 
 Sloboda:
 
-![sloboda.jpg](assets/flutter_web_showcase_1/sloboda.jpg)
+![sloboda.jpg](../assets/flutter_web_showcase_1/sloboda.jpg)
 
 Chumaki:
 
-![chumaki.jpg](assets/flutter_web_showcase_1/chumaki.jpg)
+![chumaki.jpg](../assets/flutter_web_showcase_1/chumaki.jpg)

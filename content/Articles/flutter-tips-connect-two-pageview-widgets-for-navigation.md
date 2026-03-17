@@ -8,7 +8,7 @@ id: flutter-tips-connect-two-pageview-widgets-for-navigation
 ---
 For my  [game app](https://locadeserta.com/index_en.html)  I decided to have a custom PageView navigation. It has an independent scrolled navigation bar connected to the main scrollable content area. It looks like this:
 
-![page_view_navigation.gif](assets/flutter-tips-connect-two-pageview-widgets-for-navigation/screen1.gif)
+![page_view_navigation.gif](../assets/flutter-tips-connect-two-pageview-widgets-for-navigation/screen1.gif)
 
 TLDR. You can try it online and check the source code here: https://dartpad.dev/000ccfee0d52ee6c684d75e7c4cd5271
 

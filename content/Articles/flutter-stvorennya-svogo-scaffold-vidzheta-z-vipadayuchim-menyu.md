@@ -15,11 +15,11 @@ id: flutter-stvorennya-svogo-scaffold-vidzheta-z-vipadayuchim-menyu
 
 Ось як воно виглядає в дії:
 
-![custom_appbar.gif](assets/flutter-stvorennya-svogo-scaffold-vidzheta-z-vipadayuchim-menyu/screen1.gif)
+![custom_appbar.gif](../assets/flutter-stvorennya-svogo-scaffold-vidzheta-z-vipadayuchim-menyu/screen1.gif)
 
 І разом з Row в якості заголовка програми:
 
-![scrollable_appbar.gif](assets/flutter-stvorennya-svogo-scaffold-vidzheta-z-vipadayuchim-menyu/screen2.gif)
+![scrollable_appbar.gif](../assets/flutter-stvorennya-svogo-scaffold-vidzheta-z-vipadayuchim-menyu/screen2.gif)
 
 ### А тут копія програми, яку ви можете спробувати онлайн:
 
@@ -283,7 +283,7 @@ class AppBarButton extends StatelessWidget {
 Ви також можете передати конкретний віджет, який буде показаний замість простого текстового віджету в панелі програми. Ось, наприклад, SingleChildScrollView в якості titleView:
 
 
-![scroll_view_in_title.gif](assets/flutter-stvorennya-svogo-scaffold-vidzheta-z-vipadayuchim-menyu/screen3.gif)
+![scroll_view_in_title.gif](../assets/flutter-stvorennya-svogo-scaffold-vidzheta-z-vipadayuchim-menyu/screen3.gif)
 
 # Підсумки
 

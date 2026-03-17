@@ -59,4 +59,4 @@ tags: ["index"]
 | [[flutter-unblocking-ui-thread-with-isolates-compute-function\|Flutter: Unblocking UI thread with Isolates compute function]] | 2019-09-03 | `flutter` `dart` |
 | [[flutter-tips-how-to-avoid-blinking-of-images-when-they-are-loaded-for-the-first-time\|Flutter Tips: How to avoid blinking of images when they are loaded for the first time]] | 2019-06-20 | `flutter` `dart` |
 | [[do-not-quit-or-how-i-resurrected-my-7-years-old-idea\|Do not Quit. Or how I resurrected my 7 years old idea]] | 2019-05-22 | `gamedev` |
-| [[road-to-flutter-and-dart\|Road to #Flutter and #Dart]] | 2019-05-15 | `flutter` `dart` |
+| [[road-to-flutter-and-dart\|Road to Flutter and Dart]] | 2019-05-15 | `flutter` `dart` |

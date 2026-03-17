@@ -3,7 +3,7 @@ title: "Year 2020: Fluttercalypsis. Or How Google Wiped Frameworks of the Web Ap
 date: 2020-03-26
 tags: ["flutter", "prophecy", "epic"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/year-2020-fluttercalypsis-or-how-google-wiped-frameworks-of-the-web-app-dark-age/thumbnail.jpg"
+thumbnail: "../assets/year-2020-fluttercalypsis-or-how-google-wiped-frameworks-of-the-web-app-dark-age/thumbnail.jpg"
 id: year-2020-fluttercalypsis-or-how-google-wiped-frameworks-of-the-web-app-dark-age
 ---
 No one knew it was coming. No one even expected it. Everyone was busy watching latest React Conference videos, where thought leaders showed you how to do React correctly. Correct way changes every 1 year, each time better, as they say.

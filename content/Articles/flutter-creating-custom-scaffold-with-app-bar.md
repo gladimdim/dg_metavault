@@ -8,10 +8,10 @@ id: flutter-creating-custom-scaffold-with-app-bar
 ---
 Here my custom Scaffold with app bar in action:
 
-![custom_appbar.gif](assets/flutter-creating-custom-scaffold-with-app-bar/screen1.gif)
+![custom_appbar.gif](../assets/flutter-creating-custom-scaffold-with-app-bar/screen1.gif)
 
 With the widget as a title:
-![scrollable_appbar.gif](assets/flutter-creating-custom-scaffold-with-app-bar/screen2.gif)
+![scrollable_appbar.gif](../assets/flutter-creating-custom-scaffold-with-app-bar/screen2.gif)
 
 For  [my interfactive fiction game](https://locadeserta.com)  I used default Material App Bar, but it took too much space on the screen and I wanted to customize it in a special way. So, I decided to create my own app bar with following features:
 
@@ -23,11 +23,11 @@ For  [my interfactive fiction game](https://locadeserta.com)  I used default Mat
 
 Here is my app bar in action:
 
-![custom_appbar.gif](assets/flutter-creating-custom-scaffold-with-app-bar/screen3.gif)
+![custom_appbar.gif](../assets/flutter-creating-custom-scaffold-with-app-bar/screen3.gif)
 
 With the widget as a title:
 
-![scrollable_appbar.gif](assets/flutter-creating-custom-scaffold-with-app-bar/screen4.gif)
+![scrollable_appbar.gif](../assets/flutter-creating-custom-scaffold-with-app-bar/screen4.gif)
 
 ### And here is the dartpad with gist:
 
@@ -285,7 +285,7 @@ The height of the expanded menu flexible, it occupies the same height as Column 
 You can also specify 'titleView' property, it will be rendered in the title bar instead of Text() widget. Here is a SingleChildScrollView used as a titleView widget:
 
 
-![scroll_view_in_title.gif](assets/flutter-creating-custom-scaffold-with-app-bar/screen5.gif)
+![scroll_view_in_title.gif](../assets/flutter-creating-custom-scaffold-with-app-bar/screen5.gif)
 
 # Summary
 

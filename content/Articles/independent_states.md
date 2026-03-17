@@ -3,7 +3,7 @@ title: "Незалежні держави будуть мати свій лам�
 date: 2022-02-17
 tags: ["життя", "технології"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/independent_states/thumbnail.jpg"
+thumbnail: "../assets/independent_states/thumbnail.jpg"
 id: independent_states
 ---
 Коли в 2000ті китайці будували своє дзеркало інтернету, я дуже дивувався. навіщо витрачати час і

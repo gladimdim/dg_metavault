@@ -4,9 +4,7 @@ date: 2024-01-01
 tags: ["index"]
 ---
 
-# Dmytro Gladkyi — MetaVault
-
-Welcome to my digital garden — articles, essays, and micro-posts.
+# Welcome to my digital garden — articles, essays, and micro-posts.
 
 ## [[Articles/index|Articles]]
 

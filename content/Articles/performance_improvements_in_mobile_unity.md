@@ -3,7 +3,7 @@ title: "Performance gains in Unity. How I went from 15 to 60 FPS"
 date: 2022-01-14
 tags: ["unity", "c#"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/performance_improvements_in_mobile_unity/sich_screen.png"
+thumbnail: "../assets/performance_improvements_in_mobile_unity/sich_screen.png"
 id: performance_improvements_in_mobile_unity
 ---
 ## Intro
@@ -27,15 +27,15 @@ Of course I launched a Profiler and checked what was choking in my Nokia 6.1/Gal
 
 You can see that the game ran at max 30 FPS, even fewer.
 
-![note_8_fix_without_fix](assets/performance_improvements_in_mobile_unity/note_8_fix_without_fix.png)
+![note_8_fix_without_fix](../assets/performance_improvements_in_mobile_unity/note_8_fix_without_fix.png)
 
 Also when I have to show building/production requirements with 3D resource models:
 
-![output-onlinepngtools (1)](assets/performance_improvements_in_mobile_unity/ingame.png)
+![output-onlinepngtools (1)](../assets/performance_improvements_in_mobile_unity/ingame.png)
 
 it spiked to 40-60ms per frame and the bottleneck was my OnTriggerEnter logic (more on this later). Also pay attention to that blue scripting timings that appear when the new resources are shown on the screen. Definitely something was wrong with my code.
 
-![blue_spikes](assets/performance_improvements_in_mobile_unity/blue_spikes.jpg)
+![blue_spikes](../assets/performance_improvements_in_mobile_unity/blue_spikes.jpg)
 
 ### First victim - Shadows?
 
@@ -55,7 +55,7 @@ I started with the biggest asset: I removed Terrain layer.
 
 **BOOM** ! Steady 60 FPS on Galaxy Note 8! Haha! It was it:
 
-![note_8_no_terrain_layers_60fps](assets/performance_improvements_in_mobile_unity/note_8_no_terrain_layers_60fps.png)
+![note_8_no_terrain_layers_60fps](../assets/performance_improvements_in_mobile_unity/note_8_no_terrain_layers_60fps.png)
 
 I returned back - again 15-30...It was definitely Terrain that caused me the performance issues.
 
@@ -72,13 +72,13 @@ For maximum performance, limit each of your Terrain tiles to four Terrain Layers
 
 And I had like 8 layers all mixed on the floor with different alpha and masks!
 
-And for real, once I have only 4 layers like on this screen: ![terrain_layers](assets/performance_improvements_in_mobile_unity/terrain_layers.png)
+And for real, once I have only 4 layers like on this screen: ![terrain_layers](../assets/performance_improvements_in_mobile_unity/terrain_layers.png)
 
 
 
 Then the game runs very smooth even on ancient Android like Nokia 6.1:
 
-![note_8_4_terrain_layers_60fps](assets/performance_improvements_in_mobile_unity/note_8_4_terrain_layers_60fps.png)
+![note_8_4_terrain_layers_60fps](../assets/performance_improvements_in_mobile_unity/note_8_4_terrain_layers_60fps.png)
 
 Once I add even one more layer (without using it for painting!) then the performance drops.
 
@@ -116,7 +116,7 @@ Check this awesome video on how to implement timers in Unity:
 
 After fix, notice that the blue scripting timings are much shorter!
 
-![nokia_61_without_datetimenow](assets/performance_improvements_in_mobile_unity/nokia_61_without_datetimenow.png)
+![nokia_61_without_datetimenow](../assets/performance_improvements_in_mobile_unity/nokia_61_without_datetimenow.png)
 
 
 
@@ -128,7 +128,7 @@ It turns out...Instantiate and Destroy are VERY resource consuming procedures.
 
 See these spikes? These are Instantiate/Destroy calls. Some of them take 40-70 ms:
 
-![nokia_61_object_instantiate_spikes](assets/performance_improvements_in_mobile_unity/nokia_61_object_instantiate_spikes.png)
+![nokia_61_object_instantiate_spikes](../assets/performance_improvements_in_mobile_unity/nokia_61_object_instantiate_spikes.png)
 
 
 
@@ -140,7 +140,7 @@ I reimplemented the logic to create all the objects beforehand when the scene lo
 
 Check the same game scenario to show new Resource objects on screen but with Object Pooling:
 
-![nokia_61_object_pooling_all_objects_cached](assets/performance_improvements_in_mobile_unity/nokia_61_object_pooling_all_objects_cached.png)
+![nokia_61_object_pooling_all_objects_cached](../assets/performance_improvements_in_mobile_unity/nokia_61_object_pooling_all_objects_cached.png)
 
 
 
@@ -187,7 +187,7 @@ The first version of my game has features from a 'real' full-sized game you used
 
 You can learn more and download my old Sloboda game here: [Loca Deserta: Sloboda](https://locadeserta.com/citybuilding/index_en)
 
-![sich_screen](assets/performance_improvements_in_mobile_unity/sich_screen.png)
+![sich_screen](../assets/performance_improvements_in_mobile_unity/sich_screen.png)
 
 # Follow for Progress on the Remake
 

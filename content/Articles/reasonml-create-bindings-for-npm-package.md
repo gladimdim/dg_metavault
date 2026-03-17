@@ -13,7 +13,7 @@ You can very easily add ReasonML to an existing JavaScript/TypeScript project, a
 In this post I will show you, how to create bindings from scratch, and how to use them in your ReasonML project:
 
 
-![vim_image_reasonml.png](assets/reasonml-create-bindings-for-npm-package/thumbnail.jpg)
+![vim_image_reasonml.png](../assets/reasonml-create-bindings-for-npm-package/thumbnail.jpg)
 
 
 # Getting Started
@@ -181,7 +181,7 @@ Before we write the body of the clean function, we need to dive into terrible wo
 Each npm package page has a “Test With RunKit” button, and you can use it to call function without installing the package:
 
 
-![npmjs_screenshot.png](assets/reasonml-create-bindings-for-npm-package/screen2.png)
+![npmjs_screenshot.png](../assets/reasonml-create-bindings-for-npm-package/screen2.png)
 
 The issue with the function ‘clean’ is the following: it might return a valid semver string, or null, if it could not parse the input semver version. So, from a ReasonML standpoint, the result of this function is an Option. It either returns the string or returns Nothing (None).
 

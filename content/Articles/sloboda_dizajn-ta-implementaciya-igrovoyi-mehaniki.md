@@ -3,7 +3,7 @@ title: "🇺🇦 Дизайн та імплементація ігрової м�
 date: 2020-07-13
 tags: ["flutter", "Ігри", "Слобода"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/thumbnail.png"
+thumbnail: "../assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/thumbnail.png"
 id: sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki
 ---
 Ви уже могли читати першу статтю в моїй серії імплементацій ігрових механік:  [Дизайн та реалізація механізму подій в покроковій грі]([[sloboda_dizajn-ta-realizaciya-mehanizmu-podij-v-pokrokovij-gri]]) . В цій же статті я покажу дизайн та імплементацію ігрової механіки на основі задач, яку я зробив в своїй грі  [Слобода](https://locadeserta.com/sloboda). Вихідний код гри знаходиться на GitHub:  [https://github.com/gladimdim/sloboda
@@ -28,15 +28,15 @@ id: sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki
 
 Наприклад, ресурс "Поле" генерує їжу, для виробництва необхідно лише 3 вільних людей:
 
-![9553b9babf583e78f11670f3e76e3d1d.png](assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen1.png)
+![9553b9babf583e78f11670f3e76e3d1d.png](../assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen1.png)
 
 Коли час на виконання задачі закінчився, можна зібрати ресурси до інвентаря:
 
-![a5c9fa668f31320df37ef3d2c482904c.png](assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen2.png)
+![a5c9fa668f31320df37ef3d2c482904c.png](../assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen2.png)
 
 Може бути запущено багато задач на одній з ресурсних будівлях:
 
-![d1a8953de1f37c13617dac739f224cec.png](assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen3.png)
+![d1a8953de1f37c13617dac739f224cec.png](../assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen3.png)
 
 ## Вимоги до функціоналу
 
@@ -57,7 +57,7 @@ id: sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki
 # Імплементація
 ## Спочатку імплементуємо клас Taskable, який буде єдиним класом для всіх задач.
 
-![Annotation 2020-07-13 151732.png](assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen4.png)
+![Annotation 2020-07-13 151732.png](../assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen4.png)
 
 Він має додаткову властивість **bool isStarted**, яка визначає чи задача уже почала своє виконання.
 
@@ -65,11 +65,11 @@ id: sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki
 
 Метод **start** розпочинає виконання задачі:
 
-![Annotation 2020-07-13 151821.png](assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen5.png)
+![Annotation 2020-07-13 151821.png](../assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen5.png)
 
 І не забуваємо підчищяти за собою таймери і потоки:
 
-![destroy.png](assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen6.png)
+![destroy.png](../assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen6.png)
 
 ## Імплепентація роботи із задачами в класі ResourceBuilding
 
@@ -77,18 +77,18 @@ id: sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki
 
 Для початку додамо наступний новий клас RTResourceTask. Він розширяє клас зі списком задач і потоком. В цей потік будуть кидаться повідомлення, якщо задача виконана. Це буде місток між UI, будівлею і задачами в ній:
 
-![Annotation 2020-07-13 151953.png](assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen7.png)
+![Annotation 2020-07-13 151953.png](../assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen7.png)
 
 **Taskable defaultTask** буде визначатися кожною будівлею окремо. Це буде шаблон для створення задачі, коли гравець натисне кнопку «Почати задачу».
 
 Приклад стандартної задачі для Будинку Мисливця:
 
-![Annotation 2020-07-13 152044.png](assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen8.png)
+![Annotation 2020-07-13 152044.png](../assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen8.png)
 
 Тепер кожен раз, коли додається задача до будівлі, потік зі змінами в статусі задачі додається до потоку змін будівлі. І за допомогою **StreamBuilder** віджета можна оновлювати стан виконання задач на екрані:
 
 
-![Annotation 2020-07-13 152213.png](assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen9.png)
+![Annotation 2020-07-13 152213.png](../assets/sloboda_dizajn-ta-implementaciya-igrovoyi-mehaniki/screen9.png)
 
 # Заключення
 

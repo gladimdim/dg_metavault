@@ -3,7 +3,7 @@ title: "Flutter: Unblocking UI thread with Isolates compute function"
 date: 2019-09-03
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/flutter-unblocking-ui-thread-with-isolates-compute-function/thumbnail.jpg"
+thumbnail: "../assets/flutter-unblocking-ui-thread-with-isolates-compute-function/thumbnail.jpg"
 id: flutter-unblocking-ui-thread-with-isolates-compute-function
 ---
 In this post I will show you, how to use **compute** function from the [Flutter framework ](https://flutter.dev/) to push CPU-heavy computation from main thread (which does the UI stuff) to another thread. This will unlock the main thread and your application will be responsive, while the app is still calculating something in the background.
@@ -148,7 +148,7 @@ case PassageTypes.IMAGE:
 And when user presses "Export" button the UI is completed locked and does not react to user interactions:
 
 
-![IMG_1214.jpg](assets/flutter-unblocking-ui-thread-with-isolates-compute-function/screen1.jpeg)
+![IMG_1214.jpg](../assets/flutter-unblocking-ui-thread-with-isolates-compute-function/screen1.jpeg)
 
 ## But I used async await everywhere... does not it solve such issues???
 
@@ -264,7 +264,7 @@ var result = Container(
 
 PdfCreator also exposes a Stream with events when each images is processed. I used StreamBuilder to notify user when each images is decoded:
 
-![enhanced_compute.gif](assets/flutter-unblocking-ui-thread-with-isolates-compute-function/screen2.gif)
+![enhanced_compute.gif](../assets/flutter-unblocking-ui-thread-with-isolates-compute-function/screen2.gif)
 
 # Conclusion
 I used  [compute](https://api.flutter.dev/flutter/foundation/compute.html) function provided by the Flutter framework to offload the heavy CPU work from the UI thread into the separate thread. This allowed me to process large images in a separate thread and avoid main thread locks, when the whole app stops responding to user actions.

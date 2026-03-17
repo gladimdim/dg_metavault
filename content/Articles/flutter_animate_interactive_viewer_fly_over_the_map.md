@@ -3,12 +3,12 @@ title: "Animating InteractiveViewer in Flutter. Or how to animate Map in your Ga
 date: 2021-05-01
 tags: ["flutter", "dart", "animation"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/flutter_animate_interactive_viewer_fly_over_the_map/thumbnail.png"
+thumbnail: "../assets/flutter_animate_interactive_viewer_fly_over_the_map/thumbnail.png"
 id: flutter_animate_interactive_viewer_fly_over_the_map
 ---
 In my 4th game in the [Loca Deserta Game Universe](http://locadeserta.com/index_en.html) I am using [InteractiveViewer](https://api.flutter.dev/flutter/widgets/InteractiveViewer-class.html) widget in order to implement a map. It allows me to pan, zoom in/out, basically everything you expect from the map in a game:
 
-![animation_map.gif](assets/flutter_animate_interactive_viewer_fly_over_the_map/animation_map.gif)
+![animation_map.gif](../assets/flutter_animate_interactive_viewer_fly_over_the_map/animation_map.gif)
 
 When the game starts I want to animate fly-over the map from the end to the start and focus it on the very first city on the map. Also I want to fly to the given city on the map when user select its. All this with an animation.
 
@@ -95,15 +95,15 @@ So, in order to correctly animate InteractiveViewer to the given city I have to 
 
 This is how the InteractiveViewer will show the City on the map without steps 3 & 4:
 
-![Screenshot 2021-04-30 at 21.30.32.png](assets/flutter_animate_interactive_viewer_fly_over_the_map/screen_1.png)
+![Screenshot 2021-04-30 at 21.30.32.png](../assets/flutter_animate_interactive_viewer_fly_over_the_map/screen_1.png)
 
 This is how the InteractiveViewer positions viewport if step #4 is omitted (we do not adjust shift values to widget dimensions):
 
-![Screenshot 2021-04-30 at 21.35.17.png](assets/flutter_animate_interactive_viewer_fly_over_the_map/screen_2.png)
+![Screenshot 2021-04-30 at 21.35.17.png](../assets/flutter_animate_interactive_viewer_fly_over_the_map/screen_2.png)
 
 And this is a drawn schema of 4 step logic:
 
-![chumaki_map_schema_viewer.png](assets/flutter_animate_interactive_viewer_fly_over_the_map/screen_3.png)
+![chumaki_map_schema_viewer.png](../assets/flutter_animate_interactive_viewer_fly_over_the_map/screen_3.png)
 
 *Pay attention, again, that if you want to 'move' viewer bottom and right you would want to increase x, y coordinates but you have to remember, that we invert these values (the canvas moves in opossite direction). So instead of adding shift you have to subtract it. If you want the viewer to move up and left, then you have to add shift values.*
 
@@ -124,12 +124,12 @@ sichPoint.y - middleY + Sich().size * CITY_SIZE / 2,  // adjusting center point 
 
 Final result. The City Avatar is positioned just like the player expects: center of the avatar is in the center of the view:
 
-![Screenshot 2021-04-30 at 21.36.45.png](assets/flutter_animate_interactive_viewer_fly_over_the_map/screen_4.png)
+![Screenshot 2021-04-30 at 21.36.45.png](../assets/flutter_animate_interactive_viewer_fly_over_the_map/screen_4.png)
 
 ---
 
 # And here it is in action in my game map:
 
-![SmartSelect_20210501-123542.gif](assets/flutter_animate_interactive_viewer_fly_over_the_map/final_animation.gif)
+![SmartSelect_20210501-123542.gif](../assets/flutter_animate_interactive_viewer_fly_over_the_map/final_animation.gif)
 
 

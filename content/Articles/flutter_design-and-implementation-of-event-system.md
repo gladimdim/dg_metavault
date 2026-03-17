@@ -3,7 +3,7 @@ title: "Design and Implementation of Event System in City Building Turn Based Ga
 date: 2020-04-24
 tags: ["flutter", "dart", "gamedev"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/flutter_design-and-implementation-of-event-system/thumbnail.png"
+thumbnail: "../assets/flutter_design-and-implementation-of-event-system/thumbnail.png"
 id: flutter_design-and-implementation-of-event-system
 ---
 *Instead of writing another state/todo/counter/animation I decided to create some real-world content related to Dart&Flutter: Event System in my turn-based city building game **Sloboda**.*
@@ -18,17 +18,17 @@ If player can make a choice, then such event is Choicable. In all other cases it
 
 Example of the Choicable event in UI:
 
-![Screen Shot 2020-04-24 at 22.11.37.png](assets/flutter_design-and-implementation-of-event-system/screen1.png)
+![Screen Shot 2020-04-24 at 22.11.37.png](../assets/flutter_design-and-implementation-of-event-system/screen1.png)
 
 Example of a Random Event:
 
-![Screen Shot 2020-04-24 at 22.12.04.png](assets/flutter_design-and-implementation-of-event-system/screen2.png)
+![Screen Shot 2020-04-24 at 22.12.04.png](../assets/flutter_design-and-implementation-of-event-system/screen2.png)
 
 To add even more unpredictness to the game, event can result in success or failure as well. For example:  [locust invasion](https://en.wikipedia.org/wiki/Locust) , if successful, results in resource loss. If failed, you can catch some wild horses, who have nothing to eat and came to your settlement. The success/fail rate is configurable as well.
 
 Example of the successful event:
 
-![Screen Shot 2020-04-24 at 22.12.32.png](assets/flutter_design-and-implementation-of-event-system/screen3.png)
+![Screen Shot 2020-04-24 at 22.12.32.png](../assets/flutter_design-and-implementation-of-event-system/screen3.png)
 
 ## Lets summarise requirements for the Event System:
 
@@ -397,11 +397,11 @@ static List<RandomTurnEvent> allEvents = [
 
 # Demo:
 
-![eng_event_demo.gif](assets/flutter_design-and-implementation-of-event-system/screen4.gif)
+![eng_event_demo.gif](../assets/flutter_design-and-implementation-of-event-system/screen4.gif)
 
 # UML of Event related classes
 
-![events_uml.png](assets/flutter_design-and-implementation-of-event-system/screen5.png)
+![events_uml.png](../assets/flutter_design-and-implementation-of-event-system/screen5.png)
 
 # Summary
 

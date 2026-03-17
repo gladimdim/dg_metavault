@@ -3,25 +3,25 @@ title: "Flutter: How to Animate Movement of InteractiveViewer From One Point to 
 date: 2021-09-02
 tags: ["flutter", "dart", "animation"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/flutter_animate_interactive_viewer_as_map/thumbnail.png"
+thumbnail: "../assets/flutter_animate_interactive_viewer_as_map/thumbnail.png"
 id: flutter_animate_interactive_viewer_as_map
 ---
 In my game called  ["Loca Deserta: Chumaki"](http://locadeserta.com/index_en.html)  (still WIP) I have an InteractiveWidget widget used as a scroll/pan/zoom surface of the game map.
 
 Different cities are shown on it like this:
 
-![screen1.jpg](assets/flutter_animate_interactive_viewer_as_map/screen_1.jpeg)
+![screen1.jpg](../assets/flutter_animate_interactive_viewer_as_map/screen_1.jpeg)
 
 To help navigate the map I decided to add following feature: player should be able to navigate to another city with a button press.
 
 Say like here, to unlock the city you must buy the route to it in another city:
 
-![Untitled.png](assets/flutter_animate_interactive_viewer_as_map/screen_2.png)
+![Untitled.png](../assets/flutter_animate_interactive_viewer_as_map/screen_2.png)
 
 And it should nicely animate to the other part of the map, with target City in center:
 
 
-![ezgif-2-9d2b382b1f0b.gif](assets/flutter_animate_interactive_viewer_as_map/animation.gif)
+![ezgif-2-9d2b382b1f0b.gif](../assets/flutter_animate_interactive_viewer_as_map/animation.gif)
 
 
 [In my previous post I've shown how to use AnimationController]([[flutter_animate_interactive_viewer_fly_over_the_map]]) to move from one hardcoded point to another point on a map when the game starts. But in this case we have to react to user action and nicely move the current viewport to the other city.

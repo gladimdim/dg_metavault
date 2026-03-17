@@ -3,7 +3,7 @@ title: "Dead Simple Example of Using Keys in Flutter Widgets"
 date: 2021-10-02
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/dead_simple_example_using_keys/thumbnail.png"
+thumbnail: "../assets/dead_simple_example_using_keys/thumbnail.png"
 id: dead_simple_example_using_keys
 ---
 Lots of folks struggle to understand when to use keys in Flutter. In this very short article I will show you nice example where they must be used.
@@ -18,7 +18,7 @@ Jump directly to [DartPad example](https://dartpad.dev/?id=116f0f3b5f3937698bb33
 
 In my game  [Chumaki](http://locadeserta.com/locadesertachumaki/index_en.html) I wanted to animate the NPC level up by showing a growing widget with a text "New Level", like this:
 
-![animation.gif](assets/dead_simple_example_using_keys/animation.gif)
+![animation.gif](../assets/dead_simple_example_using_keys/animation.gif)
 
 ## Widget implementation
 

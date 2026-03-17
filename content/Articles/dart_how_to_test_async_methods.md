@@ -3,7 +3,7 @@ title: "FakeAsync and Clock as Rescuers for Your async Game Logic Tests"
 date: 2020-11-02
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/dart_how_to_test_async_methods/thumbnail.png"
+thumbnail: "../assets/dart_how_to_test_async_methods/thumbnail.png"
 id: dart_how_to_test_async_methods
 ---
 # Introduction

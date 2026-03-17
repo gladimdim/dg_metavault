@@ -3,7 +3,7 @@ title: "Add in-game Notifications to Flutter Game"
 date: 2020-10-13
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/flutter_in_game_notifications/thumbnail.jpg"
+thumbnail: "../assets/flutter_in_game_notifications/thumbnail.jpg"
 id: flutter_in_game_notifications
 ---
 # Introduction
@@ -13,7 +13,7 @@ My game got a lot of features in recent months. Many events are happening behind
 
 ## Events on the  map:
 
-![Screenshot 2020-10-13 123720.png](assets/flutter_in_game_notifications/screen1.png)
+![Screenshot 2020-10-13 123720.png](../assets/flutter_in_game_notifications/screen1.png)
 
 Events on the map usually give a lot of value and it is pitty that the player can miss them (some of them do not reappear and are one-time events).
 
@@ -198,7 +198,7 @@ Widget part is pretty simple:
 
 And now notifications come one after the other:
 
-![notifications.gif](assets/flutter_in_game_notifications/screen2.gif)
+![notifications.gif](../assets/flutter_in_game_notifications/screen2.gif)
 
 
 # Conclusion

@@ -3,7 +3,7 @@ title: "Про важливість освіти."
 date: 2021-11-30
 tags: ["думка", "істина"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/why_education/kpi_logo.png"
+thumbnail: "../assets/why_education/kpi_logo.png"
 id: why_education
 ---
 Змушений написати цей пост, адже останнім часом серед "IT" (не люблю це слово) тусовки часто шириться думка, чому технічна освіта не потрібна, і що вона нічого не дає.
@@ -55,7 +55,7 @@ Render unto Caesar
 
 Не повірите, але це питання задають як раз одні з лідерів думок.
 
-![screen1](assets/why_education/screen1.png)
+![screen1](../assets/why_education/screen1.png)
 
 
 (лінк з скріна: https://twitter.com/DmytroGladkyi/status/1463530295731306500?t=4eYN5TziGwu-oJqPIZ71vw&s=19)

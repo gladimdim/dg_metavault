@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(while read:*)",
+      "Bash(do echo:*)",
+      "Read(//c/Users/Admin/GitHub/dg_obsidian_vault/**)",
+      "Bash(done)",
+      "Bash(grep -r assets/ /c/Users/Admin/GitHub/dg_obsidian_vault/content/Articles/*.md /c/Users/Admin/GitHub/dg_obsidian_vault/content/Micro/*.md)",
+      "Bash(grep -r ![ /c/Users/Admin/GitHub/dg_obsidian_vault/content/Articles/*.md /c/Users/Admin/GitHub/dg_obsidian_vault/content/Micro/*.md)",
+      "Bash(grep \"thumbnail:\" /c/Users/Admin/GitHub/dg_obsidian_vault/content/Articles/*.md)",
+      "Bash(grep -E ![.*]\\\\\\(.*\\\\\\) /c/Users/Admin/GitHub/dg_obsidian_vault/content/Micro/*.md)",
+      "Bash(grep -r 'thumbnail: \"\"\"\"assets/' /c/Users/Admin/GitHub/dg_obsidian_vault/content/Articles/)",
+      "Bash(grep -r 'thumbnail: \"\"\"\"../assets/' /c/Users/Admin/GitHub/dg_obsidian_vault/content/Articles/)"
+    ]
+  }
+}

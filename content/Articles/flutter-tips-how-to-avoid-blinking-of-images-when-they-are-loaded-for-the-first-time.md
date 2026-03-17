@@ -12,7 +12,7 @@ In this small post I will show you how to avoid 'blinking images' when they are 
 In Flutter I use  [Hero Widget](https://flutter.dev/docs/development/ui/animations/hero-animations)  for cross widget animations. When the user navigates to another view I want widget to 'fly' into new scene with a smooth animation. But, as you can see in the gif below, it is not so  smooth:
 
 
-![no_precache_small.gif](assets/flutter-tips-how-to-avoid-blinking-of-images-when-they-are-loaded-for-the-first-time/screen1.gif)
+![no_precache_small.gif](../assets/flutter-tips-how-to-avoid-blinking-of-images-when-they-are-loaded-for-the-first-time/screen1.gif)
 
 The issue is caused by spending too much time loading image from the assets. After the image is rendered at least once, it is cached and next renders do not take so much time. But how do we make sure that first render is smooth?
 
@@ -35,6 +35,6 @@ Use [precacheImage](https://api.flutter.dev/flutter/widgets/precacheImage.html) 
 
 Now all renders of Hero Widget are smooth and do not blink or have instantaneous size changes:
 
-![preache_small.gif](assets/flutter-tips-how-to-avoid-blinking-of-images-when-they-are-loaded-for-the-first-time/screen2.gif)
+![preache_small.gif](../assets/flutter-tips-how-to-avoid-blinking-of-images-when-they-are-loaded-for-the-first-time/screen2.gif)
 
 

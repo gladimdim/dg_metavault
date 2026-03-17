@@ -3,7 +3,7 @@ title: "🇺🇦Дизайн та реалізація механізму под
 date: 2020-03-25
 tags: ["Слобода", "Ігри"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/sloboda_dizajn-ta-realizaciya-mehanizmu-podij-v-pokrokovij-gri/thumbnail.png"
+thumbnail: "../assets/sloboda_dizajn-ta-realizaciya-mehanizmu-podij-v-pokrokovij-gri/thumbnail.png"
 id: sloboda_dizajn-ta-realizaciya-mehanizmu-podij-v-pokrokovij-gri
 ---
 *Захотілося розбавити статті про Flutter&Dart чимось прикладним, а не черговим описом Todo/Counter/REST/CRUD фігнею.*
@@ -14,17 +14,17 @@ id: sloboda_dizajn-ta-realizaciya-mehanizmu-podij-v-pokrokovij-gri
 
 Приклад умовної події:
 
-![Screen Shot 2020-03-25 at 13.40.38.png](assets/sloboda_dizajn-ta-realizaciya-mehanizmu-podij-v-pokrokovij-gri/screen1.png)
+![Screen Shot 2020-03-25 at 13.40.38.png](../assets/sloboda_dizajn-ta-realizaciya-mehanizmu-podij-v-pokrokovij-gri/screen1.png)
 
 Але є ще події, які відбуваються безумовно (прості події). Наприклад: ви не можете вибрати, чи нападе на вас сарана, чи ні. Або чи прийдуть до вас гості, чи ні.
 
-![Screen Shot 2020-03-25 at 13.40.55.png](assets/sloboda_dizajn-ta-realizaciya-mehanizmu-podij-v-pokrokovij-gri/screen2.png)
+![Screen Shot 2020-03-25 at 13.40.55.png](../assets/sloboda_dizajn-ta-realizaciya-mehanizmu-podij-v-pokrokovij-gri/screen2.png)
 
 І щоб додати ще більшої непередбачуванності, кожна з подій має два розвитки: успішний і провальний. Вдалий напад сарани на вас забере ресурси. В той же час вдалий військовий похід принесе вам їх. Успіх/провал я вирішив також зробити елементом випадковості.
 
 Приклад успішного результату події з торгівлею:
 
-![Screen Shot 2020-03-25 at 13.49.42.png](assets/sloboda_dizajn-ta-realizaciya-mehanizmu-podij-v-pokrokovij-gri/screen3.png)
+![Screen Shot 2020-03-25 at 13.49.42.png](../assets/sloboda_dizajn-ta-realizaciya-mehanizmu-podij-v-pokrokovij-gri/screen3.png)
 
 ## Тобто, можна підсумувати вимоги до механізму подій:
 
@@ -394,11 +394,11 @@ static List<RandomTurnEvent> allEvents = [
 
 # Демонстрація:
 
-![demo_events.gif](assets/sloboda_dizajn-ta-realizaciya-mehanizmu-podij-v-pokrokovij-gri/screen4.gif)
+![demo_events.gif](../assets/sloboda_dizajn-ta-realizaciya-mehanizmu-podij-v-pokrokovij-gri/screen4.gif)
 
 # UML схема всіх подій
 
-![events_uml.png](assets/sloboda_dizajn-ta-realizaciya-mehanizmu-podij-v-pokrokovij-gri/screen5.png)
+![events_uml.png](../assets/sloboda_dizajn-ta-realizaciya-mehanizmu-podij-v-pokrokovij-gri/screen5.png)
 
 # Заключення
 

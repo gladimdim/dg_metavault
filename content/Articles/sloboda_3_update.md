@@ -3,7 +3,7 @@ title: "Слобода 3.0: мапа Війська Запорозького"
 date: 2020-12-19
 tags: ["Слобода", "Ігри"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/sloboda_3_update/thumbnail.png"
+thumbnail: "../assets/sloboda_3_update/thumbnail.png"
 id: sloboda_3_update
 ---
 # Стисло
@@ -41,15 +41,15 @@ id: sloboda_3_update
 
 Мапа відкривається і вам одразу стає доступним навколишні курені:
 
-![Screenshot 2020-12-17 223102.png](assets/sloboda_3_update/screen1.png)
+![Screenshot 2020-12-17 223102.png](../assets/sloboda_3_update/screen1.png)
 
 Кожна з точок на мапі має унікальні характеристики, але щоб ними скористатися, вам треба захопити її. Для цього треба витратити трошки ресурсів:
 
-![Screenshot 2020-12-17 223245.png](assets/sloboda_3_update/screen2.png)
+![Screenshot 2020-12-17 223245.png](../assets/sloboda_3_update/screen2.png)
 
 Після цього можна торгувати з новим куренем або уходниками:
 
-![Screenshot 2020-12-17 223332.png](assets/sloboda_3_update/screen3.png)
+![Screenshot 2020-12-17 223332.png](../assets/sloboda_3_update/screen3.png)
 
 Всі точки на мапі діляться на три типи:
 
@@ -60,26 +60,26 @@ id: sloboda_3_update
 До останнього типу відносяться місце загибелі Святослава та тисячолітній дуб, який колись стояв на правому березі Дніпра і слугував точкою збору для воїнів:
 
 ### Дуб:
-![Screenshot 2020-12-17 223646.png](assets/sloboda_3_update/screen4.png)
+![Screenshot 2020-12-17 223646.png](../assets/sloboda_3_update/screen4.png)
 
 ### Старий жертовник:
-![Screenshot 2020-12-17 223438.png](assets/sloboda_3_update/screen5.png)
+![Screenshot 2020-12-17 223438.png](../assets/sloboda_3_update/screen5.png)
 
 ### Могила Святослава Хороброго:
 
-![Screenshot 2020-12-17 223721.png](assets/sloboda_3_update/screen12.png)
+![Screenshot 2020-12-17 223721.png](../assets/sloboda_3_update/screen12.png)
 
 ## Розширення території
 
 Після захоплення, кожна точка відкриває навкруги себе мапу. Таким чином, ви можете розширювати територію паланки і врешті-решт вийти до Очакова:
 
-![Screenshot 2020-12-17 223842.png](assets/sloboda_3_update/screen6.png)
+![Screenshot 2020-12-17 223842.png](../assets/sloboda_3_update/screen6.png)
 
 ## Кожна точка - унікальна.
 
 Всього в гру було додано 20 нових voxel картинок, а також зроблено описання більше 40 куренів або хфігур:
 
-![Screenshot 2020-12-17 224005.png](assets/sloboda_3_update/screen7.png)
+![Screenshot 2020-12-17 224005.png](../assets/sloboda_3_update/screen7.png)
 
 ## Військові дії
 
@@ -87,18 +87,18 @@ id: sloboda_3_update
 
 Просуваюсь по Дніпру, ви врешті-решт дійдете до чих охороних веж:
 
-![Screenshot 2020-12-17 224142.png](assets/sloboda_3_update/screen8.png)
+![Screenshot 2020-12-17 224142.png](../assets/sloboda_3_update/screen8.png)
 
 Перед тим, як ви зможете захопити вежі, треба створити надійний тил для своїх військ, а саме - захопити і підтримувати курені навколо лиману:
 
-![Screenshot 2020-12-17 224224.png](assets/sloboda_3_update/screen9.png)
+![Screenshot 2020-12-17 224224.png](../assets/sloboda_3_update/screen9.png)
 
 І ось основна мета - Очаків!
 
 
-![Screenshot 2020-12-17 224406.png](assets/sloboda_3_update/screen10.png)
+![Screenshot 2020-12-17 224406.png](../assets/sloboda_3_update/screen10.png)
 
-![Screenshot 2020-12-17 224417.png](assets/sloboda_3_update/screen11.png)
+![Screenshot 2020-12-17 224417.png](../assets/sloboda_3_update/screen11.png)
 
 ## Захоплення Очакова
 

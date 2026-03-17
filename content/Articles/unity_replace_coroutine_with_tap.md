@@ -3,7 +3,7 @@ title: "Replacing Coroutines in Unity with C# Task Async Pattern (TAP)"
 date: 2022-05-19
 tags: ["c#", "unity", "gamedev"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/unity_replace_coroutine_with_tap/thumbnail.png"
+thumbnail: "../assets/unity_replace_coroutine_with_tap/thumbnail.png"
 id: unity_replace_coroutine_with_tap
 ---
 # Replacing Coroutines in Unity with C# Task Async Pattern (TAP)
@@ -19,7 +19,7 @@ one of the main interactions in game to build/upgrade/produce is done by standin
 If you stand 1 second near the table it will open its UI like this (notice green progress circle
 enlarging as the progress goes on):
 
-![progress_async2](assets/unity_replace_coroutine_with_tap/progress_async2.gif)
+![progress_async2](../assets/unity_replace_coroutine_with_tap/progress_async2.gif)
 
 The logic of that delayed interaction is following:
 
@@ -82,7 +82,7 @@ desired.
 Here is the profile frame when the collision happens and Unity creates coroutine for you recorded
 on **Galaxy Note 8** device:
 
-![screen_coroutine_time](assets/unity_replace_coroutine_with_tap/screen_coroutine_time.png)
+![screen_coroutine_time](../assets/unity_replace_coroutine_with_tap/screen_coroutine_time.png)
 
 It takes...200-300ms to launch a coroutine! The bad thing: it was happening on each collision call.
 Players could feel the lag once they wanted to open a UI or cut a tree.
@@ -172,7 +172,7 @@ patterns.
 
 After I've got rid of all of these Coroutine calls there are no longer spikes on collisions:
 
-![profile_after](assets/unity_replace_coroutine_with_tap/profile_after.png)
+![profile_after](../assets/unity_replace_coroutine_with_tap/profile_after.png)
 
 As usual, do and use what suites you the best!
 
@@ -181,7 +181,7 @@ As usual, do and use what suites you the best!
 If you are into games like Settlers, Minecraft, Unrailed! or just any Voxel Art games, then you can
 follow my progress on creating complete new game from scratch!
 
-![in_game_2](assets/unity_replace_coroutine_with_tap/in_game_2.png)
+![in_game_2](../assets/unity_replace_coroutine_with_tap/in_game_2.png)
 
 - Use alpha builds to get the latest features I add on a weekly
   basis: [https://github.com/gladimdim/locadeserta/blob/master/sloboda2/alpha.md](https://github.com/gladimdim/locadeserta/blob/master/sloboda2/alpha.md)

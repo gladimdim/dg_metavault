@@ -3,7 +3,7 @@ title: "Generation and Render of 2D Map with Terrain in Dart + Flutter. Adding F
 date: 2020-09-12
 tags: ["flutter", "dart", "gamedev"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/flutter_generation_and_render_2d_map_part2/thumbnail.png"
+thumbnail: "../assets/flutter_generation_and_render_2d_map_part2/thumbnail.png"
 id: flutter_generation_and_render_2d_map_part2
 ---
 # Introduction
@@ -12,7 +12,7 @@ In  [Part 1]([[flutter_generation_and_render_2d_map_part1]]) we created all need
 # Final Result
 
 The forest is added in different points and different shapes:
-![Screenshot_1599894575.png](assets/flutter_generation_and_render_2d_map_part2/screen1.png)
+![Screenshot_1599894575.png](../assets/flutter_generation_and_render_2d_map_part2/screen1.png)
 
 
 # Implementation
@@ -171,7 +171,7 @@ final WorldMap map = WorldMap(width: 20, height: 20)
 ```
 
 The map generated map looks something like this:
-![Screenshot_1599896050.png](assets/flutter_generation_and_render_2d_map_part2/screen2.png)
+![Screenshot_1599896050.png](../assets/flutter_generation_and_render_2d_map_part2/screen2.png)
 
 # Next
 

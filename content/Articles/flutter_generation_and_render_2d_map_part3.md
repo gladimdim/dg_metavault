@@ -3,7 +3,7 @@ title: "Generation and Render of 2D Map with Terrain in Dart + Flutter. Adding L
 date: 2020-09-12
 tags: ["flutter", "dart", "gamedev"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/flutter_generation_and_render_2d_map_part3/thumbnail.png"
+thumbnail: "../assets/flutter_generation_and_render_2d_map_part3/thumbnail.png"
 id: flutter_generation_and_render_2d_map_part3
 ---
 # Introduction
@@ -14,7 +14,7 @@ In [Previous Part 2]([[flutter_generation_and_render_2d_map_part2]]) we added ge
 
 The map with several lakes looks like this:
 
-![Screenshot_1599919786.png](assets/flutter_generation_and_render_2d_map_part3/screen1.png)
+![Screenshot_1599919786.png](../assets/flutter_generation_and_render_2d_map_part3/screen1.png)
 
 # Implementation
 
@@ -198,4 +198,4 @@ Debugging the generated Map 20x20 is quite cumbersome and we need to make sure t
 # Final result
 Map generated with Forest, River and Lakes looks like this:
 
-![Screenshot_1599920003.png](assets/flutter_generation_and_render_2d_map_part3/screen2.png)
+![Screenshot_1599920003.png](../assets/flutter_generation_and_render_2d_map_part3/screen2.png)

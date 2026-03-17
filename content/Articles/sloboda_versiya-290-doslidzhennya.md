@@ -3,7 +3,7 @@ title: "Слобода 2.9.0: Дослідження!"
 date: 2020-11-17
 tags: ["Слобода", "Ігри"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/sloboda_versiya-290-doslidzhennya/thumbnail.png"
+thumbnail: "../assets/sloboda_versiya-290-doslidzhennya/thumbnail.png"
 id: sloboda_versiya-290-doslidzhennya
 ---
 # Стисло
@@ -31,7 +31,7 @@ id: sloboda_versiya-290-doslidzhennya
 
 Щоб відкрити список доступних досліджень, треба натиснути на нову кнопку:
 
-![Screenshot_20201116-233841_Samsung Internet.jpg](assets/sloboda_versiya-290-doslidzhennya/screen0.jpeg)
+![Screenshot_20201116-233841_Samsung Internet.jpg](../assets/sloboda_versiya-290-doslidzhennya/screen0.jpeg)
 
 Наразі доступно 7 відкритів, які значно покращують ефективність виробничих ланцюжків:
 
@@ -39,59 +39,59 @@ id: sloboda_versiya-290-doslidzhennya
 
 Значно полегшує роботу в полі.
 
-![SmartSelect_20201117-100253_Chrome.jpg](assets/sloboda_versiya-290-doslidzhennya/screen1.jpeg)
+![SmartSelect_20201117-100253_Chrome.jpg](../assets/sloboda_versiya-290-doslidzhennya/screen1.jpeg)
 
 ## Вертикальна пилка
 
 Дошки пиляються швидше на лісопилці.
 
-![SmartSelect_20201117-100321_Chrome.jpg](assets/sloboda_versiya-290-doslidzhennya/screen2.jpeg)
+![SmartSelect_20201117-100321_Chrome.jpg](../assets/sloboda_versiya-290-doslidzhennya/screen2.jpeg)
 
 ## Міцна сітка
 
 Риболовля дає більше результату.
 
-![SmartSelect_20201117-100336_Chrome.jpg](assets/sloboda_versiya-290-doslidzhennya/screen3.jpeg)
+![SmartSelect_20201117-100336_Chrome.jpg](../assets/sloboda_versiya-290-doslidzhennya/screen3.jpeg)
 
 ## Московський замок
 
 Уніфіковане виробництво московських замків до самопалів.
 
-![SmartSelect_20201117-100346_Chrome.jpg](assets/sloboda_versiya-290-doslidzhennya/screen4.jpeg)
+![SmartSelect_20201117-100346_Chrome.jpg](../assets/sloboda_versiya-290-doslidzhennya/screen4.jpeg)
 
 ## Татарська підкова
 
 Допомогає швидше виводити коней для війська.
 
-![SmartSelect_20201117-100355_Chrome.jpg](assets/sloboda_versiya-290-doslidzhennya/screen5.jpeg)
+![SmartSelect_20201117-100355_Chrome.jpg](../assets/sloboda_versiya-290-doslidzhennya/screen5.jpeg)
 
 ## Полегшена сокира
 
 Рубати дерева стало легше. Зменшує час виконання задач та збільшує результат.
 
-![SmartSelect_20201117-100404_Chrome.jpg](assets/sloboda_versiya-290-doslidzhennya/screen6.jpeg)
+![SmartSelect_20201117-100404_Chrome.jpg](../assets/sloboda_versiya-290-doslidzhennya/screen6.jpeg)
 
 ## Покращене ковадло
 
 Працювати з металом стало легше. 
 
-![SmartSelect_20201117-100416_Samsung DeX home.jpg](assets/sloboda_versiya-290-doslidzhennya/screen7.jpeg)
+![SmartSelect_20201117-100416_Samsung DeX home.jpg](../assets/sloboda_versiya-290-doslidzhennya/screen7.jpeg)
 
 # Більш різноманітний вигляд будівель.
 
 Екрани, на яких зображені деталі виробництва будівель, стали різноманітнішими. Було додано близько 20 нових артів для фонових малюнків:
 
-![SmartSelect_20201117-100649_Chrome.jpg](assets/sloboda_versiya-290-doslidzhennya/screen8.jpeg)
+![SmartSelect_20201117-100649_Chrome.jpg](../assets/sloboda_versiya-290-doslidzhennya/screen8.jpeg)
 
-![SmartSelect_20201117-100740_Chrome.jpg](assets/sloboda_versiya-290-doslidzhennya/screen9.jpeg)
+![SmartSelect_20201117-100740_Chrome.jpg](../assets/sloboda_versiya-290-doslidzhennya/screen9.jpeg)
 
-![SmartSelect_20201117-100749_Chrome.jpg](assets/sloboda_versiya-290-doslidzhennya/screen10.jpeg)
+![SmartSelect_20201117-100749_Chrome.jpg](../assets/sloboda_versiya-290-doslidzhennya/screen10.jpeg)
 
 ## Кольорова ідентифікація задач в будівлях
 
 Раніше важко було зрозуміти, який будинок завершив виробництво, а який досі працює. Тепер це стало легше зробити завдяки кольоровій ідентифікації стану задач. Синій означає, що роботи ще ведуться. А зелений - всі задачі виконані:
 
-![SmartSelect_20201117-100829_Chrome.jpg](assets/sloboda_versiya-290-doslidzhennya/screen11.jpeg)
+![SmartSelect_20201117-100829_Chrome.jpg](../assets/sloboda_versiya-290-doslidzhennya/screen11.jpeg)
 
 # Слава
 

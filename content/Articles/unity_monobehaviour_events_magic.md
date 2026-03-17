@@ -3,7 +3,7 @@ title: "The Magic of Start/Update Events in Unity's MonoBehaviour"
 date: 2022-05-24
 tags: ["c#", "unity", "gamedev"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/unity_monobehaviour_events_magic/thumbnail.png"
+thumbnail: "../assets/unity_monobehaviour_events_magic/thumbnail.png"
 id: unity_monobehaviour_events_magic
 ---
 # The Magic of Start/Update Events in Unity's MonoBehaviour
@@ -41,7 +41,7 @@ void Update()
 
 Go to **MonoBehaviour.cs** and check that it has no methods. Also its parent - **Behaviour**...
 
-![mono_behaviour](assets/unity_monobehaviour_events_magic/mono_behaviour.png)
+![mono_behaviour](../assets/unity_monobehaviour_events_magic/mono_behaviour.png)
 
 Then how does it work? How does **Unity** know there is Start method that should be called on **
 MonoBehaviour** subclasses?

@@ -3,7 +3,7 @@ title: "Road to #Flutter and #Dart"
 date: 2019-05-15
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/road-to-flutter-and-dart/thumbnail.png"
+thumbnail: "../assets/road-to-flutter-and-dart/thumbnail.png"
 id: road-to-flutter-and-dart
 ---
 # A long time ago...
@@ -27,7 +27,7 @@ As an experiment, I took my animated image widget. It allows to transition betwe
 Here is the **same** code **copy-pasted from the Android/iOS app but running in the Chrome:**
 
 
-![fade_image.gif](assets/road-to-flutter-and-dart/screen1.gif)
+![fade_image.gif](../assets/road-to-flutter-and-dart/screen1.gif)
 
 # Plans for the next year
 I am so happy I took #Flutter as my primary framework for the upcoming  [https://locadeserta.com](Loca Deserta, Interactive Fiction Game) release. Once the product features are stabilized I will compile it for the Web.

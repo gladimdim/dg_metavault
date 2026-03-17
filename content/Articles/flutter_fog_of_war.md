@@ -3,7 +3,7 @@ title: "Fog of War in Flutter Game"
 date: 2020-12-01
 tags: ["games", "flutter"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/flutter_fog_of_war/thumbnail.jpg"
+thumbnail: "../assets/flutter_fog_of_war/thumbnail.jpg"
 id: flutter_fog_of_war
 ---
 # Introduction
@@ -14,7 +14,7 @@ The next version of my [city building game](https://locadeserta.com/sloboda/) wi
 
 It looks like this:
 
-![Screenshot_20201201-213802_Chrome.jpg](assets/flutter_fog_of_war/screen.jpeg)
+![Screenshot_20201201-213802_Chrome.jpg](../assets/flutter_fog_of_war/screen.jpeg)
 
 Only small part of the map is interactive. You cannot tap on a 'grey' area of the map as the player has not yet opened it.
 
@@ -31,11 +31,11 @@ Only small part of the map is interactive. You cannot tap on a 'grey' area of th
 The map without the fog of war is a Stack widget that has houses. All these houses are interactive: player can select them and do some  actions:
 
 
-![Notes_201201_231622_2.jpg](assets/flutter_fog_of_war/screen1.jpeg)
+![Notes_201201_231622_2.jpg](../assets/flutter_fog_of_war/screen1.jpeg)
 
 If we apply Fog of War, then each occupied house should clear fog of war in a given radius AND widgets inside this hole must be tappable!
 
-![Notes_201201_231622_1.jpg](assets/flutter_fog_of_war/screen2.jpeg)
+![Notes_201201_231622_1.jpg](../assets/flutter_fog_of_war/screen2.jpeg)
 
 # First implementation
 
@@ -54,18 +54,18 @@ Stack(
 
 **generateGrid** creates a Container with background transparent color:
 
-![SmartSelect_20201201-223007_Samsung Internet.jpg](assets/flutter_fog_of_war/screen3.jpeg)
+![SmartSelect_20201201-223007_Samsung Internet.jpg](../assets/flutter_fog_of_war/screen3.jpeg)
 
 The 'holes' in the grid are quite simple: if the cell of the grid touches with at least one corner the opened spot then it should not be drawn. In this way we just don't render cells:
 
 
-![SmartSelect_20201201-223359_Samsung Internet.jpg](assets/flutter_fog_of_war/screen4.jpeg)
+![SmartSelect_20201201-223359_Samsung Internet.jpg](../assets/flutter_fog_of_war/screen4.jpeg)
 
 The formula used to determine whether the corner of a cell is inside the given circle is a Pythagoras Theorem :)
 
 The map looks like this:
 
-![Screenshot_20201201-224019_Samsung Internet.jpg](assets/flutter_fog_of_war/screen5.jpeg)
+![Screenshot_20201201-224019_Samsung Internet.jpg](../assets/flutter_fog_of_war/screen5.jpeg)
 
 
 To make it more antialiased we can reduce the size of the cell but this will lead to even more cells to be drawn.
@@ -94,7 +94,7 @@ The initial solution was taken and adjusted from this article: [How to cut a hol
 
 Here is an adjusted solution for game's needs.
 
-![Screenshot_20201201-225923_Samsung Internet.jpg](assets/flutter_fog_of_war/screen6.jpeg)
+![Screenshot_20201201-225923_Samsung Internet.jpg](../assets/flutter_fog_of_war/screen6.jpeg)
 
 The CustomClipper accepts list of Spots on the map. Then draws ovals at the spot locations and creates holes via
 
@@ -104,7 +104,7 @@ path.fillType = PathFillType.evenOdd;
 
 But what happens if two circles overlap each other? Then the evenOdd logic will not work as we now have three shapes overlapping each other. This leads to such funny issues:
 
-![Screenshot 2020-12-01 231002.png](assets/flutter_fog_of_war/screen7.png)
+![Screenshot 2020-12-01 231002.png](../assets/flutter_fog_of_war/screen7.png)
 
 # The best CORRECT way of doing it
 
@@ -115,7 +115,7 @@ The solution to the bug is to use a little bit different approach. Instead of re
 
 Then we **combine** two paths with the **difference** algorithm:
 
-![Screenshot 2020-12-01 231242.png](assets/flutter_fog_of_war/screen8.png)
+![Screenshot 2020-12-01 231242.png](../assets/flutter_fog_of_war/screen8.png)
 
 And now the game renders holes in the fog of war correctly:
-![Screenshot 2020-12-01 231504.png](assets/flutter_fog_of_war/screen10.png)
+![Screenshot 2020-12-01 231504.png](../assets/flutter_fog_of_war/screen10.png)

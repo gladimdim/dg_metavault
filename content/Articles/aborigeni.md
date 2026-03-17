@@ -3,7 +3,7 @@ title: "Еволюція від аборигенів"
 date: 2022-02-17
 tags: ["життя", "буття"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/aborigeni/thumbnail.jpg"
+thumbnail: "../assets/aborigeni/thumbnail.jpg"
 id: aborigeni
 ---
 Пам'ятаєте амазон? Купа схем як звідти щось купити, платили дурні гроші за доставки, через

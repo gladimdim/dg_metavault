@@ -3,7 +3,7 @@ title: "Flutter: Справжній Cross Platform. iOS. Android. Web. macOS. Li
 date: 2020-01-19
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/thumbnail.jpg"
+thumbnail: "../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/thumbnail.jpg"
 id: flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows
 ---
 Всім привіт!
@@ -55,7 +55,7 @@ flutter devices
 То маєте побачити свою десктоп платформу в списку доступних пристроїв:
 
 
-![Screen Shot 2020-01-18 at 21.26.21.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen1.png)
+![Screen Shot 2020-01-18 at 21.26.21.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen1.png)
 
 Платформи Windows та Linux ще не додані в сам репозиторій Flutter, але згідно офіційної документації, ми можемо просто скопіювати запускатори з теки examples з репозиторію https://github.com/google/flutter-desktop-embedding
 
@@ -75,7 +75,7 @@ flutter create .
 flutter run -d macOS
 ```
 
-![Screen Shot 2020-01-18 at 21.31.26.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen2.png)
+![Screen Shot 2020-01-18 at 21.31.26.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen2.png)
 
 # Запуск під веб
 
@@ -86,7 +86,7 @@ flutter run -d chrome
 ```
 
 
-![Screen Shot 2020-01-18 at 21.34.24.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen3.png)
+![Screen Shot 2020-01-18 at 21.34.24.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen3.png)
 
 # Додавання сторонніх пакетів
 
@@ -106,13 +106,13 @@ pub get
 Якщо ж ви використовуєте офіційні плагіни для VS Code або Android Studio, то плагін сам побачить зміни в цьому файлі і автоматично викачає зміни:
 
 Ось що відбулося після збереження змін в файлі:
-![Screen Shot 2020-01-18 at 21.48.38.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen4.png)
+![Screen Shot 2020-01-18 at 21.48.38.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen4.png)
 
 Для програвання інтерактивних історій, створених у форматі  [GladStories](https://github.com/gladimdim/GladStoriesEngine) ми візьмемо офіційний пакет: https://pub.dev/packages/gladstoriesengine
 
 pub.dev дуже зручний у користуванні, адже одразу показує, з якими платформами сумісний пакет, як його встановити і інші деталі:
 
-![Screen Shot 2020-01-18 at 21.50.50.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen5.png)
+![Screen Shot 2020-01-18 at 21.50.50.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen5.png)
 
 # Перші кроки
 
@@ -148,30 +148,30 @@ Flutter, це живе середовище. Якщо ви запустили Fl
 
 Відкриваємо його і вводимо три букви: stf . Редактор автоматично запропонуємо нам створити болванку Stateful Widget:
 
-![Screen Shot 2020-01-18 at 22.10.27.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen6.png)
+![Screen Shot 2020-01-18 at 22.10.27.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen6.png)
 
 Натискаємо перший пункт і у нас з'явиться каркас нашого віджета. Але з багатьма помилками:
 
 
-![Screen Shot 2020-01-18 at 22.11.26.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen7.png)
+![Screen Shot 2020-01-18 at 22.11.26.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen7.png)
 
 Натискаємо на лампочку і додаємо пропущені імпорти:
 
-![Screen Shot 2020-01-18 at 22.12.12.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen8.png)
+![Screen Shot 2020-01-18 at 22.12.12.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen8.png)
 
 Тепер повертаємося в main.dart і додаємо пропущений імпорт через ту саму лампочку:
 
-![Screen Shot 2020-01-18 at 22.13.49.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen9.png)
+![Screen Shot 2020-01-18 at 22.13.49.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen9.png)
 
 Запускаємо нашу програму через Debug -> Start Debugging, і бачимо, що наш новий віджет рендериться на екрані.
 
-![Screen Shot 2020-01-18 at 22.15.50.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen10.png)
+![Screen Shot 2020-01-18 at 22.15.50.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen10.png)
 
 Ми будемо викачувати наші дані для інтерактивної історії з інтернету. Тому нам необхідно загорнути Container в віджет FutureBuilder. Це спеціальний віджет, який вміє працювати з асинхроними подіями, і дозволяє будувати різні віджети в залежності від стану асинхронної операції.
 
 Flutter має надзвичайно гарні плагіни, тому це зробити дуже легко: поставте курсор на Container та натисніть cmd + .
 
-![Screen Shot 2020-01-18 at 22.17.57.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen11.png)
+![Screen Shot 2020-01-18 at 22.17.57.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen11.png)
 
 Виберіть Wrap with Widget  і введіть FutureBuilder, додавши необхідні параметри для його конструктора:
 
@@ -247,7 +247,7 @@ builder: (BuildContext context, snapshot) {
 
 Тепер ми можемо бачити назву історії:
 
-![Screen Shot 2020-01-18 at 22.42.40.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen12.png)
+![Screen Shot 2020-01-18 at 22.42.40.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen12.png)
 
 # Будуємо віджет Story
 
@@ -276,7 +276,7 @@ StoryView на вхід отримує екземпляр класу Story. Це
   }
 ```
 
-![Screen Shot 2020-01-18 at 22.59.21.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen13.png)
+![Screen Shot 2020-01-18 at 22.59.21.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen13.png)
 
 Що тут відбулося. StreamBuilder - це спеціальний віджет, який працює з  потоками. Він нам треба, бо Story містить потік з програними абзацами в історії. Кожен раз, коли гравець змінює історію, то в цей потік додається новий масив з усіма пройденеми абзацами, виборами в діалогу і тд. І віджет має змогу відбудувати себе заново, але з уже новими даними із history stream Story.
 
@@ -295,13 +295,13 @@ StoryView на вхід отримує екземпляр класу Story. Це
 
 Запускаємо на macOS:
 
-![Screen Shot 2020-01-18 at 23.12.09.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen14.png)
+![Screen Shot 2020-01-18 at 23.12.09.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen14.png)
 
 # Запускаємо на Web!
 
-![Screen Shot 2020-01-18 at 23.14.55.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen15.png)
+![Screen Shot 2020-01-18 at 23.14.55.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen15.png)
 
-![Screen Shot 2020-01-19 at 20.53.31.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen16.png)
+![Screen Shot 2020-01-19 at 20.53.31.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen16.png)
 
 Працює!
 
@@ -310,7 +310,7 @@ StoryView на вхід отримує екземпляр класу Story. Це
 Ідемо до бабусі, або до адептів .NET і запускаємо наш проект і там (спочатку поставте Visual Studio + C++ пакет, flutter doctor все скаже, що вам треба доставити):
 
 
-![windows.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen17.png)
+![windows.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen17.png)
 
 # Запускаємо на Linux!
 
@@ -323,13 +323,13 @@ flutter doctor
 sudo apt-get install clang
 ```
 
-![linux_flutter.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen18.png)
+![linux_flutter.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen18.png)
 
 # Всі разом на macOS
 
-![Screen Shot 2020-01-19 at 21.02.00.png](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen19.png)
+![Screen Shot 2020-01-19 at 21.02.00.png](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen19.png)
 
-![reaction_awesome.gif](assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen20.gif)
+![reaction_awesome.gif](../assets/flutter-spravzhnij-cross-platform-ios-android-web-macos-linux-windows/screen20.gif)
 
 # Епілог або чому вам пора стрибати на потяг Flutter
 

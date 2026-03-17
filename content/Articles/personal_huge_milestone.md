@@ -3,7 +3,7 @@ title: "Personal huge milestone"
 date: 2021-11-29
 tags: ["personal", "achievement"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/personal_huge_milestone/screen3.png"
+thumbnail: "../assets/personal_huge_milestone/screen3.png"
 id: personal_huge_milestone
 ---
 You know, some peeps say in corps you cannot do amazing things.
@@ -22,7 +22,7 @@ After I trained the model and could use it in the shop. The app announced me the
 
 It was pretty neat and my kids enjoyed playing with it :)
 
-![screen1.png](assets/personal_huge_milestone/screen1.png)
+![screen1.png](../assets/personal_huge_milestone/screen1.png)
 
 # Apply it to 'real' environment
  
@@ -40,7 +40,7 @@ We bought yogurt bottles, made 'defects' in them like missing cap or wrong label
 
 And it worked!
 
-![screen2.png](assets/personal_huge_milestone/screen2.png)
+![screen2.png](../assets/personal_huge_milestone/screen2.png)
 
 Two white screens you see is a #Flutter app (in 2019!) showing results of predictions done on the backend. We could switch between local/server ML runtimes.
 
@@ -79,7 +79,7 @@ On the screen below you can a person using the product I (we) bootstrapped and c
 
 95% of that screen is my work 💪 I am glad that the tremendous work of backenders is never seen at all. So all glory goes to me :)
 
-![screen3.png](assets/personal_huge_milestone/screen3.png)
+![screen3.png](../assets/personal_huge_milestone/screen3.png)
 
 # Conclusion
 

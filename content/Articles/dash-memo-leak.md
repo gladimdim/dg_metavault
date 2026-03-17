@@ -3,16 +3,16 @@ title: "What Would Happen if Dash Memo Leak Had Never Happened?"
 date: 2022-02-03
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/dash-memo-leak/thumbnail.png"
+thumbnail: "../assets/dash-memo-leak/thumbnail.png"
 id: dash-memo-leak
 ---
-![dart_memo_leaker](assets/dash-memo-leak/dart_memo_leaker.jpg)
+![dart_memo_leaker](../assets/dash-memo-leak/dart_memo_leaker.jpg)
 
 
 
 So, 12 years have passed after the infamous ["Dash Memo" leak was published.](https://gist.github.com/paulmillr/1208618)
 
-![image-20220203192510546](assets/dash-memo-leak/email.png)
+![image-20220203192510546](../assets/dash-memo-leak/email.png)
 
 For those who doesn't know: V8 team did a side gig and created a new language with its own VM as they were exhausted maintaining all the JS shortcomings. So as a side project someone forked V8 and created what is now known as Dart . At those times it was called Dash. Some more effort was put into this and they managed to make a BETTER language for the Web.
 
@@ -84,7 +84,7 @@ Finally normal UI toolkit made on tech made for...UI! Not for text documents tar
 
 The same language for logic and for the UI markup. No more: Learn JS, Learn HTML, Learn CSS. **Just: learn Dart**. Don't switch between completely different mind stacks. Flutter Widget code is 100% Dart code.
 
-![image-20220203180719126](assets/dash-memo-leak/code.png)
+![image-20220203180719126](../assets/dash-memo-leak/code.png)
 
 ### [Multiplatform](https://flutter.dev/multi-platform)
 
@@ -96,7 +96,7 @@ Yes, we would get a 'free' Flutter UI toolkit just out of the box, for free! I a
 
 ### Real apps, not document markup hacks
 
-![image-20220203180050617](assets/dash-memo-leak/pwa.png)
+![image-20220203180050617](../assets/dash-memo-leak/pwa.png)
 
 With all of the above we would finally get a normally functioning apps that can be downloaded via the browser. No more strange text input, scrolling, CSS issues between browsers...Just a regular desktop/mobile app as we all used to them, just running under the web address. [With 60 FPS!](https://docs.flutter.dev/perf/rendering/ui-performance)
 

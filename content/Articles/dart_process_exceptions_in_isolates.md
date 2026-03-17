@@ -3,7 +3,7 @@ title: "Dart: How to handle exceptions raised inside Isolates"
 date: 2021-12-13
 tags: ["dart", "flutter"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/dart_process_exceptions_in_isolates/thumbnail.png"
+thumbnail: "../assets/dart_process_exceptions_in_isolates/thumbnail.png"
 id: dart_process_exceptions_in_isolates
 ---
 Dart team has recently [published a new version of Dart compiler](https://medium.com/dartlang/dart-2-15-7e7a598e508a) with huge enhancements in Isolates worlds.

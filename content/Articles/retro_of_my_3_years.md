@@ -3,7 +3,7 @@ title: "A Retro of My Last 3 Years"
 date: 2021-09-12
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/retro_of_my_3_years/thumbnail.png"
+thumbnail: "../assets/retro_of_my_3_years/thumbnail.png"
 id: retro_of_my_3_years
 ---
 The second post on my site:

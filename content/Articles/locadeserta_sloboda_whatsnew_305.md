@@ -3,7 +3,7 @@ title: "Дике Поле: Слобода. Що нового у версії 3.0
 date: 2021-01-01
 tags: ["Слобода", "Ігри"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/locadeserta_sloboda_whatsnew_305/thumbnail.png"
+thumbnail: "../assets/locadeserta_sloboda_whatsnew_305/thumbnail.png"
 id: locadeserta_sloboda_whatsnew_305
 ---
 # Стисло
@@ -34,12 +34,12 @@ id: locadeserta_sloboda_whatsnew_305
 
 Ця мапа більше не генерується випадково з різних квадратиків, а була намальована у воксельній графіці. Ресурси та події і далі з'являються на ній, як і раніше.
 
-![screen1.png](assets/locadeserta_sloboda_whatsnew_305/screen1.png)
+![screen1.png](../assets/locadeserta_sloboda_whatsnew_305/screen1.png)
 
 Ресурси з'являються у відповідних місцях. Тобто, дерево - в лісі, гінці від Січі та розвідники - на хфігурах, або біля табору уходників на сході біля лісу та озера.
 
 Також на мапі наявні інші об'єкти: озеро, річка, поля, садочок, табір, скійська могила та каменярня.
-![screen2.png](assets/locadeserta_sloboda_whatsnew_305/screen1.png)
+![screen2.png](../assets/locadeserta_sloboda_whatsnew_305/screen1.png)
 
 # Зменшений вплив катастрофічних подій
 

@@ -3,7 +3,7 @@ title: "Думки про маркетинг інді ігр (очима ютю�
 date: 2022-09-20
 tags: ["gamedev", "marketing", "unity"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/games_marketing/thumbnail.png"
+thumbnail: "../assets/games_marketing/thumbnail.png"
 id: games_marketing
 ---
 

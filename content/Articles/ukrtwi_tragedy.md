@@ -3,7 +3,7 @@ title: "Трагедія нашого інфопростору (на прикл�
 date: 2021-12-13
 tags: ["dart", "flutter"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/ukrtwi_tragedy/thumbnail.png"
+thumbnail: "../assets/ukrtwi_tragedy/thumbnail.png"
 id: ukrtwi_tragedy
 ---
 Інколи занурюсь в світ #укртві і кожен раз жалкую.
@@ -14,7 +14,7 @@ id: ukrtwi_tragedy
 
 
 
-![image-20220103225903499](assets/ukrtwi_tragedy/tweeter_whore.png)
+![image-20220103225903499](../assets/ukrtwi_tragedy/tweeter_whore.png)
 
 При цьому, що у них по 2000-8000 фоловерів: [https://twitter.com/2ironichna4u](https://twitter.com/2ironichna4u)
 
@@ -59,11 +59,11 @@ id: ukrtwi_tragedy
 
 
 
-![image-20220103223015647](assets/ukrtwi_tragedy/garbage1.png)
+![image-20220103223015647](../assets/ukrtwi_tragedy/garbage1.png)
 
-![image-20220103223130094](assets/ukrtwi_tragedy/garbage2.png)
+![image-20220103223130094](../assets/ukrtwi_tragedy/garbage2.png)
 
-![image-20220103223139112](assets/ukrtwi_tragedy/garbage3.png)
+![image-20220103223139112](../assets/ukrtwi_tragedy/garbage3.png)
 
 
 
@@ -85,7 +85,7 @@ id: ukrtwi_tragedy
 
 А тут якомусь чуваку натиснути ретвіт, бо він зробив гру про Україну. У нас же тисячі ігор виходять в рік...
 
-![image-20220103223826910](assets/ukrtwi_tragedy/chumaki.png)
+![image-20220103223826910](../assets/ukrtwi_tragedy/chumaki.png)
 
 
 

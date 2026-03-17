@@ -3,7 +3,7 @@ title: "Версія 2.8.5: нові вироби, вози, оновлений 
 date: 2020-11-10
 tags: ["Слобода", "Ігри"]
 author: "Dmytro Gladkyi"
-thumbnail: "assets/sloboda_versiya_285_update/thumbnail.png"
+thumbnail: "../assets/sloboda_versiya_285_update/thumbnail.png"
 id: sloboda_versiya_285_update
 ---
 # Стисло
