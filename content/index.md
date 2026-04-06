@@ -14,7 +14,7 @@ Long-form posts on Flutter, game development, Unity, and personal reflections.
 
 Short thoughts, war diary entries, and quick updates.
 
-## [Всесвіт Loca Deserta Sci-Fi](https://gladimdim.github.io/LocaDesertaSciFi/index.md)
+## [Всесвіт Loca Deserta Sci-Fi](https://gladimdim.github.io/LocaDesertaSciFi)
 
 Мій власник Sci-Fi всевсіт, та декілька книжок чекають на вас!
 
