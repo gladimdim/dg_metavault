@@ -11,6 +11,9 @@
       "Bash(grep -E ![.*]\\\\\\(.*\\\\\\) /c/Users/Admin/GitHub/dg_obsidian_vault/content/Micro/*.md)",
       "Bash(grep -r 'thumbnail: \"\"\"\"assets/' /c/Users/Admin/GitHub/dg_obsidian_vault/content/Articles/)",
       "Bash(grep -r 'thumbnail: \"\"\"\"../assets/' /c/Users/Admin/GitHub/dg_obsidian_vault/content/Articles/)"
+    ],
+    "additionalDirectories": [
+      "/Users/gladimdim/GitHub/RobloxAssetsManager"
     ]
   }
 }
