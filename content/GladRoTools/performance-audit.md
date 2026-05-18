@@ -9,6 +9,8 @@ id: performance-audit
 
 **Performance Audit** gives your place a performance score from 0–100 based on configurable budget presets. It scans across ten issue categories — texture memory, mesh complexity, audio size, duplicate content, script patterns, streaming settings, particle rates, physics objects, and more — and shows you exactly what is dragging your score down.
 
+![[Performance_Settings.png|516]]
+
 ---
 
 ## How to Use
@@ -23,13 +25,16 @@ id: performance-audit
 3. Click **Run Audit** (uses the latest scan) or **Scan & Run** (forces a fresh Studio scan first).
 4. Review the score and issue list:
    - Issues grouped by category with severity: **Critical**, **Warning**, **Notice**.
+![[Performance_Summary.png|554]]
    - Each issue links to the offending asset or instance.
+![[Performance_Issues_Details.png|517]]
    - **One-click fixes** for some issue types (e.g., set particle emission rate directly from the app).
 5. **Export** results as Markdown or PDF.
 6. View **History** to compare audit scores across runs.
-
+![[Release_Checklist_History.png|476]]
+7. Check performance issues in the scripts.
+![[Performance_Script_Issues.png]]
 ---
-
 ## Help & Tips
 
 - **Run often:** Run an audit after every major asset import or level design session. Catching issues early is far cheaper than fixing them before release.
