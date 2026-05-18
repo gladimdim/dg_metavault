@@ -10,6 +10,7 @@ id: decals
 **Decals** browses every image-based asset in your Roblox place. This includes `Decal`, `ImageLabel`, `Texture`, and `ParticleEmitter` texture references.
 
 For each asset, you see a thumbnail preview, asset ID, name, reference count (how many instances use it), and dimensions in pixels and bytes. The grid view makes it easy to scan large asset libraries visually.
+![[Decals_Overview_Compressed.jpg]]
 
 ---
 
@@ -25,6 +26,7 @@ For each asset, you see a thumbnail preview, asset ID, name, reference count (ho
    - Click **Open in Safari** to view the asset on the Roblox website.
    - Copy the asset ID to your clipboard.
 6. Use **Upload** to push a new decal from your Mac to Roblox.
+ ![[Upload_Decal_Compressed.jpg]]
 
 ---
 
