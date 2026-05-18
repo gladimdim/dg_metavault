@@ -9,6 +9,9 @@ id: model-analyzer
 
 The **RBXM/Asset Analyzer** is a security inspection tool for `.rbxm` and `.rbxmx` model/package files. Before you import a free model or third-party asset into your game, drop it into the Analyzer to see exactly what is inside — scripts, asset references, and potential red flags.
 
+Example of the Toolbox package that is very invasive:
+![[Model_Analyzer_Compressed.jpg|328]]
+
 ---
 
 ## How to Use
@@ -16,12 +19,15 @@ The **RBXM/Asset Analyzer** is a security inspection tool for `.rbxm` and `.rbxm
 1. Click **RBXM/Asset Analyzer** in the sidebar.
 2. Import a model:
    - **By Roblox Asset ID:** Enter the ID and the app downloads the file via Open Cloud.
+   - You can find Asset ID from the Toolbox context menu. Just right click on the asset you want to analyze:
+   ![[Toolbox_Copy_AssetID_Compressed.jpg|263]]
    - **By local file:** Drag and drop an `.rbxm` or `.rbxmx` file onto the window.
 3. The app decompresses and parses the XML binary, then shows:
 
 ### Summary
 - File format, file size, instance count, maximum tree depth, script count, and asset reference count.
 
+![[Model_Analyzer_Summary_Compressed.jpg]]
 ### Risk Rating
 A color-coded overall rating:
 | Rating | Meaning |
@@ -42,6 +48,8 @@ A color-coded overall rating:
 - Inferred asset types and sortable columns.
 
 ### Security Findings
+![[Model_Analyzer_Script_Issues_Compressed.jpg|480]]
+
 The analyzer detects:
 - **Remote module loads** (`require()` with external IDs) — potential data exfiltration.
 - **External URLs and webhook URLs** — could send player data to third-party servers.
@@ -49,6 +57,7 @@ The analyzer detects:
 - **Sensitive service usage** — TeleportService, MarketplaceService, DataStoreService, etc.
 - **Per-frame connections** — `Heartbeat` or `RenderStepped` loops that run every frame.
 - **Potentially infinite loops** — `while true` patterns without yields.
+![[Model_Analyzer_Detailed_Scripts_Compressed.jpg|440]]
 
 ---
 
