@@ -26,7 +26,7 @@ For each asset, you see a thumbnail preview, asset ID, name, reference count (ho
    - Click **Open in Safari** to view the asset on the Roblox website.
    - Copy the asset ID to your clipboard.
 6. Use **Upload** to push a new decal from your Mac to Roblox.
- ![[Upload_Decal_Compressed.jpg]]
+ ![[Upload_Decal_Compressed.jpg|368]]
 
 ---
 
