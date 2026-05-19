@@ -9,6 +9,7 @@ id: image-tools
 
 **Image Tools** is a standalone image preparation utility for Roblox. Import an image by Roblox Asset ID or local file, then compress it, remove its background, crop it to Roblox-specific dimensions, and upload the result as a decal.
 
+![[ImageTool_UI_Compressed.jpg|483]]
 ---
 
 ## How to Use
@@ -28,6 +29,8 @@ id: image-tools
 - Works best with clear subjects (characters, items, logos).
 
 ### Crop & Resize
+
+![[Image_Crop_Compressed.jpg|322]]
 - **Interactive crop area:** Drag to pan, use the slider to zoom.
 - **Roblox presets:**
   - Place Thumbnail (1920×1080)
