@@ -12,7 +12,7 @@ id: getting-started
 
 ## Step 1: Install the App
 
-Download **GladRoTools** from the Mac App Store. The app runs on macOS 14 (Sonoma) or later.
+Download **GladRoTools** from the Mac App Store.
 
 ---
 

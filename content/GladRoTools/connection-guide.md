@@ -28,7 +28,7 @@ The badge in the GladRoTools toolbar shows the current state:
 
 1. Go to **Settings → Roblox Studio Plugin** and click **Install / Update**.
 2. Check that the path shown matches your active Studio version. Roblox Studio updates may create a new versioned Plugins folder.
-3. Click **Open Plugins Folder** and verify `GladRoTools.lua` or the plugin file is present.
+3. Click **Open Plugins Folder** and verify `GladRoTools.server.lua` or the plugin file is present.
 4. Restart Roblox Studio.
 
 ### Plugin loads but badge stays orange
