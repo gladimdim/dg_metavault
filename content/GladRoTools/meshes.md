@@ -11,6 +11,8 @@ id: meshes
 
 For each mesh, you see a thumbnail preview, triangle count, vertex count, and how many instances reference it. Geometry stats are fetched from Roblox via the Open Cloud API.
 
+![[Meshes_List_Compressed.jpg|554]]
+
 ---
 
 ## How to Use
@@ -22,7 +24,6 @@ For each mesh, you see a thumbnail preview, triangle count, vertex count, and ho
    - Full triangle and vertex counts.
    - **Focus in Studio** to locate the mesh.
    - **Open in Safari** to view on Roblox.
-5. Use **Upload** to push a new mesh file from your Mac to Roblox.
 
 ---
 
@@ -43,4 +44,4 @@ The Open Cloud API could not fetch geometry for that asset. Verify your API key 
 Yes — click **Focus in Studio** in the Detail sheet. You can also use the [[mesh-heatmap|Mesh Heatmap]] tool to see density hotspots of triangle-heavy meshes across your map.
 
 ### Does the app support mesh replacement?
-Not directly. Use Focus in Studio to find instances, then replace them manually or with Roblox's asset swap tools.
+Not directly. Use Focus in Studio to find instances, then replace them manually or with Roblox's asset swap tools. This is the limitation of the Roblox Studio Security that does not allows changing mesh IDs from plugins.
