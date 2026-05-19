@@ -11,6 +11,8 @@ id: places
 
 The view displays the place name, place ID, user/creator ID, total asset count, last scan date, release checklist status, and latest map render date. Thumbnails are fetched from Roblox and fall back to a map render preview when available.
 
+![[Places_UI_Compressed.jpg]]
+
 ---
 
 ## How to Use

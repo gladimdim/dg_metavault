@@ -9,6 +9,8 @@ id: sounds
 
 **Sounds** browses every `Sound.SoundId` reference in your place. Each sound card includes an **in-app audio player** so you can preview sounds without leaving the app. A waveform visualization gives you a quick visual read of each audio clip.
 
+![[Sounds_list_Compressed.jpg]]
+
 ---
 
 ## How to Use
@@ -21,13 +23,13 @@ id: sounds
 5. Click a sound to open the Detail sheet with full metadata and asset links.
 6. Use **Upload** to push a new sound file from your Mac to Roblox.
 
----
+![[Sound_Upload_Compressed.jpg|343]]
 
-## Help & Tips
+## Download Sounds from Assets
 
-- **Audio playback engine:** The app uses `AVAudioPlayer` with automatic fallback to FFmpeg conversion for formats that macOS cannot play natively.
-- **Waveform rendering:** The waveform is generated from the audio data after download. It helps identify silent, clipped, or unusually loud assets at a glance.
-- **Supported upload formats:** MP3, OGG, WAV, and FLAC.
+You can download sounds from the Sound details popup. Choose WAV or MP3:
+
+![[Download_Sound_Compressed.jpg|333]]
 
 ---
 
