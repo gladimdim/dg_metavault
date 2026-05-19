@@ -9,6 +9,8 @@ id: animations
 
 **Animations** browses every `Animation.AnimationId` reference and runtime animation ID in your place. Each animation shows a thumbnail preview (with colorful gradient fallbacks), byte size, and reference count.
 
+![[Animation_Grid_Compressed.jpg|510]]
+
 ---
 
 ## How to Use
@@ -17,7 +19,9 @@ id: animations
 2. Browse the list of animations found in your place.
 3. Sort by name, byte size, creator, or instance count.
 4. Click any animation to open the Detail sheet with full metadata.
-5. Use **Upload** to push a new animation from your Mac to Roblox.
+5. Use Save Animation button to save it as rbxm file.
+
+![[Animation_Popup_Compressed.jpg|433]]
 
 ---
 
@@ -25,7 +29,6 @@ id: animations
 
 - **Gradient fallbacks:** When Roblox does not provide an animation thumbnail, the app generates a colorful gradient placeholder that is unique per asset ID.
 - **Byte size matters:** Animations are often among the largest assets in a place. Sort by size to find the heaviest ones and consider whether they are worth keeping.
-- **Supported upload format:** Roblox accepts `.anim` (KeyframeSequence) files exported from Studio or third-party animation tools.
 
 ---
 

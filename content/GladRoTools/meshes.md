@@ -25,6 +25,8 @@ For each mesh, you see a thumbnail preview, triangle count, vertex count, and ho
    - **Focus in Studio** to locate the mesh.
    - **Open in Safari** to view on Roblox.
 
+![[Mesh_Popup_Compressed.jpg|253]]
+
 ---
 
 ## Help & Tips
