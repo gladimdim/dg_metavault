@@ -10,6 +10,7 @@ id: model-analyzer
 The **RBXM/Asset Analyzer** is a security inspection tool for `.rbxm` and `.rbxmx` model/package files. Before you import a free model or third-party asset into your game, drop it into the Analyzer to see exactly what is inside — scripts, asset references, and potential red flags.
 
 Example of the Toolbox package that is very invasive:
+
 ![[Model_Analyzer_Compressed.jpg|328]]
 
 ---
@@ -20,6 +21,7 @@ Example of the Toolbox package that is very invasive:
 2. Import a model:
    - **By Roblox Asset ID:** Enter the ID and the app downloads the file via Open Cloud.
    - You can find Asset ID from the Toolbox context menu. Just right click on the asset you want to analyze:
+
    ![[Toolbox_Copy_AssetID_Compressed.jpg|263]]
    - **By local file:** Drag and drop an `.rbxm` or `.rbxmx` file onto the window.
 3. The app decompresses and parses the XML binary, then shows:
