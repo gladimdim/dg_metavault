@@ -9,6 +9,8 @@ id: release-checklist
 
 **Release Checklist** validates every asset your place references before you ship. It downloads each asset and checks for broken references, oversized images, heavy meshes, duplicate content, and risky script patterns. The goal: catch problems before your players do.
 
+![[Release_Checklist_UI.png]]
+
 ---
 
 ## How to Use
@@ -20,7 +22,8 @@ id: release-checklist
    - **Max mesh triangles** (default: 5,000).
 3. Click **Run Checklist**.
 4. Review results by category:
-
+5. 
+![[Release_Issues_Details.png]]
 ### Checks Performed
 
 | Check | What It Flags |
@@ -35,6 +38,8 @@ id: release-checklist
 5. **Export** results as Markdown or PDF for your team or release notes.
 6. View **Improvements Tracking** to see how many issues you have fixed across runs.
 7. Browse **History** to compare checklist snapshots over time.
+
+![[Release_Checklist_History.png]]
 
 ---
 
