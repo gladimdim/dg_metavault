@@ -47,15 +47,6 @@ GladRoTools performs network requests in the following limited circumstances:
 
 No data is sent to any server owned or operated by the developer.
 
-## Roblox OAuth 2.0
-
-GladRoTools may offer sign-in via Roblox OAuth 2.0 as an alternative to providing an Open Cloud API key. When you authenticate through Roblox OAuth:
-
-- **Authentication is handled entirely by Roblox.** You are redirected to Roblox's official authorization page where you log in with your Roblox credentials. The Application never sees or has access to your Roblox username or password.
-- **Access tokens are stored locally on your device.** The Application receives an OAuth access token and refresh token from Roblox, which are stored exclusively in the Application's local secure storage on your Mac. These tokens are never transmitted to any server other than Roblox's official OAuth token endpoint (`apis.roblox.com`).
-- **You control the permissions.** The specific data and actions the Application is authorized to perform are shown on the Roblox authorization screen at sign-in. You may revoke access at any time through your Roblox account's [Security settings](https://www.roblox.com/my/account#!/security).
-- **The Developer does not have access to your OAuth tokens.** Tokens remain on your device and are only used to make API calls to Roblox on your behalf.
-
 ## Diagnostics and Logging
 
 The application writes diagnostic logs to your local file system for troubleshooting purposes. These logs are stored on your device and are never automatically transmitted. Logs are only shared if you manually export and send them to the developer for support purposes.
