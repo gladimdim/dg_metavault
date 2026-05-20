@@ -23,7 +23,9 @@ Download **GladRoTools** from the Mac App Store.
 3. Under **Roblox Studio Plugin**, click **Install / Update**.
    - The app copies its bundled plugin into Studio's `Plugins` folder.
    - The path is shown below the button — you can click **Open Plugins Folder** to verify.
-4. The plugin version should match the app version. If it shows a mismatch, reinstall.
+1. The plugin version should match the app version. If it shows a mismatch, reinstall.
+
+![[Roblox_Studio_Plugin_Settings.png]]
 
 ---
 
@@ -35,7 +37,8 @@ Download **GladRoTools** from the Mac App Store.
    - **Red:** Bridge server is not running.
    - **Orange:** Server is running but no Studio plugin is connected.
    - **Green:** Plugin is connected and responding.
-4. Make sure your firewall allows local TCP connections on the bridge port.
+1. Make sure your firewall allows local TCP connections on the bridge port.
+![[Bridge_Token_Settings.png]]
 
 ---
 
@@ -46,6 +49,8 @@ Download **GladRoTools** from the Mac App Store.
 3. In Studio, open the GladRoTools plugin panel (Plugins menu → GladRoTools).
 4. The plugin connects to the bridge on `localhost:7801`.
 5. The toolbar badge in the Mac app should turn **green**.
+
+![[Studio_Plugin_UI.png]]
 
 ---
 

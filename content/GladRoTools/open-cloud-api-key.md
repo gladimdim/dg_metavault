@@ -16,16 +16,21 @@ Go to the [Creator Dashboard credentials page](https://create.roblox.com/dashboa
 
 Click **Create API Key** and give it a descriptive name (for example, *GladRoTools*).
 
+![[Roblox_Create_API_1.png]]
+
 ## Step 3: Configure Access Permissions
 
 Under **Access Permissions**, add each of the following scopes. All four are required for full functionality in GladRoTools.
 
-| Permission | Scope | Operation | Why GladRoTools Needs It |
-|---|---|---|---|
-| **Asset Read** | `asset` | `read` | Reads asset metadata to check for missing or broken assets during validation. |
-| **Asset Upload Write** | `asset` | `write` | Uploads optimized assets back to Roblox. Without this, you can inspect but not apply fixes. |
-| **User Inventory Read** | `user.inventory-item` | `read` | Reads inventory items to verify asset ownership and availability. |
-| **Legacy Asset Manage** | `legacy-asset` | `manage` | Allows modifying or updating older legacy assets when uploading replacements. |
+| Permission              | Scope                 | Operation | Why GladRoTools Needs It                                                                    |
+| ----------------------- | --------------------- | --------- | ------------------------------------------------------------------------------------------- |
+| **Asset Read**          | `asset`               | `read`    | Reads asset metadata to check for missing or broken assets during validation.               |
+| **Asset Upload Write**  | `asset`               | `write`   | Uploads optimized assets back to Roblox. Without this, you can inspect but not apply fixes. |
+| **User Inventory Read** | `user.inventory-item` | `read`    | Reads inventory items to verify asset ownership and availability.                           |
+| **Legacy Asset Manage** | `legacy-asset`        | `manage`  | Allows modifying or updating older legacy assets when uploading replacements.               |
+|                         |                       |           |                                                                                             |
+
+![[Roblox_API_Key_Permissions.png]]
 
 ## Step 4: Copy the Key Secret
 
