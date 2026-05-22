@@ -3,7 +3,8 @@ title: "Places — Place Overview & Scan History"
 date: 2026-05-11
 tags: ["gladrotools", "roblox", "macos"]
 author: "Dmytro Gladkyi"
-thumbnail: "../assets/gladrotools/places.png"
+description: "View connected Roblox Studio places, scan history, cached assets, thumbnails, and diagnostics in GladRoTools."
+thumbnail: "Images/Places_UI_Compressed.jpg"
 id: places
 ---
 
@@ -35,10 +36,13 @@ The view displays the place name, place ID, user/creator ID, total asset count, 
 ## FAQ
 
 ### Does Places sync with Roblox servers?
+
 No. Places reads data from your local cache and Roblox Open Cloud (for thumbnails). Nothing is uploaded automatically.
 
 ### Can I delete a place from the history?
+
 Yes — right-click a place row and choose **Remove from Registry**. This only deletes the local record and cached assets; it does not affect the actual Roblox place.
 
 ### Why does my place show zero assets?
+
 The plugin may not have completed a scan. Make sure the bridge connection is active and trigger a scan from any asset browser view (Decals, Sounds, etc.).

@@ -3,6 +3,7 @@ title: "Connection Guide — Bridge Troubleshooting"
 date: 2026-05-11
 tags: ["gladrotools", "roblox", "macos"]
 author: "Dmytro Gladkyi"
+description: "Troubleshoot the local TCP bridge between GladRoTools for macOS and the Roblox Studio plugin."
 id: connection-guide
 ---
 
@@ -14,11 +15,11 @@ The GladRoTools bridge is a local TCP server that allows the Mac app and the Rob
 
 The badge in the GladRoTools toolbar shows the current state:
 
-| Badge | Meaning |
-|-------|---------|
-| **Red** | Bridge server is not running. Click it to restart, or check Settings → Bridge. |
+| Badge      | Meaning                                                                                               |
+| ---------- | ----------------------------------------------------------------------------------------------------- |
+| **Red**    | Bridge server is not running. Click it to restart, or check Settings → Bridge.                        |
 | **Orange** | Server is running but no Studio plugin has connected. Open Studio and make sure the plugin is loaded. |
-| **Green** | Connected. The plugin is polling and responding to commands. |
+| **Green**  | Connected. The plugin is polling and responding to commands.                                          |
 
 ---
 

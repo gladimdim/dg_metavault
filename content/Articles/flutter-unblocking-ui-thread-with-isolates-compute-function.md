@@ -3,9 +3,11 @@ title: "Flutter: Unblocking UI thread with Isolates compute function"
 date: 2019-09-03
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"
+description: "Learn how to use Flutter's compute function and Dart isolates to move CPU-heavy image processing off the UI thread."
 thumbnail: "../assets/flutter-unblocking-ui-thread-with-isolates-compute-function/thumbnail.jpg"
 id: flutter-unblocking-ui-thread-with-isolates-compute-function
 ---
+
 In this post I will show you, how to use **compute** function from the [Flutter framework ](https://flutter.dev/) to push CPU-heavy computation from main thread (which does the UI stuff) to another thread. This will unlock the main thread and your application will be responsive, while the app is still calculating something in the background.
 
 # Introduction
@@ -14,9 +16,10 @@ This article will show a real-life example from my [Interactive Fiction applicat
 
 **The PDF Package**
 
-Flutter has a lot of packages available for developer:  [https://pub.dev/](https://pub.dev/) . There is a package called [PDF](https://pub.dev/packages/pdf)  which suites 100% of my needs. I can use the same Widget approach to build a  PDF.
+Flutter has a lot of packages available for developer: [https://pub.dev/](https://pub.dev/) . There is a package called [PDF](https://pub.dev/packages/pdf) which suites 100% of my needs. I can use the same Widget approach to build a PDF.
 
 Here is an example of using PDF Widgets to build a document:
+
 ```
 pdf.addPage(Page(
     pageFormat: PdfPageFormat.a4,
@@ -28,6 +31,7 @@ pdf.addPage(Page(
     })); // Page
 
 ```
+
 Center, Context, Text, etc... are not Flutter Widgets, they are PDF widgets :-)
 
 If you look at a sample code used to inject image into the PDF:
@@ -95,7 +99,7 @@ StoryHistory is a class which has all the passages from interactive fiction stor
   }
 ```
 
-The  most interesting part is done in **toPdfWidget** call:
+The most interesting part is done in **toPdfWidget** call:
 
 ```
   Future<Widget> toPdfWidget(Font ttf, Document pdf) async {
@@ -147,7 +151,6 @@ case PassageTypes.IMAGE:
 
 And when user presses "Export" button the UI is completed locked and does not react to user interactions:
 
-
 ![IMG_1214.jpg](../assets/flutter-unblocking-ui-thread-with-isolates-compute-function/screen1.jpeg)
 
 ## But I used async await everywhere... does not it solve such issues???
@@ -155,7 +158,8 @@ And when user presses "Export" button the UI is completed locked and does not re
 I naively thought, that by using async await everywhere would not lock the main thread. But Dart is single-threaded and all the stuff is done in the main single thread. You can spawn [Isolates](https://api.dartlang.org/stable/2.4.1/dart-isolate/dart-isolate-library.html), but working with them requires a lot of dances.
 
 # compute!
-Thankfully, the Flutter team added a  [compute](https://api.flutter.dev/flutter/foundation/compute.html) function. It hides all that dances from developer:
+
+Thankfully, the Flutter team added a [compute](https://api.flutter.dev/flutter/foundation/compute.html) function. It hides all that dances from developer:
 
 ```
 var result = await compute(globalFunction, "my argument");
@@ -173,19 +177,21 @@ As you remember, the decoding of images locks the main thread:
 
 ```
 // this will lock your thread for couple seconds
- final img = ImageUI.decodeImage(imageFile.buffer.asUint8List()); 
+ final img = ImageUI.decodeImage(imageFile.buffer.asUint8List());
 ```
+
 So we need to push it to compute:
 
 ```
 // something like this
 final img = await compute(ImageUI.decodeImage, imageFile.buffer.asUnit8List());
 ```
+
 But then I have to convert my Widget.build method to async, which is not currently possible in Flutter.
 
 We need to prepare everything needed by the Pdf.Widget.build method before we generate PDF document.
 
-PdfCreator class gets a new method. It reads paths for images, loads them into a map, which later is used *synchronously* by the Pdf.Widget.build method.
+PdfCreator class gets a new method. It reads paths for images, loads them into a map, which later is used _synchronously_ by the Pdf.Widget.build method.
 
 ```
   loadImages() async {
@@ -236,6 +242,7 @@ Refactor our press handler to wait while we load images in a separate thread:
 ```
 
 Injecting images is also refactored, now we just read file from the map:
+
 ```
 // _images is a map populated by loadImages in separate threads.
 var img = _images[historyItem.value[1]];
@@ -267,6 +274,7 @@ PdfCreator also exposes a Stream with events when each images is processed. I us
 ![enhanced_compute.gif](../assets/flutter-unblocking-ui-thread-with-isolates-compute-function/screen2.gif)
 
 # Conclusion
-I used  [compute](https://api.flutter.dev/flutter/foundation/compute.html) function provided by the Flutter framework to offload the heavy CPU work from the UI thread into the separate thread. This allowed me to process large images in a separate thread and avoid main thread locks, when the whole app stops responding to user actions.
 
-Huge thanks to the author of  [PDF Package](https://pub.dev/packages/pdf) David PHAM-VAN. Using the same approach to write UI and the PDF is a killer feature of Flutter!
+I used [compute](https://api.flutter.dev/flutter/foundation/compute.html) function provided by the Flutter framework to offload the heavy CPU work from the UI thread into the separate thread. This allowed me to process large images in a separate thread and avoid main thread locks, when the whole app stops responding to user actions.
+
+Huge thanks to the author of [PDF Package](https://pub.dev/packages/pdf) David PHAM-VAN. Using the same approach to write UI and the PDF is a killer feature of Flutter!

@@ -3,7 +3,8 @@ title: "Performance Audit — Scored Place Analysis (Premium)"
 date: 2026-05-11
 tags: ["gladrotools", "roblox", "macos", "premium"]
 author: "Dmytro Gladkyi"
-thumbnail: "../assets/gladrotools/performance-audit.png"
+description: "Run scored Roblox place performance audits for texture memory, mesh complexity, scripts, audio, particles, and release risks."
+thumbnail: "Images/Performance_Summary.png"
 id: performance-audit
 ---
 
@@ -25,16 +26,18 @@ id: performance-audit
 3. Click **Run Audit** (uses the latest scan) or **Scan & Run** (forces a fresh Studio scan first).
 4. Review the score and issue list:
    - Issues grouped by category with severity: **Critical**, **Warning**, **Notice**.
-![[Performance_Summary.png|554]]
+     ![[Performance_Summary.png|554]]
    - Each issue links to the offending asset or instance.
-![[Performance_Issues_Details.png|517]]
+     ![[Performance_Issues_Details.png|517]]
    - **One-click fixes** for some issue types (e.g., set particle emission rate directly from the app).
 5. **Export** results as Markdown or PDF.
 6. View **History** to compare audit scores across runs.
-![[Release_Checklist_History.png|476]]
+   ![[Release_Checklist_History.png|476]]
 7. Check performance issues in the scripts.
-![[Performance_Script_Issues.png]]
+   ![[Performance_Script_Issues.png]]
+
 ---
+
 ## Help & Tips
 
 - **Run often:** Run an audit after every major asset import or level design session. Catching issues early is far cheaper than fixing them before release.
@@ -47,13 +50,17 @@ id: performance-audit
 ## FAQ
 
 ### What is a "good" score?
+
 Aim for 80+ on your target preset. A score below 60 on Mobile First deserves attention before release.
 
 ### Can I customize the budget thresholds?
+
 The presets use fixed thresholds. Custom budgets are planned for a future update.
 
 ### How is the score calculated?
+
 Each issue category contributes points to the total. Critical issues deduct more than Warnings or Notices. The formula is weighted toward memory and rendering costs.
 
 ### Does Performance Audit require Open Cloud?
+
 Some checks (like duplicate content detection via byte comparison) require an Open Cloud API key to download asset bytes. Most checks work with scan data alone.

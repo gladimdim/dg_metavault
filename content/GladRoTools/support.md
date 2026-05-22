@@ -3,6 +3,7 @@ title: "Support"
 date: 2026-05-12
 tags: ["gladrotools", "support"]
 author: "Dmytro Gladkyi"
+description: "Support contact information for GladRoTools, including what details to include when reporting a Roblox Studio connection issue."
 id: support
 ---
 

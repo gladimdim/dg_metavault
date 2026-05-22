@@ -3,7 +3,8 @@ title: "Meshes — Mesh Asset Browser"
 date: 2026-05-11
 tags: ["gladrotools", "roblox", "macos"]
 author: "Dmytro Gladkyi"
-thumbnail: "../assets/gladrotools/meshes.png"
+description: "Inspect Roblox mesh assets with thumbnails, triangle counts, vertex counts, byte sizes, and reference counts."
+thumbnail: "Images/Meshes_List_Compressed.jpg"
 id: meshes
 ---
 
@@ -40,10 +41,13 @@ For each mesh, you see a thumbnail preview, triangle count, vertex count, and ho
 ## FAQ
 
 ### Why do some meshes show 0 triangles?
+
 The Open Cloud API could not fetch geometry for that asset. Verify your API key and check that the asset is public or owned by you.
 
 ### Can I see where each mesh is placed in the world?
+
 Yes — click **Focus in Studio** in the Detail sheet. You can also use the [[mesh-heatmap|Mesh Heatmap]] tool to see density hotspots of triangle-heavy meshes across your map.
 
 ### Does the app support mesh replacement?
+
 Not directly. Use Focus in Studio to find instances, then replace them manually or with Roblox's asset swap tools. This is the limitation of the Roblox Studio Security that does not allows changing mesh IDs from plugins.

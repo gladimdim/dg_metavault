@@ -3,7 +3,8 @@ title: "Sounds — Audio Asset Browser"
 date: 2026-05-11
 tags: ["gladrotools", "roblox", "macos"]
 author: "Dmytro Gladkyi"
-thumbnail: "../assets/gladrotools/sounds.png"
+description: "Browse Roblox sound assets with metadata, in-app audio preview, waveform visualization, and reference counts."
+thumbnail: "Images/Sounds_list_Compressed.jpg"
 id: sounds
 ---
 
@@ -36,10 +37,13 @@ You can download sounds from the Sound details popup. Choose WAV or MP3:
 ## FAQ
 
 ### Why won't a sound play?
+
 The asset might be inaccessible (private, moderated, or deleted). Check that the asset ID is valid and that your Open Cloud API key has the required permissions.
 
 ### Can I export sounds from my place?
+
 The Detail sheet lets you open the asset URL in Safari, where you can download the original file through Roblox's website.
 
 ### Does GladRoTools show sound length/duration?
+
 Yes. The Detail sheet displays the duration in seconds after the audio is downloaded and decoded.

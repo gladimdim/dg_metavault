@@ -3,7 +3,8 @@ title: "Map Render — Top-Down Orthographic Renders (Premium)"
 date: 2026-05-11
 tags: ["gladrotools", "roblox", "macos", "premium"]
 author: "Dmytro Gladkyi"
-thumbnail: "../assets/gladrotools/map-render.png"
+description: "Generate top-down orthographic PNG map renders of Roblox places through the GladRoTools Studio bridge."
+thumbnail: "Images/Map_Render_Compressed.jpg"
 id: map-render
 ---
 
@@ -33,6 +34,7 @@ id: map-render
    - Upload directly as a decal to Roblox.
 
 ### Extras
+
 - **Plums Minimap config:** Generates a Lua configuration snippet for the Plums Minimap plugin.
 - **Visualize Camera Area:** Places a temporary frame part in Studio showing the render boundary.
 - **Read Studio Frame:** Imports frame position/size from a manual placement in Studio.
@@ -52,13 +54,17 @@ id: map-render
 ## FAQ
 
 ### How long does a render take?
+
 Depends on resolution, part count, and terrain. A 512×512 render of a typical place completes in under 30 seconds. A 4096×4096 render of a dense map can take several minutes.
 
 ### Why are some parts missing from the render?
+
 Transparent parts (if **Drop fully transparent parts** is on), parts outside the clip Y range, and parts in `ServerStorage` or `ServerScriptService` are excluded.
 
 ### Can I render interiors?
+
 Map Render is top-down orthographic, so it captures rooftops and the highest surfaces. For interiors, try adjusting the **Clip Y range** to bracket the interior height.
 
 ### Does this require an internet connection?
+
 No — the render is done entirely locally via Studio raycasts. No asset data is uploaded.

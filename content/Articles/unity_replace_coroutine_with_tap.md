@@ -3,9 +3,11 @@ title: "Replacing Coroutines in Unity with C# Task Async Pattern (TAP)"
 date: 2022-05-19
 tags: ["c#", "unity", "gamedev"]
 author: "Dmytro Gladkyi"
+description: "Replace Unity coroutines with the C# Task Async Pattern for delays, progress, cancellation, and asynchronous game logic."
 thumbnail: "../assets/unity_replace_coroutine_with_tap/thumbnail.png"
 id: unity_replace_coroutine_with_tap
 ---
+
 # Replacing Coroutines in Unity with C# Task Async Pattern (TAP)
 
 ## Intro

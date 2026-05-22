@@ -3,7 +3,8 @@ title: "Decals — Image Asset Browser"
 date: 2026-05-11
 tags: ["gladrotools", "roblox", "macos"]
 author: "Dmytro Gladkyi"
-thumbnail: "../assets/gladrotools/decals.png"
+description: "Browse every Roblox image, texture, decal, and particle texture reference with thumbnails, dimensions, metadata, and usage counts."
+thumbnail: "Images/Decals_Overview_Compressed.jpg"
 id: decals
 ---
 
@@ -25,9 +26,9 @@ For each asset, you see a thumbnail preview, asset ID, name, reference count (ho
    - Click **Focus in Studio** to select the asset in Studio's Explorer.
    - Click **Open in Safari** to view the asset on the Roblox website.
    - Copy the asset ID to your clipboard.
-1. Use **Upload** to push a new decal from your Mac to Roblox.
+6. Use **Upload** to push a new decal from your Mac to Roblox.
 
- ![[Upload_Decal_Compressed.jpg|368]]
+![[Upload_Decal_Compressed.jpg|368]]
 
 ---
 
@@ -42,10 +43,13 @@ For each asset, you see a thumbnail preview, asset ID, name, reference count (ho
 ## FAQ
 
 ### Why are some thumbnails missing?
+
 The Roblox CDN may not have a thumbnail for every asset ID. The app shows a placeholder when the thumbnail is unavailable.
 
 ### Can I replace a decal in bulk?
+
 Not directly. Use the reference count and Focus in Studio to manually replace instances, or use Roblox's built-in bulk asset replacement tools.
 
 ### Does the app track decal dependencies?
+
 Yes. The Detail sheet shows how many instances reference this decal, and the asset library tracks which assets are used by which instances.

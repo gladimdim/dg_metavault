@@ -3,6 +3,7 @@ title: "Terms of Use"
 date: 2026-05-17
 tags: ["gladrotools", "terms"]
 author: "Dmytro Gladkyi"
+description: "Terms of use for GladRoTools, the macOS companion app for Roblox Studio developed by Dmytro Gladkyi."
 id: terms-of-use
 ---
 
@@ -80,4 +81,4 @@ Email: gladimdim@gmail.com
 
 ---
 
-*Last updated: May 17, 2026*
+_Last updated: May 17, 2026_

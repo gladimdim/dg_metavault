@@ -3,6 +3,7 @@ title: "Privacy Policy"
 date: 2026-05-12
 tags: ["gladrotools", "privacy"]
 author: "Dmytro Gladkyi"
+description: "Privacy policy for GladRoTools, explaining local data handling, Roblox API use, diagnostics, and stored asset cache data."
 id: privacy
 ---
 
@@ -38,12 +39,12 @@ The API key is never sent to any server other than Roblox. The developer does no
 
 GladRoTools performs network requests in the following limited circumstances:
 
-| Destination | Purpose | Data Transmitted |
-|---|---|---|
-| Roblox CDN (`*.rbxcdn.com`) | Fetching asset thumbnails | Asset identifiers |
-| Roblox Open Cloud (`apis.roblox.com`) | Asset read, write, and management operations | API key, asset identifiers, asset data |
-| Roblox OAuth (`apis.roblox.com`) | OAuth 2.0 authentication, token exchange, and token refresh | Authorization codes, OAuth access and refresh tokens |
-| Apple (`*.apple.com`) | Verifying App Store subscription receipts | Encrypted receipt data |
+| Destination                           | Purpose                                                     | Data Transmitted                                     |
+| ------------------------------------- | ----------------------------------------------------------- | ---------------------------------------------------- |
+| Roblox CDN (`*.rbxcdn.com`)           | Fetching asset thumbnails                                   | Asset identifiers                                    |
+| Roblox Open Cloud (`apis.roblox.com`) | Asset read, write, and management operations                | API key, asset identifiers, asset data               |
+| Roblox OAuth (`apis.roblox.com`)      | OAuth 2.0 authentication, token exchange, and token refresh | Authorization codes, OAuth access and refresh tokens |
+| Apple (`*.apple.com`)                 | Verifying App Store subscription receipts                   | Encrypted receipt data                               |
 
 No data is sent to any server owned or operated by the developer.
 
@@ -72,4 +73,4 @@ Email: gladimdim@gmail.com
 
 ---
 
-*Last updated: May 17, 2026*
+_Last updated: May 17, 2026_

@@ -2,6 +2,7 @@
 title: "Dmytro Gladkyi — MetaVault"
 date: 2024-01-01
 tags: ["index"]
+description: "Dmytro Gladkyi's digital garden with articles on Flutter, Unity, game development, Roblox tools, software engineering, and personal essays."
 ---
 
 # Welcome to my digital garden — articles, essays, and micro-posts.
@@ -13,6 +14,10 @@ Long-form posts on Flutter, game development, Unity, and personal reflections.
 ## [[Micro/index|Micro Posts]]
 
 Short thoughts, war diary entries, and quick updates.
+
+## [[Topics/index|Topics]]
+
+Curated entry points for Flutter, Unity, Roblox, GladRoTools, and game development notes.
 
 ## [Всесвіт Loca Deserta Sci-Fi](https://gladimdim.github.io/LocaDesertaSciFi)
 
@@ -26,4 +31,4 @@ Short thoughts, war diary entries, and quick updates.
 
 ---
 
-*Built with [Quartz](https://quartz.jzhao.xyz/) · Source: [MetaPersona](https://dmytrogladkyi.com)*
+_Built with Quartz · Source: [MetaPersona](https://dmytrogladkyi.com)_

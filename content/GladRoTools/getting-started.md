@@ -3,6 +3,7 @@ title: "Getting Started with GladRoTools"
 date: 2026-05-11
 tags: ["gladrotools", "roblox", "macos"]
 author: "Dmytro Gladkyi"
+description: "Install GladRoTools, connect the Roblox Studio plugin, and run your first local asset scan on macOS."
 id: getting-started
 ---
 
@@ -23,7 +24,7 @@ Download **GladRoTools** from the Mac App Store.
 3. Under **Roblox Studio Plugin**, click **Install / Update**.
    - The app copies its bundled plugin into Studio's `Plugins` folder.
    - The path is shown below the button — you can click **Open Plugins Folder** to verify.
-1. The plugin version should match the app version. If it shows a mismatch, reinstall.
+4. The plugin version should match the app version. If it shows a mismatch, reinstall.
 
 ![[Roblox_Studio_Plugin_Settings.png|516]]
 
@@ -37,8 +38,8 @@ Download **GladRoTools** from the Mac App Store.
    - **Red:** Bridge server is not running.
    - **Orange:** Server is running but no Studio plugin is connected.
    - **Green:** Plugin is connected and responding.
-1. Make sure your firewall allows local TCP connections on the bridge port.
-![[Bridge_Token_Settings.png|531]]
+4. Make sure your firewall allows local TCP connections on the bridge port.
+   ![[Bridge_Token_Settings.png|531]]
 
 ---
 

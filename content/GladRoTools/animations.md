@@ -3,7 +3,8 @@ title: "Animations — Animation Asset Browser"
 date: 2026-05-11
 tags: ["gladrotools", "roblox", "macos"]
 author: "Dmytro Gladkyi"
-thumbnail: "../assets/gladrotools/animations.png"
+description: "Browse Roblox animation asset IDs, thumbnails, byte sizes, and reference counts from a connected Roblox Studio place."
+thumbnail: "Images/Animation_Grid_Compressed.jpg"
 id: animations
 ---
 
@@ -35,10 +36,13 @@ id: animations
 ## FAQ
 
 ### Can I preview an animation in GladRoTools?
+
 The app shows metadata, thumbnails, and byte sizes. To actually play an animation, use Roblox Studio's Animation Editor.
 
 ### Why are some animation IDs listed without names?
+
 Some animation references may be set at runtime via scripts. The app reports the raw asset ID in these cases.
 
 ### How do I find unused animations?
+
 Use the reference count. If an animation has 0 instances referencing it, it may be orphaned in your asset library. Check whether scripts reference it at runtime before deleting.

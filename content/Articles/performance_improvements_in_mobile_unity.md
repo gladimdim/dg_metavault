@@ -3,9 +3,11 @@ title: "Performance gains in Unity. How I went from 15 to 60 FPS"
 date: 2022-01-14
 tags: ["unity", "c#"]
 author: "Dmytro Gladkyi"
+description: "How a Unity mobile game improved from 15 FPS to 60 FPS through profiling, terrain changes, object pooling, and code fixes."
 thumbnail: "../assets/performance_improvements_in_mobile_unity/sich_screen.png"
 id: performance_improvements_in_mobile_unity
 ---
+
 ## Intro
 
 I am doing a remake of my old game [Loca Deserta: Sloboda](https://locadeserta.com/citybuilding/index_en) The first version was done with [Flutter](https://flutter.dev) but this time I picked Unity as the game engine.
@@ -74,27 +76,19 @@ And I had like 8 layers all mixed on the floor with different alpha and masks!
 
 And for real, once I have only 4 layers like on this screen: ![terrain_layers](../assets/performance_improvements_in_mobile_unity/terrain_layers.png)
 
-
-
 Then the game runs very smooth even on ancient Android like Nokia 6.1:
 
 ![note_8_4_terrain_layers_60fps](../assets/performance_improvements_in_mobile_unity/note_8_4_terrain_layers_60fps.png)
 
 Once I add even one more layer (without using it for painting!) then the performance drops.
 
-
-
 #### Outcome for Terrain
 
 Don't set more than 4 terrain layers even if you paint only 4 still the Unity will choke processing your Terrain.
 
-
-
 ### Spikes in MonoBehaviour:Update
 
 This was easy to fix, it turned out I used DateTime.now to get the current time in order to process task timers in game. It seems this can be a little painfull on mobile phones so I rewrote the logic and used Time.deltaTime in order to check how much time has passed since the Upgrade/Production task started:
-
-
 
     void Update()
     {
@@ -118,8 +112,6 @@ After fix, notice that the blue scripting timings are much shorter!
 
 ![nokia_61_without_datetimenow](../assets/performance_improvements_in_mobile_unity/nokia_61_without_datetimenow.png)
 
-
-
 ## Get rid of Instantiate and Destroy
 
 When I have to show materials for build/produce requirements I instantiated prefabs and rendered them on screen. Then when the player is not near the building I destroyed them.
@@ -130,19 +122,13 @@ See these spikes? These are Instantiate/Destroy calls. Some of them take 40-70 m
 
 ![nokia_61_object_instantiate_spikes](../assets/performance_improvements_in_mobile_unity/nokia_61_object_instantiate_spikes.png)
 
-
-
 I knew how to fix this with Object Pooling: [Object Pooling (in depth) - Game Programming Patterns in Unity & C# - Jason Weimann](https://www.youtube.com/watch?v=uxm4a0QnQ9E)
-
-
 
 I reimplemented the logic to create all the objects beforehand when the scene loads. And then just pull them from Object Pool and place where needed.
 
 Check the same game scenario to show new Resource objects on screen but with Object Pooling:
 
 ![nokia_61_object_pooling_all_objects_cached](../assets/performance_improvements_in_mobile_unity/nokia_61_object_pooling_all_objects_cached.png)
-
-
 
 # Conclusion
 
@@ -151,19 +137,11 @@ Check the same game scenario to show new Resource objects on screen but with Obj
 - Use Object Pooling where applicable
 - Don't do heavy tasks in Update
 
-
-
 My game now runs at 60FPS on Samsung S21 Ultra and 30-40 FPS on Galaxy Note 8.
-
-
 
 I can finally continue on adding more buildings to the game :)
 
-
-
 This is my game running on Nokia 6.1: [https://twitter.com/DmytroGladkyi/status/1481540410098991104](https://twitter.com/DmytroGladkyi/status/1481540410098991104)
-
-
 
 # More Details on My Remake in Unity
 
@@ -194,14 +172,3 @@ You can learn more and download my old Sloboda game here: [Loca Deserta: Sloboda
 You can join my Telegram Channel: [https://t.me/locadesertachumaki](Loca Deserta Game Universe). Or [https://t.me/locadesertachumaki/467](Try alpha 3 on Android, Web and Windows).
 
 Or follow me on Twitter: [https://twitter.com/DmytroGladkyi](https://twitter.com/DmytroGladkyi)
-
-
-
-
-
-
-
-
-
-
-

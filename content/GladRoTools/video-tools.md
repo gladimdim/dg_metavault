@@ -3,7 +3,8 @@ title: "Video Tools — Convert Videos for Social Media"
 date: 2026-05-11
 tags: ["gladrotools", "roblox", "macos"]
 author: "Dmytro Gladkyi"
-thumbnail: "../assets/gladrotools/video-tools.png"
+description: "Convert gameplay videos into vertical social media formats for TikTok, YouTube Shorts, and Roblox marketing clips."
+thumbnail: "Images/Tools_Compressed.jpg"
 id: video-tools
 ---
 
@@ -38,10 +39,13 @@ id: video-tools
 ## FAQ
 
 ### Can I convert to landscape formats?
+
 The current preset is portrait (9:16). Additional presets may be added in future updates.
 
 ### Where does FFmpeg come from?
+
 The app bundles a licensed FFmpeg binary. You can view license details in **Settings → Tools (Converters) → Licenses**.
 
 ### Does Video Tools upload to social media?
+
 No. It only converts the video file locally. You upload the resulting MP4 to TikTok, YouTube, or other platforms yourself.

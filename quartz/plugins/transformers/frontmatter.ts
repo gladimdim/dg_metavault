@@ -52,6 +52,28 @@ function getAliasSlugs(aliases: string[]): FullSlug[] {
   return res
 }
 
+function firstMarkdownHeading(fileData: Buffer): string | undefined {
+  const content = matter(fileData).content
+  const heading = content.match(/^#\s+(.+)$/m)?.[1]?.trim()
+  if (!heading) return undefined
+
+  return heading
+    .replace(/!\[([^\]]*)\]\([^)]+\)/g, "$1")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/[`*_~]/g, "")
+    .trim()
+}
+
+function normalizeLanguage(lang: unknown): string | undefined {
+  if (typeof lang !== "string") return undefined
+
+  const normalized = lang.trim().toLowerCase()
+  if (normalized === "🇺🇦" || normalized === "ua" || normalized === "ukrainian") return "uk"
+  if (normalized === "🇬🇧" || normalized === "🇺🇸" || normalized === "english") return "en"
+
+  return normalized || undefined
+}
+
 export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
   const opts = { ...defaultOptions, ...userOpts }
   return {
@@ -71,8 +93,11 @@ export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
               },
             })
 
+            const titleFromHeading = firstMarkdownHeading(fileData)
             if (data.title != null && data.title.toString() !== "") {
               data.title = data.title.toString()
+            } else if (titleFromHeading) {
+              data.title = titleFromHeading
             } else {
               data.title = file.stem ?? i18n(cfg.configuration.locale).propertyDefaults.title
             }
@@ -118,6 +143,9 @@ export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
             if (published) data.published = published
 
             if (socialImage) data.socialImage = socialImage
+
+            const lang = normalizeLanguage(coalesceAliases(data, ["lang", "language"]))
+            if (lang) data.lang = lang
 
             // Remove duplicate slugs
             const uniqueSlugs = [...new Set(allSlugs)]

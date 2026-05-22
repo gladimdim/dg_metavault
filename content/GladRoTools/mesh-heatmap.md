@@ -3,7 +3,8 @@ title: "Mesh Heatmap — Triangle Density Visualization (Premium)"
 date: 2026-05-11
 tags: ["gladrotools", "roblox", "macos", "premium"]
 author: "Dmytro Gladkyi"
-thumbnail: "../assets/gladrotools/mesh-heatmap.png"
+description: "Visualize Roblox mesh triangle density with top-down heatmaps that reveal geometry hotspots in a place."
+thumbnail: "Images/Performance_Summary.png"
 id: mesh-heatmap
 ---
 
@@ -29,6 +30,7 @@ id: mesh-heatmap
    - **Hotspot list:** Cells ranked by density, with contributing mesh names and instance paths.
 
 ### Studio Integration
+
 - Click **Create Overlay Parts** to place temporary colored parts in Studio at hotspot locations.
 - Click **Clear Overlay Parts** to remove them.
 - Use **Sync Frame from Studio** to pull the analysis frame from workspace bounds or a placed reference part.
@@ -47,10 +49,13 @@ id: mesh-heatmap
 ## FAQ
 
 ### How long does the analysis take?
+
 It depends on the number of meshes, the grid resolution, and the speed of your Mac. For a typical place with a few hundred meshes and a 64-stud cell size, analysis completes in seconds.
 
 ### Does this modify my place in Studio?
+
 Only if you use **Create Overlay Parts**, which adds temporary `Part` instances in `Workspace` to mark hotspot locations. These are not saved unless you choose to keep them. Use **Clear Overlay Parts** to remove them.
 
 ### What does "Unresolved" mean?
+
 Mesh geometry could not be downloaded — the asset may be private, moderated, or inaccessible. These meshes are shown in the results but contribute 0 triangles to density calculations.

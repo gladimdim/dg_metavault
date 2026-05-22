@@ -17,7 +17,7 @@ export const CNAME: QuartzEmitterPlugin = () => ({
       )
       return []
     }
-    const content = extractDomainFromBaseUrl(ctx.cfg.configuration.baseUrl)
+    const content = `${extractDomainFromBaseUrl(ctx.cfg.configuration.baseUrl)}\n`
     if (!content) {
       return []
     }

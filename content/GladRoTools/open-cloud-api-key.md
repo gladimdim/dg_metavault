@@ -3,6 +3,7 @@ title: "How to Obtain a Roblox Open Cloud API Key"
 date: 2026-05-13
 tags: ["gladrotools", "roblox", "setup"]
 author: "Dmytro Gladkyi"
+description: "Create a Roblox Open Cloud API key with the permissions GladRoTools needs for asset metadata, downloads, and uploads."
 id: open-cloud-api-key
 ---
 
@@ -14,7 +15,7 @@ Go to the [Creator Dashboard credentials page](https://create.roblox.com/dashboa
 
 ## Step 2: Create a New API Key
 
-Click **Create API Key** and give it a descriptive name (for example, *GladRoTools*).
+Click **Create API Key** and give it a descriptive name (for example, _GladRoTools_).
 
 ![[Roblox_Create_API_1.png]]
 
