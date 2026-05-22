@@ -55,7 +55,20 @@ Download **GladRoTools** from the Mac App Store.
 
 ---
 
-## Step 5: Scan Your Place
+## Step 5: Sign In with Roblox
+
+1. Open **Settings** (**GladRoTools → Settings...** or **⌘,**).
+2. Select the **Roblox** section.
+3. Click **Sign In with Roblox** and complete authentication in your browser.
+4. The app stores OAuth tokens locally. Your credentials are never seen or stored.
+
+Signing in enables features that download or upload assets — model analysis, image tools, release checklist, and more. Browsing and local inspection work without signing in.
+
+![[Roblox_Sign_In.png]]
+
+---
+
+## Step 6: Scan Your Place
 
 1. Click any asset browser in the sidebar — **Decals**, **Sounds**, **Meshes**, or **Animations**.
 2. The app prompts the plugin to scan the place for assets.
