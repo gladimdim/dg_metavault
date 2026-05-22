@@ -34,16 +34,16 @@ No. GladRoTools is macOS-only. The Studio plugin runs on both platforms, but the
 No. The app communicates locally with Roblox Studio over TCP. Asset metadata is cached on your Mac. The only external network calls are:
 
 - Fetching asset thumbnails from Roblox CDN.
-- Downloading asset bytes via Roblox Open Cloud (if you configure an API key).
+- Downloading asset bytes via Roblox Open Cloud (if you sign in with Roblox).
 - Verifying your App Store subscription receipt with Apple.
 
 ### Does GladRoTools collect analytics?
 
 No third-party analytics are collected. The app writes diagnostic logs to your Mac for troubleshooting. These logs are stored locally and are not sent anywhere unless you manually share them.
 
-### What permissions does the Open Cloud API key need?
+### Do I need to sign in with Roblox?
 
-For full functionality: Asset Read, Asset Write, User Inventory Item Read, and Legacy Asset Manage. You can verify your key's permissions in **Settings → Roblox Open Cloud → Verify Key**.
+Sign in with your Roblox account to enable features that download or upload assets (model analysis, image tools, release checklist). Browsing and local inspection work without signing in.
 
 ---
 

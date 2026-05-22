@@ -23,10 +23,6 @@ The Application may offer sign-in via Roblox OAuth 2.0. By authenticating throug
 
 Your Roblox credentials are never seen or stored by the Application. Authentication is handled entirely by Roblox, and the Application only receives an access token that it stores locally on your device.
 
-## Roblox Open Cloud API Key
-
-Certain features require a Roblox Open Cloud API key, which you provide at your discretion. You are responsible for creating the key with appropriate permission scopes and for keeping it secure. The API key is stored locally on your device and is never transmitted to any server other than Roblox's official API endpoints.
-
 ## User Responsibilities
 
 You agree to:

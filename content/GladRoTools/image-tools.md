@@ -16,7 +16,7 @@ id: image-tools
 
 ### Import
 
-- **By Roblox Asset ID:** Enter the ID and the app downloads the image via Open Cloud.
+- **By Roblox Asset ID:** Enter the ID and the app downloads the image after you sign in with Roblox.
 - **By local file:** Drag and drop an image onto the window, or click **Choose File**.
 
 ### JPEG Compression

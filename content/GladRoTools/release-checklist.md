@@ -49,7 +49,7 @@ id: release-checklist
 - **Run before every release.** The checklist is your last line of defense. Make it part of your release workflow.
 - **Duplicate content saves Robux:** Finding duplicate bytes means you can delete the redundant asset IDs and re-link instances, saving upload costs and download time.
 - **Improvements tracking is motivating:** The persistent stats show cumulative issues fixed. It is satisfying to watch the numbers go up over multiple releases.
-- **Requires Open Cloud API key:** Full functionality (downloading asset bytes for size verification, duplicate detection) requires a configured API key.
+- **Requires Roblox Sign In:** Full functionality (downloading asset bytes for size verification, duplicate detection) requires signing in with your Roblox account.
 
 ---
 

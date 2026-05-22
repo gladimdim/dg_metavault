@@ -61,6 +61,6 @@ The presets use fixed thresholds. Custom budgets are planned for a future update
 
 Each issue category contributes points to the total. Critical issues deduct more than Warnings or Notices. The formula is weighted toward memory and rendering costs.
 
-### Does Performance Audit require Open Cloud?
+### Does Performance Audit require Roblox Sign In?
 
-Some checks (like duplicate content detection via byte comparison) require an Open Cloud API key to download asset bytes. Most checks work with scan data alone.
+Some checks (like duplicate content detection via byte comparison) require signing in with Roblox to download asset bytes. Most checks work with scan data alone.

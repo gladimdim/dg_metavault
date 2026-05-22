@@ -25,16 +25,6 @@ All data processed by GladRoTools remains **exclusively on your device**. This i
 
 No user data is uploaded to any server operated by the developer. No data is transmitted to third-party analytics services, advertising networks, or tracking platforms.
 
-## Roblox Open Cloud API Key
-
-Certain features of GladRoTools require a Roblox Open Cloud API key, which you provide at your discretion. This key is **stored locally on your device** and is transmitted exclusively to Roblox's official API endpoints (`apis.roblox.com`) for the following purposes:
-
-- Reading asset metadata and retrieving asset binary data.
-- Creating or modifying assets within your Roblox experience.
-- Verifying asset permissions and inventory access.
-
-The API key is never sent to any server other than Roblox. The developer does not have access to your API key at any time.
-
 ## Network Communication
 
 GladRoTools performs network requests in the following limited circumstances:
@@ -42,7 +32,7 @@ GladRoTools performs network requests in the following limited circumstances:
 | Destination                           | Purpose                                                     | Data Transmitted                                     |
 | ------------------------------------- | ----------------------------------------------------------- | ---------------------------------------------------- |
 | Roblox CDN (`*.rbxcdn.com`)           | Fetching asset thumbnails                                   | Asset identifiers                                    |
-| Roblox Open Cloud (`apis.roblox.com`) | Asset read, write, and management operations                | API key, asset identifiers, asset data               |
+| Roblox Open Cloud (`apis.roblox.com`) | Asset read, write, and management operations                | OAuth access token, asset identifiers, asset data    |
 | Roblox OAuth (`apis.roblox.com`)      | OAuth 2.0 authentication, token exchange, and token refresh | Authorization codes, OAuth access and refresh tokens |
 | Apple (`*.apple.com`)                 | Verifying App Store subscription receipts                   | Encrypted receipt data                               |
 

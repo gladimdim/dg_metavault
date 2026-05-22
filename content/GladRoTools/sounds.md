@@ -38,7 +38,7 @@ You can download sounds from the Sound details popup. Choose WAV or MP3:
 
 ### Why won't a sound play?
 
-The asset might be inaccessible (private, moderated, or deleted). Check that the asset ID is valid and that your Open Cloud API key has the required permissions.
+The asset might be inaccessible (private, moderated, or deleted). Check that the asset ID is valid and that you are signed in with Roblox.
 
 ### Can I export sounds from my place?
 

@@ -20,7 +20,7 @@ Example of the Toolbox package that is very invasive:
 
 1. Click **RBXM/Asset Analyzer** in the sidebar.
 2. Import a model:
-   - **By Roblox Asset ID:** Enter the ID and the app downloads the file via Open Cloud.
+   - **By Roblox Asset ID:** Enter the ID and the app downloads the file after you sign in with Roblox.
    - You can find Asset ID from the Toolbox context menu. Just right click on the asset you want to analyze:
 
    ![[Toolbox_Copy_AssetID_Compressed.jpg|263]]

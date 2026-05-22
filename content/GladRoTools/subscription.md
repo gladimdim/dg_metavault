@@ -63,4 +63,4 @@ Not at this time. Premium is subscription-only through the App Store.
 
 ### Do I need an internet connection for Premium?
 
-You need an internet connection to verify the subscription with App Store receipts. Once verified, most Premium features work offline. Some checks (like duplicate content detection) require Open Cloud access to download asset bytes.
+You need an internet connection to verify the subscription with App Store receipts. Once verified, most Premium features work offline. Some checks (like duplicate content detection) require signing in with Roblox to download asset bytes.

@@ -10,7 +10,7 @@ id: meshes
 
 **Meshes** browses every mesh asset in your place — `MeshPart.MeshId`, `SpecialMesh.MeshId`, and `FileMesh.MeshId` references.
 
-For each mesh, you see a thumbnail preview, triangle count, vertex count, and how many instances reference it. Geometry stats are fetched from Roblox via the Open Cloud API.
+For each mesh, you see a thumbnail preview, triangle count, vertex count, and how many instances reference it. Geometry stats are fetched from Roblox when you sign in with your Roblox account.
 
 ![[Meshes_List_Compressed.jpg|554]]
 
@@ -33,7 +33,7 @@ For each mesh, you see a thumbnail preview, triangle count, vertex count, and ho
 ## Help & Tips
 
 - **Triangle budget:** Pay attention to high triangle counts. A single mesh with 50k+ triangles can drag down mobile performance. Use the [[performance-audit|Performance Audit]] tool to catch these.
-- **Unresolved meshes:** If triangle data shows "N/A," the mesh may be private, moderated, or not accessible through Open Cloud.
+- **Unresolved meshes:** If triangle data shows "N/A," the mesh may be private, moderated, or not accessible through Roblox's API.
 - **Draco-encoded meshes:** The app bundles the Draco decoder for previewing compressed mesh geometry.
 
 ---
@@ -42,7 +42,7 @@ For each mesh, you see a thumbnail preview, triangle count, vertex count, and ho
 
 ### Why do some meshes show 0 triangles?
 
-The Open Cloud API could not fetch geometry for that asset. Verify your API key and check that the asset is public or owned by you.
+The Roblox API could not fetch geometry for that asset. Sign in with Roblox and check that the asset is public or owned by you.
 
 ### Can I see where each mesh is placed in the world?
 

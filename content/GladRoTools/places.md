@@ -37,7 +37,7 @@ The view displays the place name, place ID, user/creator ID, total asset count, 
 
 ### Does Places sync with Roblox servers?
 
-No. Places reads data from your local cache and Roblox Open Cloud (for thumbnails). Nothing is uploaded automatically.
+No. Places reads data from your local cache and Roblox's API (for thumbnails). Nothing is uploaded automatically.
 
 ### Can I delete a place from the history?
 
