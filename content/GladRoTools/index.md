@@ -10,6 +10,8 @@ id: gladrotools
 
 **GladRoTools** is a native macOS app that connects to Roblox Studio and gives you deep visibility into every asset in your place. Browse decals, sounds, meshes, and animations with full metadata. Prepare images and videos for Roblox. Audit performance, validate releases, and generate top-down map renders — all from your Mac.
 
+[![Download on the Mac App Store](https://tools.applemediaservices.com/api/badges/download-on-the-mac-app-store/black/en-us?size=250x83&releaseDate=1276560000)](https://apps.apple.com/us/app/gladrotools/id6765629252)
+
 ![[Tools_Compressed.jpg|130]] ![[MapRender_Preview_Compressed.jpg|191]]![[ReleaseChecklist_Portrait_Compressed.jpg|165]]![[Performance_Audit_Portrait_Compressed.jpg|177]]
 
 The app talks to Roblox Studio through a local TCP bridge. A bundled Studio plugin polls the Mac app for commands and returns results. No cloud dependency for core features — your place data stays on your machine.

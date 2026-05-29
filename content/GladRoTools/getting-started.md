@@ -13,7 +13,7 @@ id: getting-started
 
 ## Step 1: Install the App
 
-Download **GladRoTools** from the Mac App Store.
+[![Download on the Mac App Store](https://tools.applemediaservices.com/api/badges/download-on-the-mac-app-store/black/en-us?size=250x83&releaseDate=1276560000)](https://apps.apple.com/us/app/gladrotools/id6765629252)
 
 ---
 

@@ -7,6 +7,12 @@ description: "Dmytro Gladkyi's digital garden with articles on Flutter, Unity, g
 
 # Welcome to my digital garden — articles, essays, and micro-posts.
 
+## GladRoTools — Roblox Studio Companion for macOS
+
+[![Download on the Mac App Store](https://tools.applemediaservices.com/api/badges/download-on-the-mac-app-store/black/en-us?size=250x83&releaseDate=1276560000)](https://apps.apple.com/us/app/gladrotools/id6765629252)
+
+A native macOS app that connects to Roblox Studio for deep asset visibility — scan and inspect every decal, sound, mesh, and animation in your place. [[GladRoTools/getting-started|Get started →]]
+
 ## [[Articles/index|Articles]]
 
 Long-form posts on Flutter, game development, Unity, and personal reflections.
