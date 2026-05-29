@@ -10,6 +10,8 @@ id: performance-audit
 
 **Performance Audit** gives your place a performance score from 0–100 based on configurable budget presets. It scans across ten issue categories — texture memory, mesh complexity, audio size, duplicate content, script patterns, streaming settings, particle rates, physics objects, and more — and shows you exactly what is dragging your score down.
 
+<iframe width="688" height="387" src="https://www.youtube.com/embed/JjKHbF2jrno" title="GladRoTools Performance Audit walkthrough" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ![[Performance_Settings.png|516]]
 
 ---
