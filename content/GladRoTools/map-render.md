@@ -10,6 +10,8 @@ id: map-render
 
 **Map Render** generates top-down orthographic PNG images of your Roblox place by instructing the Studio plugin to perform raycasts. The result is a clean, accurate map that you can use for thumbnails, minimaps, marketing, or in-game UI.
 
+<iframe width="688" height="387" src="https://www.youtube.com/embed/zD4URsspvSE" title="GladRoTools Map Render tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ![[Map_Render_Compressed.jpg]]
 
 ---
