@@ -12,6 +12,8 @@ id: meshes
 
 For each mesh, you see a thumbnail preview, triangle count, vertex count, and how many instances reference it. Geometry stats are fetched from Roblox when you sign in with your Roblox account.
 
+<iframe width="688" height="387" src="https://www.youtube.com/embed/LI94mTz5dv4" title="GladRoTools Meshes tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ![[Meshes_List_Compressed.jpg|554]]
 
 ---

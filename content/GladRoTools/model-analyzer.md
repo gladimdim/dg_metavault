@@ -10,6 +10,8 @@ id: model-analyzer
 
 The **RBXM/Asset Analyzer** is a security inspection tool for `.rbxm` and `.rbxmx` model/package files. Before you import a free model or third-party asset into your game, drop it into the Analyzer to see exactly what is inside — scripts, asset references, and potential red flags.
 
+<iframe width="688" height="387" src="https://www.youtube.com/embed/brP-UFHPLuw" title="GladRoTools Model Analyzer tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Example of the Toolbox package that is very invasive:
 
 ![[Model_Analyzer_Compressed.jpg|328]]

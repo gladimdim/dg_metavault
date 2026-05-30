@@ -10,6 +10,8 @@ id: mesh-heatmap
 
 **Mesh Heatmap** creates a top-down density map of your place, color-coded by triangle concentration. It downloads mesh data, divides the map into a grid, and calculates triangle density per cell — so you can spot exactly where heavy meshes are clustered.
 
+<iframe width="688" height="387" src="https://www.youtube.com/embed/tIKVn5EKwZo" title="GladRoTools Mesh Heatmap tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ---
 
 ## How to Use

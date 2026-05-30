@@ -9,6 +9,8 @@ id: getting-started
 
 **GladRoTools** is a native macOS companion app for Roblox Studio. It connects to Studio through a local TCP bridge and gives you deep visibility into every asset in your place. This guide walks you through setup.
 
+<iframe width="688" height="387" src="https://www.youtube.com/embed/5hq53qK_Op4" title="GladRoTools Getting Started tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ---
 
 ## Step 1: Install the App
