@@ -2,7 +2,7 @@
 title: "Dmytro Gladkyi — MetaVault"
 date: 2024-01-01
 tags: ["index"]
-description: "Dmytro Gladkyi's digital garden with articles on Flutter, Unity, game development, Roblox tools, Omarchy plugins and themes, software engineering, and personal essays."
+description: "Dmytro Gladkyi's digital garden with articles on Flutter, Unity, game development, Roblox tools, Omarchy tools, plugins and themes, software engineering, and personal essays."
 ---
 
 # Welcome to my digital garden — articles, essays, and micro-posts.
@@ -27,7 +27,7 @@ Curated entry points for Flutter, Unity, Roblox, GladRoTools, and game developme
 
 ## Omarchy stuff
 
-Public [Omarchy](https://omarchy.org/) plugins and Loca Deserta themes I maintain — config sync, hardware info, AI usage, reminders, air-raid alerts, and desktop themes. [[Omarchy/index|See the list →]]
+Public [Omarchy](https://omarchy.org/) tools, plugins, watch apps and Loca Deserta themes I maintain — SUPER DESKTOP, config sync, hardware info, AI usage on your wrist (Wear OS, Galaxy Watch, Garmin), reminders, air-raid alerts, and desktop themes. [[Omarchy/index|See the list →]]
 
 ## [Всесвіт Loca Deserta Sci-Fi](https://gladimdim.github.io/LocaDesertaSciFi)
 
