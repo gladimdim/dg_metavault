@@ -2,7 +2,7 @@
 title: "Omarchy stuff"
 date: 2026-09-24
 tags: ["omarchy", "linux", "desktop", "plugins", "themes", "wearos"]
-description: "Everything I build for Omarchy: SUPER DESKTOP, the AI Usage Wear OS app and watch faces, plugins for config sync, hardware info, AI quotas, reminders and air-raid alerts, and the Loca Deserta themes."
+description: "Everything I build for Omarchy: SUPER DESKTOP and its Android app, the AI Usage Wear OS app and watch faces, plugins for config sync, hardware info, AI quotas, reminders and air-raid alerts, and the Loca Deserta themes."
 ---
 
 # Omarchy stuff
@@ -18,11 +18,12 @@ Browse them on GitHub under [@gladimdim](https://github.com/gladimdim?tab=reposi
 ![[super-desktop-overlay.webp]] *A live Omarchy desktop with the overlay open: sticky notes, three AI harness cards and the SUPER DESKTOP control bar.*
 
 ```bash
-git clone https://github.com/gladimdim/super-desktop.git ~/GitHub/super-desktop
-cd ~/GitHub/super-desktop && ./install.sh
+curl -fsSL https://raw.githubusercontent.com/gladimdim/super-desktop/master/install.sh | bash
 ```
 
-Feature tour and screenshots: [superdesktop.dmytrogladkyi.com](https://superdesktop.dmytrogladkyi.com/) · Source: [gladimdim/super-desktop](https://github.com/gladimdim/super-desktop)
+The [SUPER DESKTOP Android app](https://play.google.com/store/apps/details?id=com.gladimdim.superdesktop) is on Google Play: every agent session on your PCs shows up on your phone, you type on the phone and it runs on the PC, and you get an alert when an agent finishes. It talks to your PC directly over your Wi-Fi or Tailscale, encrypted, with no accounts. [Connect your phone →](https://superdesktop.dmytrogladkyi.com/connect.html)
+
+Feature tour and screenshots: [superdesktop.dmytrogladkyi.com](https://superdesktop.dmytrogladkyi.com/) · Android app: [Google Play](https://play.google.com/store/apps/details?id=com.gladimdim.superdesktop) · Source: [gladimdim/super-desktop](https://github.com/gladimdim/super-desktop)
 
 # Plugins
 
