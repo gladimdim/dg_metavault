@@ -6,6 +6,7 @@ tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"
 thumbnail: ""
 id: flutter-creating-custom-scaffold-with-app-bar
+translationOf: "flutter-stvorennya-svogo-scaffold-vidzheta-z-vipadayuchim-menyu"
 ---
 Here my custom Scaffold with app bar in action:
 

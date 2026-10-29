@@ -61,6 +61,17 @@ Check a preview after deploying with the [Telegram bot @WebpageBot](https://t.me
 
 The `en | ua` switch in the top bar filters article cards and micro-posts on every page and is remembered in the browser; `?lang=en` / `?lang=uk` sets it from a link. Micro posts use the `language: "🇺🇸"` / `"🇺🇦"` frontmatter flag, other notes are detected from the text.
 
+## Translations
+
+A translation lives next to the original as `<slug>-en.md` with two extra frontmatter fields:
+
+```yaml
+language: "en"
+translationOf: "gothic_remake_sich"   # file name of the original, same folder
+```
+
+Both pages then link to each other ("read in english" / "читати українською"), get `hreflang` alternates and JSON-LD `workTranslation` links. In listings, `all` shows only originals, `en` shows English posts including translations, `ua` shows Ukrainian ones.
+
 ## Layout
 
 ```

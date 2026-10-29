@@ -26,6 +26,7 @@ const notes = defineCollection({
       author: z.string().optional(),
       language: z.string().optional(),
       type: z.string().optional(),
+      translationOf: z.string().optional(),
     })
     .passthrough(),
 })

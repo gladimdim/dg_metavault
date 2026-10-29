@@ -92,7 +92,8 @@ img { max-width: 100%; }
 .bar .langsw button.on { background: var(--c2); color: var(--bg); }
 /* language filter: hides cards / log lines in the other language */
 html[data-lang-filter="en"] [data-lang="uk"],
-html[data-lang-filter="uk"] [data-lang="en"] { display: none !important; }
+html[data-lang-filter="uk"] [data-lang="en"],
+html:not([data-lang-filter]) [data-tr] { display: none !important; }
 
 /* ── windows ─────────────────────────────── */
 .desk { max-width: 1480px; margin: 0 auto; padding: 12px; }

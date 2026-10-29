@@ -3,11 +3,12 @@ import { SITE } from "../lib/site"
 import Base from "../layouts/Base.astro"
 import Win from "../components/Win.astro"
 import Card from "../components/Card.astro"
-import { allNotes, bySection, tagIndex, noteUrl, fmtDate, plain, langOf } from "../lib/notes"
+import { allNotes, bySection, tagIndex, noteUrl, fmtDate, plain, langOf, isTranslation } from "../lib/notes"
 
 const notes = await allNotes()
 const home = notes.find((n) => n.id === "index")!
 const articles = await bySection("Articles")
+const originals = articles.filter((n) => !isTranslation(n))
 const micro = await bySection("Micro")
 const topics = await bySection("Topics")
 const glad = await bySection("GladRoTools")
@@ -20,7 +21,7 @@ const articleTags = tags
   .sort((a, b) => b[2] - a[2])
 
 // posts per year sparkline
-const dated = [...articles, ...micro].filter((n) => n.data.date)
+const dated = [...originals, ...micro].filter((n) => n.data.date)
 const years = dated.map((n) => n.data.date!.getFullYear())
 const y0 = Math.min(...years), y1 = new Date().getFullYear()
 const perYear = Array.from({ length: y1 - y0 + 1 }, (_, i) => ({ y: y0 + i, c: years.filter((y) => y === y0 + i).length }))
@@ -75,7 +76,7 @@ const minis = projects.filter((p) => p !== hero && !/ambient|galaxy-watch-on|dev
               <dt>wm</dt><dd>hyprland · omarchy</dd>
               <dt>stack</dt><dd>AI, Godot, Games, Books</dd>
               <dt>langs</dt><dd>en 🇺🇸 · uk 🇺🇦</dd>
-              <dt>posts</dt><dd>{articles.length + micro.length} since {y0}</dd>
+              <dt>posts</dt><dd>{originals.length + micro.length} since {y0}</dd>
               <dt>latest</dt><dd>{fmtDate(articles[0].data.date)}</dd>
             </dl>
           </div>
@@ -87,7 +88,7 @@ const minis = projects.filter((p) => p !== hero && !/ambient|galaxy-watch-on|dev
     <Win n="2" path="~/<em>stats</em>" hint="btop" class="stats fade-in" style="animation-delay:.05s">
       <div class="body">
         <div class="nums">
-          <a href="/Articles/"><b>{articles.length}</b><span>articles</span></a>
+          <a href="/Articles/"><b>{originals.length}</b><span>articles</span></a>
           <a href="/Micro/"><b>{micro.length}</b><span>micro posts</span></a>
           <a href="/tags/"><b>{tags.length}</b><span>tags</span></a>
           <div><b>{y1 - y0}</b><span>years writing</span></div>
@@ -107,13 +108,13 @@ const minis = projects.filter((p) => p !== hero && !/ambient|galaxy-watch-on|dev
     <Win n="3" path="~/<em>articles</em> — ls -t | grep" href="/Articles/" linkLabel="all →" class="arts fade-in" style="animation-delay:.1s">
       <div class="body">
         <div class="tags filter" id="tag-filter">
-          <button class="tag on" data-t="">all<sup>{articles.length}</sup></button>
+          <button class="tag on" data-t="">all<sup>{originals.length}</sup></button>
           {articleTags.slice(0, 16).map(([k, label, c]) => <button class="tag" data-t={k}>{label}<sup>{c}</sup></button>)}
         </div>
         <div class="cards" id="art-cards">
           {articles.map((n, i) => <Card note={n} hidden={i >= 9} />)}
         </div>
-        <div class="more"><button class="btn" id="more">ls -a  # show all {articles.length}</button></div>
+        <div class="more"><button class="btn" id="more">ls -a  # show all {originals.length}</button></div>
       </div>
     </Win>
 
@@ -198,7 +199,7 @@ const minis = projects.filter((p) => p !== hero && !/ambient|galaxy-watch-on|dev
       let shown = 0
       cards.forEach((c) => {
         const lf = document.documentElement.dataset.langFilter
-        const ok = (!cur || c.dataset.tags.split(" ").includes(cur)) && (!lf || c.dataset.lang === lf)
+        const ok = (!cur || c.dataset.tags.split(" ").includes(cur)) && (lf ? c.dataset.lang === lf : !c.dataset.tr)
         const vis = ok && (cur || all || shown < 9)
         c.hidden = !vis
         if (vis) { shown++; c.animate([{ opacity: 0, transform: "translateY(6px)" }, { opacity: 1, transform: "none" }], { duration: 260, delay: Math.min(shown, 12) * 18, fill: "backwards" }) }

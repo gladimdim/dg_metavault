@@ -14,8 +14,9 @@ interface Props {
   tags?: string[]
   lang?: string
   jsonLd?: Record<string, unknown>[]
+  alternates?: { lang: string; href: string }[]
 }
-const { title, description = SITE.description, active = "", image = "/og/index.png", imageAlt, type = "website", published, tags = [], lang = "en", jsonLd = [] } = Astro.props
+const { title, description = SITE.description, active = "", image = "/og/index.png", imageAlt, type = "website", published, tags = [], lang = "en", jsonLd = [], alternates = [] } = Astro.props
 const full = title === "MetaVault" ? `${SITE.author} — ${SITE.tagline}` : `${title} · MetaVault`
 const canonical = new URL(Astro.url.pathname, Astro.site).href
 const ogImage = new URL(image, Astro.site).href
@@ -37,6 +38,7 @@ const graph = [
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="theme-color" content="#07090d" />
     <link rel="canonical" href={canonical} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/icon.png" />
     <link rel="alternate" type="application/rss+xml" title={SITE.name} href="/index.xml" />

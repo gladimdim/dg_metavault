@@ -3,7 +3,7 @@ import { render } from "astro:content"
 import Base from "../layouts/Base.astro"
 import Win from "../components/Win.astro"
 import Card from "../components/Card.astro"
-import { allNotes, bySection, related, noteUrl, fmtDate, readingTime, imageOf, visibleTags, tagSlug, summary, ogUrl, langOf, type Note } from "../lib/notes"
+import { allNotes, bySection, related, noteUrl, fmtDate, readingTime, imageOf, visibleTags, tagSlug, summary, ogUrl, langOf, counterpart, type Note } from "../lib/notes"
 import { SITE, isUkrainian } from "../lib/site"
 
 export async function getStaticPaths() {
@@ -30,7 +30,12 @@ const path = "~/" + crumbs.map((c, i) => (i === crumbs.length - 1 ? `<em>${c}</e
 const isUa = /[а-яіїєґ]/i.test(d.title)
 const desc = summary(note)
 const url = new URL(noteUrl(note.id), Astro.site).href
-const lang = isUkrainian(d.title + " " + note.body?.slice(0, 600)) ? "uk" : "en"
+const lang = langOf(note)
+const twin = d.isIndex ? undefined : await counterpart(note)
+const twinUrl = twin && new URL(noteUrl(twin.id), Astro.site).href
+const alternates = twin
+  ? [{ lang, href: url }, { lang: langOf(twin), href: twinUrl! }, { lang: "x-default", href: d.translationOf ? twinUrl! : url }]
+  : []
 const crumbLd = {
   "@type": "BreadcrumbList",
   itemListElement: [{ name: "Home", url: SITE.url + "/" }, ...crumbs.map((c, i) => ({ name: i === crumbs.length - 1 ? d.title : c, url: new URL(noteUrl(crumbs.slice(0, i + 1).join("/")), Astro.site).href }))].map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.name, item: c.url })),
@@ -52,9 +57,10 @@ const pageLd = isSection
       author: { "@id": `${SITE.url}/#person` },
       publisher: { "@id": `${SITE.url}/#person` },
       isPartOf: { "@id": `${SITE.url}/#website` },
+      ...(twin ? { [d.translationOf ? "translationOfWork" : "workTranslation"]: { "@id": twinUrl } } : {}),
     }
 ---
-<Base title={d.title} description={desc} active={section} image={ogUrl(note.id)} imageAlt={`${d.title} — ${SITE.author}`} type={isSection || d.isIndex ? "website" : "article"} published={d.isIndex ? undefined : d.date} tags={tags} lang={lang} jsonLd={[pageLd, crumbLd]}>
+<Base title={d.title} description={desc} active={section} image={ogUrl(note.id)} imageAlt={`${d.title} — ${SITE.author}`} type={isSection || d.isIndex ? "website" : "article"} published={d.isIndex ? undefined : d.date} tags={tags} lang={lang} alternates={alternates} jsonLd={[pageLd, crumbLd]}>
   {isSection ? (
     <div class="sect">
       <Win n="1" path={path} hint={children.length ? `${children.length} entries` : `${headings.length} sections`} class="head fade-in active">
@@ -105,6 +111,12 @@ const pageLd = isSection
           </p>
           <h1>{d.title}</h1>
           {d.description && <p class="desc">{d.description}</p>}
+          {twin && (
+            <a class="mono trlink" href={noteUrl(twin.id)} hreflang={langOf(twin)} lang={langOf(twin)}>
+              {langOf(twin) === "en" ? "🇬🇧 read in english" : "🇺🇦 читати українською"} <span>→</span>
+              {d.translationOf && <small>translated from ukrainian</small>}
+            </a>
+          )}
           {tags.length > 0 && <div class="tags">{tags.map((t) => <a class="tag" href={`/tags/${tagSlug(t)}/`}>{t.toLowerCase()}</a>)}</div>}
         </header>
         {img && <img class="cover" src={img} alt="" />}
@@ -151,6 +163,10 @@ const pageLd = isSection
 </script>
 
 <style>
+  .trlink { display: inline-flex; align-items: center; gap: 10px; margin: 4px 0 14px; padding: 7px 12px; border: 1px solid var(--c2); border-radius: 6px; color: var(--c2); text-decoration: none; font-size: 13px; }
+  .trlink:hover { background: var(--c2); color: var(--bg); }
+  .trlink small { color: var(--muted); }
+  .trlink:hover small { color: inherit; }
   .kick { margin: 0 0 10px; font-size: 12.5px; color: var(--muted); }
   .kick a { color: var(--c2); text-decoration: none; }
   h1 { font: 800 clamp(30px, 4vw, 50px)/1.08 "Inter", sans-serif; letter-spacing: -.035em; margin: 0 0 12px; text-wrap: balance; }

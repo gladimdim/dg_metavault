@@ -6,6 +6,7 @@ tags: ["flutter", "dart", "gamedev"]
 author: "Dmytro Gladkyi"
 thumbnail: "../assets/flutter_design-and-implementation-of-event-system/thumbnail.png"
 id: flutter_design-and-implementation-of-event-system
+translationOf: "sloboda_dizajn-ta-realizaciya-mehanizmu-podij-v-pokrokovij-gri"
 ---
 *Instead of writing another state/todo/counter/animation I decided to create some real-world content related to Dart&Flutter: Event System in my turn-based city building game **Sloboda**.*
 

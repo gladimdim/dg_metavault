@@ -55,10 +55,13 @@ export async function tagIndex() {
   return [...map.entries()].sort((a, b) => b[1].notes.length - a[1].notes.length)
 }
 
+const dirOf = (id: string) => id.slice(0, id.lastIndexOf("/") + 1)
+const twins = (t: Note, o: Note) => !!t.data.translationOf && o.id === dirOf(t.id) + t.data.translationOf
+
 export async function related(n: Note, k = 3) {
   const mine = new Set(visibleTags(n).map(tagSlug))
   return (await allNotes())
-    .filter((o) => o.id !== n.id && !o.data.isIndex)
+    .filter((o) => o.id !== n.id && !o.data.isIndex && !twins(o, n) && !twins(n, o))
     .map((o) => ({
       o,
       s: visibleTags(o).filter((t) => mine.has(tagSlug(t))).length + (o.data.section === n.data.section ? 0.5 : 0),
@@ -91,7 +94,15 @@ export const ogUrl = (id: string) => `/og/${id === "index" ? "index" : id}.png`
 // "en" | "uk": Micro posts carry a flag in `language`, everything else is detected from the text
 export const langOf = (n: Note): "en" | "uk" => {
   const flag = String(n.data.language ?? "")
-  if (flag.includes("🇺🇦")) return "uk"
-  if (flag.includes("🇺🇸") || flag.includes("🇬🇧")) return "en"
+  if (flag.includes("🇺🇦") || flag === "uk") return "uk"
+  if (flag.includes("🇺🇸") || flag.includes("🇬🇧") || flag === "en") return "en"
   return isUkrainian(n.data.title + " " + plain(n.body).slice(0, 600)) ? "uk" : "en"
+}
+
+// Translations: a note with `translationOf: <slug>` is the translated twin of a note in the same folder
+export const isTranslation = (n: Note) => !!n.data.translationOf
+
+export async function counterpart(n: Note): Promise<Note | undefined> {
+  const all = await allNotes()
+  return all.find((o) => twins(n, o) || twins(o, n))
 }
