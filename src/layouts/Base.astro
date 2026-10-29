@@ -1,0 +1,65 @@
+---
+import "../styles/global.css"
+import { SECTIONS } from "../lib/notes"
+import Palette from "../components/Palette.astro"
+interface Props { title: string; description?: string; active?: string }
+const { title, description = "Dmytro Gladkyi's MetaVault — Flutter, game dev, Roblox tools, Omarchy.", active = "" } = Astro.props
+const full = title === "MetaVault" ? "Dmytro Gladkyi · MetaVault" : `${title} · MetaVault`
+---
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{full}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/icon.png" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="alternate" type="application/rss+xml" title="MetaVault" href="/index.xml" />
+    <meta property="og:title" content={full} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL("/og-image.png", Astro.site)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script is:inline defer data-domain="dmytrogladkyi.com" src="https://plausible.io/js/script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;750;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script is:inline>
+      try { const t = new URLSearchParams(location.search).get("theme") || localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t } catch {}
+    </script>
+  </head>
+  <body>
+    <header class="bar">
+      <a class="logo" href="/"><i></i><span class="slabel">gladimdim</span></a>
+      <nav class="ws">
+        {SECTIONS.map((s, i) => (
+          <a href={s.href} class={active === s.id ? "on" : ""}><b>{i + 1}</b><span>{s.label}</span></a>
+        ))}
+      </nav>
+      <div class="sp"></div>
+      <button id="open-search" aria-label="Search">⌕ <span class="slabel">search</span> <kbd>ctrl k</kbd></button>
+      <button id="theme" aria-label="Toggle theme">◐</button>
+      <span class="clock" id="clock"></span>
+    </header>
+    <main class="desk"><slot /></main>
+    <footer class="foot">
+      <span>© Dmytro Gladkyi</span>
+      <a href="https://t.me/locadesertachumaki">telegram</a>
+      <a href="https://github.com/gladimdim">github</a>
+      <a href="https://gladimdim.github.io/LocaDesertaSciFi">loca deserta sci-fi</a>
+      <span style="margin-left:auto">built with astro · tiled in hyprland spirit · 🇺🇦</span>
+    </footer>
+    <Palette />
+    <script is:inline>
+      document.getElementById("theme").onclick = () => {
+        const r = document.documentElement
+        r.dataset.theme = r.dataset.theme === "light" ? "dark" : "light"
+        try { localStorage.setItem("theme", r.dataset.theme) } catch {}
+      }
+      const c = document.getElementById("clock")
+      const tick = () => (c.textContent = new Date().toLocaleString("en-GB", { weekday: "short", day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }).replace(",", ""))
+      tick(); setInterval(tick, 20000)
+    </script>
+  </body>
+</html>

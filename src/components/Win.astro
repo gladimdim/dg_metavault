@@ -1,0 +1,16 @@
+---
+interface Props { n?: string | number; path: string; hint?: string; href?: string; linkLabel?: string; class?: string; style?: string; id?: string }
+const { n, path, hint, href, linkLabel = "open →", class: cls = "", style, id } = Astro.props
+---
+<section class={`win ${cls}`} style={style} id={id}>
+  <div class="title">
+    {n !== undefined && <span class="n">{n}</span>}
+    <span class="path" set:html={path} />
+    <span class="r">
+      {hint && <span>{hint}</span>}
+      {href && <a href={href}>{linkLabel}</a>}
+      <slot name="actions" />
+    </span>
+  </div>
+  <slot />
+</section>

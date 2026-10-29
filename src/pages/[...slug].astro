@@ -1,0 +1,173 @@
+---
+import { render } from "astro:content"
+import Base from "../layouts/Base.astro"
+import Win from "../components/Win.astro"
+import Card from "../components/Card.astro"
+import { allNotes, bySection, related, noteUrl, fmtDate, readingTime, imageOf, visibleTags, tagSlug, type Note } from "../lib/notes"
+
+export async function getStaticPaths() {
+  const notes = await allNotes()
+  return notes.filter((n) => n.id !== "index").map((n) => ({ params: { slug: n.id }, props: { note: n } }))
+}
+
+const { note } = Astro.props as { note: Note }
+const { Content, headings } = await render(note)
+const d = note.data
+const section = d.section
+const isSection = d.isIndex && note.id === section
+// Articles/Micro index bodies are hand-maintained tables — replaced by the generated listing below
+const listingOnly = isSection && (section === "Articles" || section === "Micro")
+const children = isSection ? await bySection(section) : []
+const rel = d.isIndex ? [] : await related(note)
+const tags = visibleTags(note)
+const firstH1 = headings.find((h) => h.depth === 1)
+const hideH1 = !!firstH1 && headings[0] === firstH1 && firstH1.text.trim() === d.title.trim()
+const toc = headings.filter((h) => h.depth <= 3 && !(hideH1 && h === firstH1))
+const img = d.thumbnail
+const crumbs = note.id.split("/")
+const path = "~/" + crumbs.map((c, i) => (i === crumbs.length - 1 ? `<em>${c}</em>` : c)).join("/") + (isSection ? "/" : ".md")
+const isUa = /[а-яіїєґ]/i.test(d.title)
+---
+<Base title={d.title} description={d.description} active={section}>
+  {isSection ? (
+    <div class="sect">
+      <Win n="1" path={path} hint={children.length ? `${children.length} entries` : `${headings.length} sections`} class="head fade-in active">
+        <div class="body">
+          <p class="mono kick">❯ cd {note.id}/ &amp;&amp; ls</p>
+          <h1>{d.title}</h1>
+          {d.description && <p class="desc">{d.description}</p>}
+        </div>
+      </Win>
+      {!listingOnly && (
+        <div class:list={["readrow", { withtoc: toc.length > 3 }]}>
+          <Win n="2" path={`${note.id}/<em>README.md</em>`} class="fade-in readme">
+            <article class:list={["prose body", { "hide-h1": hideH1 }]}><Content /></article>
+          </Win>
+          {toc.length > 3 && (
+            <aside class="side">
+              <Win n="3" path="<em>toc</em>" class="toc fade-in">
+                <nav class="mono">{toc.map((h) => <a href={`#${h.slug}`} class={`l${h.depth}`} data-id={h.slug}>{h.text}</a>)}</nav>
+              </Win>
+            </aside>
+          )}
+        </div>
+      )}
+      {section === "Micro" ? (
+        <Win n="2" path="micro.<em>log</em>" class="fade-in">
+          <div class="feed">
+            {children.map((n) => (
+              <a href={noteUrl(n.id)} class="entry">
+                <span class="mono ts">{fmtDate(n.data.date)}</span>
+                <span class="lg">{n.data.language || "🇺🇦"}</span>
+                <span><b>{n.data.title}</b></span>
+              </a>
+            ))}
+          </div>
+        </Win>
+      ) : children.length > 0 && (
+        <Win n={listingOnly ? 2 : 3} path={`ls ${note.id}/ <em>-lt</em>`} class="fade-in">
+          <div class="body"><div class="cards">{children.map((n) => <Card note={n} />)}</div></div>
+        </Win>
+      )}
+    </div>
+  ) : (
+    <div class="read">
+      <Win n="1" path={path} hint={`${readingTime(note.body)} min read`} class="main fade-in active">
+        <header class="art-head">
+          <p class="mono kick">
+            <a href={noteUrl(section || "index")}>{(section || "home").toLowerCase()}</a> / {fmtDate(d.date)} {isUa && "· 🇺🇦"} {d.language && !isUa && `· ${d.language}`}
+          </p>
+          <h1>{d.title}</h1>
+          {d.description && <p class="desc">{d.description}</p>}
+          {tags.length > 0 && <div class="tags">{tags.map((t) => <a class="tag" href={`/tags/${tagSlug(t)}/`}>{t.toLowerCase()}</a>)}</div>}
+        </header>
+        {img && <img class="cover" src={img} alt="" />}
+        <article class:list={["prose", "body", { "hide-h1": hideH1 }]}><Content /></article>
+      </Win>
+      <aside class="side">
+        {toc.length > 1 && (
+          <Win n="2" path="<em>toc</em>" class="toc fade-in" style="animation-delay:.08s">
+            <nav class="mono">
+              {toc.map((h) => <a href={`#${h.slug}`} class={`l${h.depth}`} data-id={h.slug}>{h.text}</a>)}
+            </nav>
+          </Win>
+        )}
+        <Win n="3" path="<em>meta</em>" class="fade-in" style="animation-delay:.12s">
+          <dl class="mono kv">
+            <dt>date</dt><dd>{fmtDate(d.date)}</dd>
+            <dt>read</dt><dd>{readingTime(note.body)} min</dd>
+            {d.author && <><dt>author</dt><dd>{d.author}</dd></>}
+            <dt>file</dt><dd class="f">{note.id}.md</dd>
+          </dl>
+        </Win>
+      </aside>
+      {rel.length > 0 && (
+        <Win n="4" path="<em>related</em> — grep -l same tags" class="relw fade-in">
+          <div class="body"><div class="cards">{rel.map((n) => <Card note={n} />)}</div></div>
+        </Win>
+      )}
+    </div>
+  )}
+</Base>
+
+<script is:inline>
+  (() => {
+    const links = [...document.querySelectorAll(".toc nav a")]
+    if (!links.length) return
+    const targets = links.map((a) => document.getElementById(a.dataset.id)).filter(Boolean)
+    const io = new IntersectionObserver((es) => {
+      es.forEach((e) => {
+        if (e.isIntersecting) links.forEach((a) => a.classList.toggle("on", a.dataset.id === e.target.id))
+      })
+    }, { rootMargin: "-70px 0px -70% 0px" })
+    targets.forEach((t) => io.observe(t))
+  })()
+</script>
+
+<style>
+  .kick { margin: 0 0 10px; font-size: 12.5px; color: var(--muted); }
+  .kick a { color: var(--c2); text-decoration: none; }
+  h1 { font: 800 clamp(30px, 4vw, 50px)/1.08 "Inter", sans-serif; letter-spacing: -.035em; margin: 0 0 12px; text-wrap: balance; }
+  .desc { font-size: 18px; color: var(--dim); margin: 0 0 16px; max-width: 62ch; }
+
+  .read { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 12px; align-items: start; max-width: 1180px; margin: 0 auto; }
+  .main { grid-row: span 2; }
+  .art-head { padding: 34px 44px 22px; border-bottom: 1px solid var(--line); }
+  .cover { display: block; width: calc(100% - 88px); margin: 26px 44px 0; border-radius: 8px; border: 1px solid var(--line); max-height: 460px; object-fit: cover; }
+  .main .prose { padding: 30px 44px 44px; max-width: 800px; }
+  .side { position: sticky; top: 52px; display: flex; flex-direction: column; gap: 12px; }
+  .toc nav { display: flex; flex-direction: column; padding: 10px; font-size: 12.5px; max-height: 56vh; overflow-y: auto; }
+  .toc a { text-decoration: none; color: var(--muted); padding: 5px 8px; border-radius: 5px; border-left: 2px solid transparent; line-height: 1.35; }
+  .toc a.l2 { padding-left: 18px; }
+  .toc a.l3 { padding-left: 30px; font-size: 12px; }
+  .toc a:hover { color: var(--text); background: var(--panel-2); }
+  .toc a.on { color: var(--c2); border-left-color: var(--c2); background: color-mix(in srgb, var(--c2) 8%, transparent); }
+  .kv { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; padding: 14px 16px; margin: 0; font-size: 12.5px; }
+  .kv dt { color: var(--muted); }
+  .kv dd { margin: 0; color: var(--text); }
+  .kv .f { color: var(--c1); word-break: break-all; }
+  .relw { grid-column: 1 / -1; }
+
+  .sect { display: grid; gap: 12px; max-width: 1280px; margin: 0 auto; }
+  .head .body { padding: 28px 32px; }
+  .readrow.withtoc { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 12px; align-items: start; }
+  .readrow.withtoc .toc nav { max-height: calc(100vh - 110px); }
+  .readme .prose { max-width: 860px; padding: 26px 32px 34px; }
+  .feed { display: flex; flex-direction: column; padding: 8px; }
+  .entry { display: grid; grid-template-columns: 110px 34px 1fr; gap: 10px; align-items: baseline; padding: 11px 12px; border-radius: 6px; text-decoration: none; border-bottom: 1px dashed var(--line); }
+  .entry:hover { background: var(--panel-2); }
+  .entry .ts { color: var(--c2); font-size: 13px; }
+  .entry b { font-weight: 600; }
+
+  @media (max-width: 1000px) {
+    .read, .readrow.withtoc { grid-template-columns: 1fr; }
+    .side { position: static; order: -1; display: none; }
+    .art-head { padding: 24px 20px 18px; }
+    .main .prose { padding: 22px 20px 30px; }
+    .cover { width: calc(100% - 40px); margin: 20px 20px 0; }
+    .head .body { padding: 20px; }
+    .readrow.withtoc { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 12px; align-items: start; }
+  .readrow.withtoc .toc nav { max-height: calc(100vh - 110px); }
+  .readme .prose { padding: 20px; }
+  }
+</style>

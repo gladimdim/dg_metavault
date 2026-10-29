@@ -1,0 +1,338 @@
+---
+import Base from "../layouts/Base.astro"
+import Win from "../components/Win.astro"
+import Card from "../components/Card.astro"
+import { allNotes, bySection, tagIndex, noteUrl, fmtDate, plain } from "../lib/notes"
+
+const notes = await allNotes()
+const home = notes.find((n) => n.id === "index")!
+const articles = await bySection("Articles")
+const micro = await bySection("Micro")
+const topics = await bySection("Topics")
+const glad = await bySection("GladRoTools")
+const gladIndex = notes.find((n) => n.id === "GladRoTools")!
+const omarchy = notes.find((n) => n.id === "Omarchy")!
+const tags = (await tagIndex()).filter(([, v]) => v.notes.some((n) => n.data.section === "Articles"))
+const articleTags = tags
+  .map(([k, v]) => [k, v.label, v.notes.filter((n) => n.data.section === "Articles").length] as const)
+  .filter(([, , c]) => c > 0)
+  .sort((a, b) => b[2] - a[2])
+
+// posts per year sparkline
+const dated = [...articles, ...micro].filter((n) => n.data.date)
+const years = dated.map((n) => n.data.date!.getFullYear())
+const y0 = Math.min(...years), y1 = new Date().getFullYear()
+const perYear = Array.from({ length: y1 - y0 + 1 }, (_, i) => ({ y: y0 + i, c: years.filter((y) => y === y0 + i).length }))
+const maxY = Math.max(...perYear.map((p) => p.c))
+
+// Omarchy projects: "## [Name](url)" sections and their first screenshot
+const slugify = (s: string) => s.toLowerCase().trim().replace(/[^\p{L}\p{N}\s-]/gu, "").replace(/\s+/g, "-")
+const projects = omarchy.body!
+  .split(/^#{1,2} /m)
+  .slice(1)
+  .map((chunk) => {
+    const head = chunk.split("\n")[0]
+    const name = head.replace(/\[([^\]]+)\]\([^)]*\)/g, "$1").replace(/ — .*/, "").trim()
+    const img = chunk.match(/src="(\/media\/[^"]+\.(?:png|webp|jpe?g))"/)?.[1]
+    const kind = /watch/i.test(chunk.slice(0, 200)) ? "watch" : /theme/i.test(name) || /Loca Deserta/.test(name) ? "theme" : "plugin"
+    return { name, img, anchor: slugify(head.replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")), kind }
+  })
+  .filter((p) => p.img && !/Omarchy stuff|Plugins|Themes/.test(p.name))
+const hero = projects.find((p) => /SUPER DESKTOP/.test(p.name))
+const minis = projects.filter((p) => p !== hero && !/ambient|galaxy-watch-on|devices/.test(p.img!)).slice(0, 8)
+---
+<Base title="MetaVault" active="" description={home.data.description}>
+  <div class="bento">
+    <Win n="1" path="~/<em>whoami</em>" hint="zsh" class="who fade-in active">
+      <div class="body whobody">
+       <div>
+        <p class="mono prompt"><span>❯</span> whoami</p>
+        <h1 class="name">Dmytro<br /><span>Gladkyi</span></h1>
+        <p class="lead">Game dev, Flutter & Dart, Unity, Roblox Studio tooling and Omarchy hacking. A digital garden of articles, essays and micro‑posts — in 🇺🇸 English and 🇺🇦 Українською.</p>
+        <p class="mono prompt"><span>❯</span> cat ~/.now</p>
+        <p class="now">Shipping <a href="/Omarchy/#super-desktop">SUPER DESKTOP</a> — a hidden overlay workspace for Hyprland, plus its Android app. <span class="cursor"></span></p>
+        <div class="links mono">
+          <a href="https://t.me/locadesertachumaki">telegram</a>
+          <a href="https://github.com/gladimdim">github</a>
+          <a href="https://apps.apple.com/us/app/gladrotools/id6765629252">mac app store</a>
+          <a href="https://gladimdim.github.io/LocaDesertaSciFi">sci‑fi universe</a>
+          <button class="kb" onclick="openPalette('')">search <kbd>/</kbd></button>
+        </div>
+       </div>
+        <div class="ff mono" aria-label="fastfetch">
+          <p class="prompt"><span>❯</span> fastfetch</p>
+          <div class="ffgrid">
+            <pre class="logo" aria-hidden="true">{`   ▄▄▄▄▄▄▄▄
+  ██▀▀▀▀▀▀██
+  ██ ▄▄▄▄ ██
+  ██ █  █ ██
+  ██ ▀▀▀▀ ██
+  ██▄▄▄▄▄▄▀▀
+   ▀▀▀▀▀▀▀ `}</pre>
+            <dl>
+              <dt>user</dt><dd>gladimdim@metavault</dd>
+              <dt>wm</dt><dd>hyprland · omarchy</dd>
+              <dt>stack</dt><dd>AI, Godot, Games, Books</dd>
+              <dt>langs</dt><dd>en 🇺🇸 · uk 🇺🇦</dd>
+              <dt>posts</dt><dd>{articles.length + micro.length} since {y0}</dd>
+              <dt>latest</dt><dd>{fmtDate(articles[0].data.date)}</dd>
+            </dl>
+          </div>
+          <div class="swatch">{["--c1","--c2","--c3","--c4","--c5","--muted","--text"].map((v) => <i style={`background:var(${v})`}></i>)}</div>
+        </div>
+      </div>
+    </Win>
+
+    <Win n="2" path="~/<em>stats</em>" hint="btop" class="stats fade-in" style="animation-delay:.05s">
+      <div class="body">
+        <div class="nums">
+          <a href="/Articles/"><b>{articles.length}</b><span>articles</span></a>
+          <a href="/Micro/"><b>{micro.length}</b><span>micro posts</span></a>
+          <a href="/tags/"><b>{tags.length}</b><span>tags</span></a>
+          <div><b>{y1 - y0}</b><span>years writing</span></div>
+        </div>
+        <div class="spark" aria-label="posts per year">
+          {perYear.map((p) => (
+            <div class="col" title={`${p.y}: ${p.c} posts`}>
+              <i style={`height:${Math.max(4, (p.c / maxY) * 100)}%`} class={p.c ? "" : "z"}></i>
+              <span>{String(p.y).slice(2)}</span>
+            </div>
+          ))}
+        </div>
+        <p class="mono cap">posts / year · {y0}–{y1}</p>
+      </div>
+    </Win>
+
+    <Win n="3" path="~/<em>articles</em> — ls -t | grep" href="/Articles/" linkLabel="all →" class="arts fade-in" style="animation-delay:.1s">
+      <div class="body">
+        <div class="tags filter" id="tag-filter">
+          <button class="tag on" data-t="">all<sup>{articles.length}</sup></button>
+          {articleTags.slice(0, 16).map(([k, label, c]) => <button class="tag" data-t={k}>{label}<sup>{c}</sup></button>)}
+        </div>
+        <div class="cards" id="art-cards">
+          {articles.map((n, i) => <Card note={n} hidden={i >= 9} />)}
+        </div>
+        <div class="more"><button class="btn" id="more">ls -a  # show all {articles.length}</button></div>
+      </div>
+    </Win>
+
+    <div class="rcol">
+    <Win n="4" path="~/micro/<em>log</em> — tail -f" href="/Micro/" class="log fade-in" style="animation-delay:.15s">
+      <ol class="mono loglines">
+        {micro.map((n) => (
+          <li>
+            <a href={noteUrl(n.id)}>
+              <span class="ts">[{fmtDate(n.data.date)}]</span>
+              <span class="lg">{n.data.language === "🇺🇸" ? "EN" : "UA"}</span>
+              <span class="msg">{n.data.title}<small>{plain(n.body).replace(n.data.title, "").slice(0, 90)}</small></span>
+            </a>
+          </li>
+        ))}
+        <li class="live"><span class="ts">[{fmtDate(new Date())}]</span> <span class="cursor"></span></li>
+      </ol>
+    </Win>
+
+    <Win n="5" path="~/<em>topics</em>" href="/Topics/" class="topics fade-in" style="animation-delay:.2s">
+      <ul class="tlist">
+        {topics.map((t) => (
+          <li><a href={noteUrl(t.id)}><span class="mono">cd</span> <b>{t.id.split("/").pop()}/</b><small>{t.data.description}</small></a></li>
+        ))}
+      </ul>
+    </Win>
+    </div>
+
+    <Win n="6" path="~/<em>omarchy</em> — plugins · themes · watch faces" href="/Omarchy/" class="omarchy fade-in" style="animation-delay:.25s">
+      <div class="body">
+        {hero && (
+          <a class="hero" href={`/Omarchy/#${hero.anchor}`}>
+            <img src={hero.img} alt="SUPER DESKTOP overlay on Omarchy" loading="lazy" />
+            <div><span class="mono badge">featured</span><h3>SUPER DESKTOP</h3><p>Sticky notes & AI terminal cards that slide in with <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>Q</kbd>. Now with an Android app.</p></div>
+          </a>
+        )}
+        <div class="minis">
+          {minis.map((p) => (
+            <a href={`/Omarchy/#${p.anchor}`} class="mini">
+              <span class="shot" style={`background-image:url("${p.img}")`}></span>
+              <span class="mono k">{p.kind}</span>
+              <b>{p.name}</b>
+            </a>
+          ))}
+        </div>
+      </div>
+    </Win>
+
+    <Win n="7" path="~/<em>gladrotools</em>.app" href="/GladRoTools/" hint="macOS" class="glad fade-in" style="animation-delay:.3s">
+      <div class="body">
+        <a href="/GladRoTools/" class="gshot"><img src="/media/GladRoTools/Images/Places_UI_Compressed.jpg" alt="GladRoTools places view" loading="lazy" /></a>
+        <h3>Roblox Studio companion for macOS</h3>
+        <p class="dim">{gladIndex.data.description}</p>
+        <div class="docs">
+          {glad.slice(0, 12).map((g) => <a href={noteUrl(g.id)} class="mono">{g.data.title.replace(/^GladRoTools\s*[—-]?\s*/, "").slice(0, 28)}</a>)}
+        </div>
+        <a class="btn" href="https://apps.apple.com/us/app/gladrotools/id6765629252">open in mac app store ↗</a>
+      </div>
+    </Win>
+
+    <a class="win scifi fade-in" href="https://gladimdim.github.io/LocaDesertaSciFi" style="animation-delay:.35s">
+      <div class="title"><span class="n">8</span><span class="path">~/<em>loca-deserta</em>/sci-fi</span><span class="r">↗</span></div>
+      <div class="body">
+        <div>
+          <p class="mono k">окремий всесвіт · книги</p>
+          <h2>Всесвіт Loca Deserta Sci‑Fi</h2>
+          <p>Мій власний Sci‑Fi всесвіт і кілька книжок: «Зоряний Гетьманат», «Вістря Кулаку» (в процесі написання).</p>
+        </div>
+        <span class="stars" aria-hidden="true"></span>
+      </div>
+    </a>
+  </div>
+</Base>
+
+<script is:inline>
+  (() => {
+    const cards = [...document.querySelectorAll("#art-cards .card")]
+    const btns = [...document.querySelectorAll("#tag-filter .tag")]
+    const more = document.getElementById("more")
+    let all = false, cur = ""
+    function apply() {
+      let shown = 0
+      cards.forEach((c) => {
+        const ok = !cur || c.dataset.tags.split(" ").includes(cur)
+        const vis = ok && (cur || all || shown < 9)
+        c.hidden = !vis
+        if (vis) { shown++; c.animate([{ opacity: 0, transform: "translateY(6px)" }, { opacity: 1, transform: "none" }], { duration: 260, delay: Math.min(shown, 12) * 18, fill: "backwards" }) }
+      })
+      more.parentElement.hidden = !!cur || all
+    }
+    btns.forEach((b) => b.addEventListener("click", () => {
+      cur = cur === b.dataset.t ? "" : b.dataset.t
+      btns.forEach((x) => x.classList.toggle("on", x.dataset.t === cur))
+      apply()
+    }))
+    more.onclick = () => { all = true; apply() }
+  })()
+</script>
+
+<style>
+  .bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 12px; grid-auto-flow: dense; }
+  .who { grid-column: span 8; }
+  .stats { grid-column: span 4; }
+  .arts { grid-column: span 8; grid-row: span 2; }
+  .rcol { grid-column: span 4; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+  .rcol .log { flex: 1 1 0; min-height: 340px; contain: size; }
+  .omarchy { grid-column: span 7; }
+  .glad { grid-column: span 5; }
+  .scifi { grid-column: span 12; }
+
+  .who .body { padding: 22px 26px 24px; }
+  .whobody { display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: start; }
+  .ff { border-left: 1px dashed var(--line-2); padding-left: 24px; font-size: 12.5px; min-width: 300px; }
+  .ffgrid { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
+  .ff .logo { margin: 0; color: var(--c1); font-size: 13px; line-height: 1.1; text-shadow: 0 0 14px color-mix(in srgb, var(--c1) 60%, transparent); }
+  .ff dl { display: grid; grid-template-columns: auto 1fr; gap: 5px 12px; margin: 0; }
+  .ff dt { color: var(--c2); font-weight: 700; }
+  .ff dd { margin: 0; color: var(--dim); }
+  .swatch { display: flex; gap: 4px; margin-top: 14px; }
+  .swatch i { width: 22px; height: 12px; border-radius: 2px; }
+  .prompt { margin: 0; color: var(--muted); font-size: 13px; }
+  .prompt span { color: var(--c2); margin-right: 6px; }
+  .name { font: 800 clamp(44px, 6.4vw, 92px)/.92 "Inter", sans-serif; letter-spacing: -.045em; margin: 10px 0 16px; }
+  .name span { background: linear-gradient(45deg, var(--c1), var(--c2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lead { font-size: 18px; color: var(--dim); max-width: 60ch; margin: 0 0 18px; }
+  .now { margin: 6px 0 20px; font-size: 16px; }
+  .now a { color: var(--c1); }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px; }
+  .links a, .links .kb { text-decoration: none; padding: 7px 11px; border: 1px solid var(--line-2); border-radius: 6px; color: var(--dim); background: var(--panel-2); font: inherit; cursor: pointer; }
+  .links a:hover, .links .kb:hover { color: var(--text); border-color: var(--c1); }
+  .links a::before { content: "↗ "; color: var(--c2); }
+  .links kbd { color: var(--c3); }
+
+  .nums { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .nums > * { text-decoration: none; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-2); display: flex; flex-direction: column; transition: border-color .2s; }
+  .nums > a:hover { border-color: var(--c2); }
+  .nums b { font: 800 34px/1 "JetBrains Mono", monospace; color: var(--text); }
+  .nums > :nth-child(1) b { color: var(--c1); }
+  .nums > :nth-child(2) b { color: var(--c2); }
+  .nums > :nth-child(3) b { color: var(--c3); }
+  .nums > :nth-child(4) b { color: var(--c4); }
+  .nums span { font: 12px "JetBrains Mono", monospace; color: var(--muted); margin-top: 6px; }
+  .spark { display: flex; align-items: flex-end; gap: 5px; height: 92px; margin-top: 16px; }
+  .spark .col { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 4px; }
+  .spark i { width: 100%; border-radius: 3px 3px 0 0; background: linear-gradient(to top, var(--c1), var(--c2)); opacity: .9; }
+  .spark i.z { background: var(--line-2); }
+  .spark .col:hover i { opacity: 1; box-shadow: 0 0 12px var(--c2); }
+  .spark span { font: 10px "JetBrains Mono", monospace; color: var(--muted); }
+  .cap { margin: 8px 0 0; font-size: 11px; color: var(--muted); }
+
+  .filter { margin-bottom: 16px; }
+  .filter .tag { background: transparent; }
+  .filter .tag.on { background: var(--c3); }
+  .more { text-align: center; margin-top: 16px; }
+
+  .log { display: flex; flex-direction: column; }
+  .loglines { list-style: none; margin: 0; padding: 10px 6px; overflow-y: auto; font-size: 12.5px; flex: 1; scrollbar-width: thin; }
+  .loglines li a { display: grid; grid-template-columns: auto auto 1fr; gap: 8px; padding: 5px 8px; border-radius: 5px; text-decoration: none; align-items: baseline; }
+  .loglines li a:hover { background: var(--panel-2); }
+  .loglines .ts { color: var(--muted); }
+  .loglines .lg { color: var(--bg); background: var(--c5); padding: 1px 4px; border-radius: 3px; font-size: 10px; font-weight: 800; }
+  .loglines .msg { color: var(--text); min-width: 0; }
+  .loglines small { display: block; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .loglines .live { padding: 5px 8px; }
+
+  .tlist { list-style: none; margin: 0; padding: 8px; }
+  .tlist a { display: block; padding: 9px 10px; border-radius: 6px; text-decoration: none; }
+  .tlist a:hover { background: var(--panel-2); }
+  .tlist .mono { color: var(--c2); font-size: 13px; }
+  .tlist b { font-family: "JetBrains Mono", monospace; font-size: 14px; color: var(--c1); }
+  .tlist small { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+
+  .hero { display: grid; grid-template-columns: 1.5fr 1fr; gap: 18px; align-items: center; text-decoration: none; margin-bottom: 14px; }
+  .hero img { width: 100%; border-radius: 8px; border: 1px solid var(--line); display: block; transition: transform .3s; }
+  .hero:hover img { transform: scale(1.015); }
+  .hero h3 { margin: 8px 0 6px; font-size: 26px; letter-spacing: -.02em; }
+  .hero p { margin: 0; color: var(--dim); font-size: 15px; }
+  .hero kbd { font-size: 12px; border: 1px solid var(--line-2); border-bottom-width: 2px; border-radius: 4px; padding: 1px 5px; color: var(--c3); }
+  .badge { font-size: 11px; color: var(--bg); background: var(--c4); padding: 3px 7px; border-radius: 4px; font-weight: 800; }
+  .minis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .mini { text-decoration: none; display: flex; flex-direction: column; gap: 4px; }
+  .mini .shot { aspect-ratio: 4/3; border-radius: 6px; border: 1px solid var(--line); background: var(--panel-2) center/cover no-repeat; transition: border-color .2s, transform .2s; }
+  .mini:hover .shot { border-color: var(--c1); transform: translateY(-2px); }
+  .mini b { font-size: 13px; line-height: 1.25; }
+  .mini .k { font-size: 10px; color: var(--c5); margin-top: 4px; }
+
+  .gshot img { display: block; width: 100%; border-radius: 8px; border: 1px solid var(--line); aspect-ratio: 16/9; object-fit: cover; object-position: top; }
+  .glad h3 { margin: 14px 0 4px; font-size: 20px; }
+  .dim { color: var(--dim); margin: 0 0 12px; font-size: 14.5px; }
+  .docs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .docs a { font-size: 11.5px; text-decoration: none; padding: 4px 8px; border-radius: 5px; border: 1px solid var(--line); color: var(--dim); }
+  .docs a:hover { color: var(--c1); border-color: var(--c1); }
+
+  .scifi { text-decoration: none; overflow: hidden; }
+  .scifi .body { position: relative; display: flex; align-items: center; min-height: 170px; padding: 26px 28px;
+    background: radial-gradient(600px 200px at 85% 50%, color-mix(in srgb, var(--c3) 22%, transparent), transparent 70%), linear-gradient(90deg, transparent, color-mix(in srgb, #0057b7 30%, transparent)); }
+  .scifi h2 { font: 800 clamp(26px, 3.4vw, 42px)/1.05 "Inter", sans-serif; letter-spacing: -.03em; margin: 6px 0 8px; color: var(--c3); }
+  .scifi p { margin: 0; color: var(--dim); max-width: 62ch; }
+  .scifi .k { color: var(--c1); font-size: 12px; }
+  .stars { position: absolute; inset: 0; pointer-events: none; opacity: .7;
+    background-image: radial-gradient(1px 1px at 20% 30%, #fff, transparent), radial-gradient(1px 1px at 70% 20%, #fff, transparent), radial-gradient(1.5px 1.5px at 85% 70%, #ffd23f, transparent), radial-gradient(1px 1px at 55% 80%, #fff, transparent), radial-gradient(1px 1px at 92% 35%, #fff, transparent), radial-gradient(1px 1px at 63% 50%, #33ccff, transparent);
+    animation: drift 40s linear infinite; }
+  @keyframes drift { to { background-position: 200px 0, -120px 0, 90px 0, -60px 0, 140px 0, -200px 0; } }
+
+  @media (max-width: 1180px) {
+    .who, .arts { grid-column: span 12; }
+    .stats, .rcol { grid-column: span 6; }
+    .arts { grid-row: auto; }
+    .omarchy, .glad { grid-column: span 12; }
+  }
+  @media (max-width: 1400px) { .ff .logo { display: none; } }
+  @media (max-width: 760px) {
+    .whobody { grid-template-columns: 1fr; }
+    .ff { border-left: 0; padding-left: 0; min-width: 0; border-top: 1px dashed var(--line-2); padding-top: 16px; }
+    .bento { gap: 8px; }
+    .stats, .rcol { grid-column: span 12; }
+    .who .body { padding: 18px; }
+    .lead { font-size: 16px; }
+    .hero { grid-template-columns: 1fr; }
+    .minis { grid-template-columns: repeat(2, 1fr); }
+    .rcol .log { flex: none; height: 420px; }
+  }
+</style>

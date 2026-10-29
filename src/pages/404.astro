@@ -1,0 +1,17 @@
+---
+import Base from "../layouts/Base.astro"
+import Win from "../components/Win.astro"
+---
+<Base title="Not found">
+  <Win n="1" path="~/<em>404</em>" class="fade-in active">
+    <div class="body nf">
+      <p class="mono">❯ cat {Astro.url.pathname}</p>
+      <h1>No such file or directory</h1>
+      <p>The page moved or never existed. Try <a href="/">home</a>, the <a href="/Articles/">articles</a>, or press <kbd>ctrl k</kbd> to search.</p>
+    </div>
+  </Win>
+</Base>
+<style>
+  .nf { padding: 2rem; }
+  .nf h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin: 0.5rem 0 1rem; }
+</style>
