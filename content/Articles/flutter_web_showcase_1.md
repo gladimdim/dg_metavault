@@ -1,5 +1,6 @@
 ---
 title: "Flutter Web Showcases"
+description: "A roundup of real Flutter Web apps shared by the community, from this site's original Flutter version to pathfinding visualizers, games and portfolios."
 date: 2021-12-03
 tags: ["flutter", "web"]
 author: "Dmytro Gladkyi"

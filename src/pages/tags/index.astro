@@ -5,7 +5,7 @@ import { tagIndex } from "../../lib/notes"
 const tags = await tagIndex()
 const max = tags[0][1].notes.length
 ---
-<Base title="Tags" active="tags">
+<Base title="Tags" active="tags" image="/og/tags.png" description="Browse every topic on MetaVault — games, AI, Flutter, Dart, Unity, Roblox tools, Omarchy and Ukrainian indie gamedev.">
   <div class="wrap">
     <Win n="1" path="~/<em>tags</em> — sort | uniq -c | sort -rn" hint={`${tags.length} tags`} class="fade-in active">
       <div class="body">

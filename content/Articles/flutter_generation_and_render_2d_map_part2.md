@@ -1,5 +1,6 @@
 ---
 title: "Generation and Render of 2D Map with Terrain in Dart + Flutter. Adding Forest Spots. Part 2"
+description: "Part 2 of procedural map generation in Dart and Flutter: refactoring the generator and adding forest spots of different shapes to the 2D terrain map."
 date: 2020-09-12
 tags: ["flutter", "dart", "gamedev"]
 author: "Dmytro Gladkyi"

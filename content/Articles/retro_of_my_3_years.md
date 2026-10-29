@@ -1,5 +1,6 @@
 ---
 title: "A Retro of My Last 3 Years"
+description: "A retrospective of three years of building Ukrainian Cossack-era games with Flutter and Dart: from a 2011 iOS prototype to Loca Deserta and Sloboda releases."
 date: 2021-09-12
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"

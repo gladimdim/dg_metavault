@@ -1,5 +1,6 @@
 ---
 title: "Road to #Flutter and #Dart"
+description: "Why a long-time Dart fan bet on Flutter in 2019: one Dart codebase for iOS, Android and the web, and how Flutter could finally fix cross-platform development."
 date: 2019-05-15
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"

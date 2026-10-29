@@ -1,5 +1,6 @@
 ---
 title: "Flutter: Створення свого Scaffold віджета з випадаючим меню."
+description: "Як зробити власний Scaffold у Flutter з компактним App Bar і випадаючим анімованим меню, створений для гри «Дике Поле». Повний код віджета з поясненнями."
 date: 2020-01-17
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"

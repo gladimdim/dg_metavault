@@ -1,5 +1,6 @@
 ---
 title: "The Magic of Start/Update Events in Unity's MonoBehaviour"
+description: "Why Unity's private Start, Update and Awake methods aren't overrides: how the engine finds MonoBehaviour messages via reflection and why that matters."
 date: 2022-05-24
 tags: ["c#", "unity", "gamedev"]
 author: "Dmytro Gladkyi"

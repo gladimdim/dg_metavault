@@ -1,5 +1,6 @@
 ---
 title: "Add in-game Notifications to Flutter Game"
+description: "Adding in-game notifications to a Flutter game so players don't miss one-time map events: requirements, a notification queue and toasts in Sloboda."
 date: 2020-10-13
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"

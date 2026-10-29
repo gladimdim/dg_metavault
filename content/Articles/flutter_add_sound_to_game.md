@@ -1,5 +1,6 @@
 ---
 title: "Adding Sound to Flutter Game."
+description: "Adding sound effects to a Flutter game: requirements, loading audio assets and playing sounds on game events like season changes in Loca Deserta: Sloboda."
 date: 2021-09-22
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"

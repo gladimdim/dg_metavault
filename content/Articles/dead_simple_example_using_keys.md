@@ -1,5 +1,6 @@
 ---
 title: "Dead Simple Example of Using Keys in Flutter Widgets"
+description: "A minimal Flutter example of when widget keys are required: animating list items in the Chumaki game, with a runnable DartPad showing the bug and the fix."
 date: 2021-10-02
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"

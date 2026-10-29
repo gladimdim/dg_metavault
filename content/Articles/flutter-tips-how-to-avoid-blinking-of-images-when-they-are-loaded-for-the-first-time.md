@@ -1,5 +1,6 @@
 ---
 title: "Flutter Tips: How to avoid blinking of images when they are loaded for the first time"
+description: "Flutter tip: stop images from blinking on first load during Hero animations by precaching AssetImage with precacheImage before the screen transition."
 date: 2019-06-20
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"

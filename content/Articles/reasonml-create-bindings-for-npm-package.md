@@ -1,5 +1,6 @@
 ---
 title: "ReasonML: Create Bindings for NPM Package"
+description: "How to write ReasonML bindings for an existing NPM package with BuckleScript externals, so typed Reason code can call JavaScript libraries safely."
 date: 2019-09-09
 tags: ["reasonml", "ocaml"]
 author: "Dmytro Gladkyi"

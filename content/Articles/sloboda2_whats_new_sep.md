@@ -1,5 +1,6 @@
 ---
 title: "Sloboda. September Changelog."
+description: "Sloboda 2 September changelog for the Unity remake: a Kobzar musician NPC, new lowpoly church and iron mine art, loading hints and a smaller 65.8 MB bundle."
 date: 2022-09-20
 tags: ["gamedev", "unity"]
 author: "Dmytro Gladkyi"

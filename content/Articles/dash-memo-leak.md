@@ -1,5 +1,6 @@
 ---
 title: "What Would Happen if Dash Memo Leak Had Never Happened?"
+description: "An alternate history of the 2010 Dash memo: what the web could look like if Dart had replaced JavaScript in Chrome, and why Flutter brings that idea back."
 date: 2022-02-03
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"

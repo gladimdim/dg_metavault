@@ -1,5 +1,6 @@
 ---
 title: "Do not Quit. Or how I resurrected my 7 years old idea"
+description: "How a 2012 Objective-C tactical game about 17th-century Cossacks was revived years later as Loca Deserta, an interactive fiction game built with Flutter."
 date: 2019-05-22
 tags: ["gamedev"]
 author: "Dmytro Gladkyi"

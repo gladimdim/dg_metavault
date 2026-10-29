@@ -86,6 +86,13 @@ img { max-width: 100%; }
 .bar button:hover { color: var(--text); border-color: var(--c1); }
 .bar kbd { font-size: 11px; color: var(--muted); }
 .bar .clock { color: var(--c2); }
+.bar .langsw { display: flex; border: 1px solid var(--line-2); border-radius: 6px; overflow: hidden; }
+.bar .langsw button { border: 0; border-radius: 0; padding-inline: 9px; }
+.bar .langsw button + button { border-left: 1px solid var(--line-2); }
+.bar .langsw button.on { background: var(--c2); color: var(--bg); }
+/* language filter: hides cards / log lines in the other language */
+html[data-lang-filter="en"] [data-lang="uk"],
+html[data-lang-filter="uk"] [data-lang="en"] { display: none !important; }
 
 /* ── windows ─────────────────────────────── */
 .desk { max-width: 1480px; margin: 0 auto; padding: 12px; }
@@ -205,6 +212,8 @@ footer.foot a { color: var(--dim); }
   .desk { padding: 8px; }
   .ws a span { display: none; }
   .bar .clock, .bar kbd, .bar .slabel { display: none; }
+  .bar .langsw button { padding-inline: 6px; }
+  .bar .langsw button[data-l=""] { display: none; }
   .prose { font-size: 16.5px; }
   .body { padding: 14px; }
 }

@@ -1,5 +1,6 @@
 ---
 title: "FakeAsync and Clock as Rescuers for Your async Game Logic Tests"
+description: "How to unit-test timer-based game logic in Dart: using FakeAsync and the clock package to fast-forward resource gathering in the Sloboda city builder."
 date: 2020-11-02
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"

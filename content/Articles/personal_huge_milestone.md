@@ -1,5 +1,6 @@
 ---
 title: "Personal huge milestone"
+description: "From a TensorFlow toy-recognition side project to on-device ML defect inspection in a factory: a Flutter app in 2019 cut visual checks to 20 ms per item."
 date: 2021-11-29
 tags: ["personal", "achievement"]
 author: "Dmytro Gladkyi"

@@ -1,5 +1,6 @@
 ---
 title: "Generation and Render of 2D Map with Terrain in Dart + Flutter. Adding Lakes. Part 3"
+description: "Part 3 of procedural map generation in Dart and Flutter: adding lakes to the 2D terrain map and choosing a lake shape that keeps the number of sprites small."
 date: 2020-09-12
 tags: ["flutter", "dart", "gamedev"]
 author: "Dmytro Gladkyi"

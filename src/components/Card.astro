@@ -1,5 +1,5 @@
 ---
-import { imageOf, noteUrl, fmtDate, visibleTags, tagSlug, type Note } from "../lib/notes"
+import { imageOf, noteUrl, fmtDate, visibleTags, tagSlug, langOf, type Note } from "../lib/notes"
 interface Props { note: Note; hidden?: boolean }
 const { note, hidden } = Astro.props
 const img = imageOf(note)
@@ -8,9 +8,10 @@ const palette = [["#33ccff", "#a78bfa"], ["#00ff99", "#33ccff"], ["#ffd23f", "#f
 const h = [...note.id].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7)
 const [g1, g2] = palette[h % palette.length]
 const glyph = (tags[0] || note.data.section || "?").slice(0, 2)
-const isUa = /[а-яіїєґ]/i.test(note.data.title)
+const lang = langOf(note)
+const isUa = lang === "uk"
 ---
-<a class="card" href={noteUrl(note.id)} data-tags={tags.map(tagSlug).join(" ")} hidden={hidden}>
+<a class="card" href={noteUrl(note.id)} data-lang={lang} data-tags={tags.map(tagSlug).join(" ")} hidden={hidden}>
   {img
     ? <div class="img" style={`background-image:url("${img}")`}>{isUa && <span class="lang">🇺🇦</span>}</div>
     : <div class="img gen" style={`--g1:${g1};--g2:${g2}`}>{glyph}{isUa && <span class="lang">🇺🇦</span>}</div>}

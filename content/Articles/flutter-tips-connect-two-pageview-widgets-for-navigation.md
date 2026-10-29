@@ -1,5 +1,6 @@
 ---
 title: "Flutter Tips: Connect Two PageView Widgets for Navigation"
+description: "Flutter tip: link two PageView widgets so a scrolling navigation bar and the main content stay in sync, with a breakdown of controllers and a DartPad demo."
 date: 2020-01-24
 tags: ["flutter", "dart", "gamedev"]
 author: "Dmytro Gladkyi"

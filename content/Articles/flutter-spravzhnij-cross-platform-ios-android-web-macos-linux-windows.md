@@ -1,5 +1,6 @@
 ---
 title: "Flutter: Справжній Cross Platform. iOS. Android. Web. macOS. Linux. Windows."
+description: "Покроковий гайд: одна програма на Flutter для iOS, Android, Web, macOS, Linux і Windows на прикладі легкого програвача інтерактивних історій Loca Deserta."
 date: 2020-01-19
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"

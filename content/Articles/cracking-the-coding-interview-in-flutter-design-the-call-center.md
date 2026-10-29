@@ -1,5 +1,6 @@
 ---
 title: "Cracking the Coding Interview in Flutter: Design the Call Center"
+description: "Solving the Call Center design task from Cracking the Coding Interview in Dart and Flutter: OOP classes for respondents, managers, directors and a Flutter UI."
 date: 2019-09-10
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"

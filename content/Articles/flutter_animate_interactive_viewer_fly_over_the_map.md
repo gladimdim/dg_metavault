@@ -1,5 +1,6 @@
 ---
 title: "Animating InteractiveViewer in Flutter. Or how to animate Map in your Game."
+description: "How to build an animated fly-over of a game map in Flutter using InteractiveViewer, TransformationController and AnimationController, with full source code."
 date: 2021-05-01
 tags: ["flutter", "dart", "animation"]
 author: "Dmytro Gladkyi"

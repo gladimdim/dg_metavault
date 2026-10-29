@@ -3,7 +3,8 @@ import { render } from "astro:content"
 import Base from "../layouts/Base.astro"
 import Win from "../components/Win.astro"
 import Card from "../components/Card.astro"
-import { allNotes, bySection, related, noteUrl, fmtDate, readingTime, imageOf, visibleTags, tagSlug, type Note } from "../lib/notes"
+import { allNotes, bySection, related, noteUrl, fmtDate, readingTime, imageOf, visibleTags, tagSlug, summary, ogUrl, langOf, type Note } from "../lib/notes"
+import { SITE, isUkrainian } from "../lib/site"
 
 export async function getStaticPaths() {
   const notes = await allNotes()
@@ -27,8 +28,33 @@ const img = d.thumbnail
 const crumbs = note.id.split("/")
 const path = "~/" + crumbs.map((c, i) => (i === crumbs.length - 1 ? `<em>${c}</em>` : c)).join("/") + (isSection ? "/" : ".md")
 const isUa = /[а-яіїєґ]/i.test(d.title)
+const desc = summary(note)
+const url = new URL(noteUrl(note.id), Astro.site).href
+const lang = isUkrainian(d.title + " " + note.body?.slice(0, 600)) ? "uk" : "en"
+const crumbLd = {
+  "@type": "BreadcrumbList",
+  itemListElement: [{ name: "Home", url: SITE.url + "/" }, ...crumbs.map((c, i) => ({ name: i === crumbs.length - 1 ? d.title : c, url: new URL(noteUrl(crumbs.slice(0, i + 1).join("/")), Astro.site).href }))].map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.name, item: c.url })),
+}
+const pageLd = isSection
+  ? { "@type": "CollectionPage", "@id": url, url, name: d.title, description: desc, isPartOf: { "@id": `${SITE.url}/#website` }, hasPart: children.slice(0, 50).map((n) => ({ "@type": "BlogPosting", headline: n.data.title, url: new URL(noteUrl(n.id), Astro.site).href })) }
+  : {
+      "@type": d.section === "Micro" ? "SocialMediaPosting" : d.isIndex ? "WebPage" : "BlogPosting",
+      "@id": url,
+      mainEntityOfPage: url,
+      url,
+      headline: d.title,
+      description: desc,
+      image: [new URL(ogUrl(note.id), Astro.site).href, ...(img || d.cover ? [new URL(img || d.cover!, Astro.site).href] : [])],
+      ...(d.date ? { datePublished: d.date.toISOString() } : {}),
+      inLanguage: lang,
+      keywords: tags.join(", "),
+      wordCount: note.body?.split(/\s+/).length,
+      author: { "@id": `${SITE.url}/#person` },
+      publisher: { "@id": `${SITE.url}/#person` },
+      isPartOf: { "@id": `${SITE.url}/#website` },
+    }
 ---
-<Base title={d.title} description={d.description} active={section}>
+<Base title={d.title} description={desc} active={section} image={ogUrl(note.id)} imageAlt={`${d.title} — ${SITE.author}`} type={isSection || d.isIndex ? "website" : "article"} published={d.isIndex ? undefined : d.date} tags={tags} lang={lang} jsonLd={[pageLd, crumbLd]}>
   {isSection ? (
     <div class="sect">
       <Win n="1" path={path} hint={children.length ? `${children.length} entries` : `${headings.length} sections`} class="head fade-in active">
@@ -56,9 +82,9 @@ const isUa = /[а-яіїєґ]/i.test(d.title)
         <Win n="2" path="micro.<em>log</em>" class="fade-in">
           <div class="feed">
             {children.map((n) => (
-              <a href={noteUrl(n.id)} class="entry">
+              <a href={noteUrl(n.id)} class="entry" data-lang={langOf(n)}>
                 <span class="mono ts">{fmtDate(n.data.date)}</span>
-                <span class="lg">{n.data.language || "🇺🇦"}</span>
+                <span class="lg">{langOf(n) === "en" ? "🇺🇸" : "🇺🇦"}</span>
                 <span><b>{n.data.title}</b></span>
               </a>
             ))}

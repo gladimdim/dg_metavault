@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from "astro:content"
+import { isUkrainian } from "./site"
 
 export type Note = CollectionEntry<"notes">
 
@@ -77,3 +78,20 @@ export const SECTIONS = [
   { id: "GladRoTools", label: "gladrotools", href: "/GladRoTools/" },
   { id: "tags", label: "tags", href: "/tags/" },
 ]
+
+// meta description: frontmatter description, else the first ~155 chars of the text
+export const summary = (n: Note) => {
+  if (n.data.description) return n.data.description
+  const t = plain(n.body).replace(/^\S.*?\s/, (m) => (m.trim() === n.data.title.trim() ? "" : m))
+  return t.length > 158 ? t.slice(0, 155).replace(/\s+\S*$/, "") + "…" : t
+}
+
+export const ogUrl = (id: string) => `/og/${id === "index" ? "index" : id}.png`
+
+// "en" | "uk": Micro posts carry a flag in `language`, everything else is detected from the text
+export const langOf = (n: Note): "en" | "uk" => {
+  const flag = String(n.data.language ?? "")
+  if (flag.includes("🇺🇦")) return "uk"
+  if (flag.includes("🇺🇸") || flag.includes("🇬🇧")) return "en"
+  return isUkrainian(n.data.title + " " + plain(n.body).slice(0, 600)) ? "uk" : "en"
+}

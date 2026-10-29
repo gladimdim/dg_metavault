@@ -1,8 +1,9 @@
 ---
+import { SITE } from "../lib/site"
 import Base from "../layouts/Base.astro"
 import Win from "../components/Win.astro"
 import Card from "../components/Card.astro"
-import { allNotes, bySection, tagIndex, noteUrl, fmtDate, plain } from "../lib/notes"
+import { allNotes, bySection, tagIndex, noteUrl, fmtDate, plain, langOf } from "../lib/notes"
 
 const notes = await allNotes()
 const home = notes.find((n) => n.id === "index")!
@@ -41,14 +42,14 @@ const projects = omarchy.body!
 const hero = projects.find((p) => /SUPER DESKTOP/.test(p.name))
 const minis = projects.filter((p) => p !== hero && !/ambient|galaxy-watch-on|devices/.test(p.img!)).slice(0, 8)
 ---
-<Base title="MetaVault" active="" description={home.data.description}>
+<Base title="MetaVault" active="" description={SITE.description} type="profile" jsonLd={[{ "@type": "ProfilePage", "@id": SITE.url + "/", url: SITE.url + "/", name: SITE.name, mainEntity: { "@id": SITE.url + "/#person" } }]}>
   <div class="bento">
     <Win n="1" path="~/<em>whoami</em>" hint="zsh" class="who fade-in active">
       <div class="body whobody">
        <div>
         <p class="mono prompt"><span>❯</span> whoami</p>
         <h1 class="name">Dmytro<br /><span>Gladkyi</span></h1>
-        <p class="lead">Game dev, Flutter & Dart, Unity, Roblox Studio tooling and Omarchy hacking. A digital garden of articles, essays and micro‑posts — in 🇺🇸 English and 🇺🇦 Українською.</p>
+        <p class="lead">I build games and the tools behind them: AI‑native game ideas, Godot, Flutter &amp; Unity games, AI agent tooling for Omarchy, Roblox Studio utilities — and sci‑fi books. Field notes on the craft, in 🇺🇸 English and 🇺🇦 Українською.</p>
         <p class="mono prompt"><span>❯</span> cat ~/.now</p>
         <p class="now">Shipping <a href="/Omarchy/#super-desktop">SUPER DESKTOP</a> — a hidden overlay workspace for Hyprland, plus its Android app. <span class="cursor"></span></p>
         <div class="links mono">
@@ -120,10 +121,10 @@ const minis = projects.filter((p) => p !== hero && !/ambient|galaxy-watch-on|dev
     <Win n="4" path="~/micro/<em>log</em> — tail -f" href="/Micro/" class="log fade-in" style="animation-delay:.15s">
       <ol class="mono loglines">
         {micro.map((n) => (
-          <li>
+          <li data-lang={langOf(n)}>
             <a href={noteUrl(n.id)}>
               <span class="ts">[{fmtDate(n.data.date)}]</span>
-              <span class="lg">{n.data.language === "🇺🇸" ? "EN" : "UA"}</span>
+              <span class="lg">{langOf(n) === "en" ? "EN" : "UA"}</span>
               <span class="msg">{n.data.title}<small>{plain(n.body).replace(n.data.title, "").slice(0, 90)}</small></span>
             </a>
           </li>
@@ -196,7 +197,8 @@ const minis = projects.filter((p) => p !== hero && !/ambient|galaxy-watch-on|dev
     function apply() {
       let shown = 0
       cards.forEach((c) => {
-        const ok = !cur || c.dataset.tags.split(" ").includes(cur)
+        const lf = document.documentElement.dataset.langFilter
+        const ok = (!cur || c.dataset.tags.split(" ").includes(cur)) && (!lf || c.dataset.lang === lf)
         const vis = ok && (cur || all || shown < 9)
         c.hidden = !vis
         if (vis) { shown++; c.animate([{ opacity: 0, transform: "translateY(6px)" }, { opacity: 1, transform: "none" }], { duration: 260, delay: Math.min(shown, 12) * 18, fill: "backwards" }) }
@@ -209,6 +211,8 @@ const minis = projects.filter((p) => p !== hero && !/ambient|galaxy-watch-on|dev
       apply()
     }))
     more.onclick = () => { all = true; apply() }
+    addEventListener("langfilter", apply)
+    apply()
   })()
 </script>
 

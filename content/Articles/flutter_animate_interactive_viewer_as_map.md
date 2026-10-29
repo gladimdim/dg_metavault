@@ -1,5 +1,6 @@
 ---
 title: "Flutter: How to Animate Movement of InteractiveViewer From One Point to Another on a Map"
+description: "Animating a Flutter InteractiveViewer from one point to another with Matrix4 tweens, so the game map smoothly centres on a target city in Loca Deserta: Chumaki."
 date: 2021-09-02
 tags: ["flutter", "dart", "animation"]
 author: "Dmytro Gladkyi"

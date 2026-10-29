@@ -1,5 +1,6 @@
 ---
 title: "Design and Implementation of Event System in City Building Turn Based Game in Dart+Flutter"
+description: "Designing a random event system for the Sloboda turn-based city builder in Dart and Flutter: event conditions, probabilities, outcomes and UI integration."
 date: 2020-04-24
 tags: ["flutter", "dart", "gamedev"]
 author: "Dmytro Gladkyi"

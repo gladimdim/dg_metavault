@@ -1,5 +1,6 @@
 ---
 title: "Decode and Encode JSON in ReasonML"
+description: "Step-by-step ReasonML guide to decoding and encoding JSON with optional fields using BuckleScript, by porting a legacy JavaScript converter function."
 date: 2019-09-09
 tags: ["reasonml", "ocaml"]
 author: "Dmytro Gladkyi"

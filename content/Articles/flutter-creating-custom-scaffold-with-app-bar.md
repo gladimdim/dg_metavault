@@ -1,5 +1,6 @@
 ---
 title: "Flutter: Creating Custom Scaffold with App Bar"
+description: "Building a custom Flutter Scaffold with a compact app bar that expands into an animated menu, made for the Loca Deserta interactive fiction game."
 date: 2020-01-17
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"

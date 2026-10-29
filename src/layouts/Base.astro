@@ -1,32 +1,75 @@
 ---
 import "../styles/global.css"
 import { SECTIONS } from "../lib/notes"
+import { SITE } from "../lib/site"
 import Palette from "../components/Palette.astro"
-interface Props { title: string; description?: string; active?: string }
-const { title, description = "Dmytro Gladkyi's MetaVault — Flutter, game dev, Roblox tools, Omarchy.", active = "" } = Astro.props
-const full = title === "MetaVault" ? "Dmytro Gladkyi · MetaVault" : `${title} · MetaVault`
+interface Props {
+  title: string
+  description?: string
+  active?: string
+  image?: string // og image path, defaults to the site card
+  imageAlt?: string
+  type?: "website" | "article" | "profile"
+  published?: Date
+  tags?: string[]
+  lang?: string
+  jsonLd?: Record<string, unknown>[]
+}
+const { title, description = SITE.description, active = "", image = "/og/index.png", imageAlt, type = "website", published, tags = [], lang = "en", jsonLd = [] } = Astro.props
+const full = title === "MetaVault" ? `${SITE.author} — ${SITE.tagline}` : `${title} · MetaVault`
+const canonical = new URL(Astro.url.pathname, Astro.site).href
+const ogImage = new URL(image, Astro.site).href
+const person = { "@type": "Person", "@id": `${SITE.url}/#person`, name: SITE.author, url: SITE.url, image: `${SITE.url}/icon.png`, jobTitle: "Game developer and software engineer", knowsAbout: SITE.knowsAbout, sameAs: SITE.sameAs }
+const graph = [
+  { "@type": "WebSite", "@id": `${SITE.url}/#website`, url: SITE.url, name: SITE.name, description: SITE.description, inLanguage: ["en", "uk"], publisher: { "@id": `${SITE.url}/#person` }, potentialAction: { "@type": "SearchAction", target: `${SITE.url}/?q={search_term_string}`, "query-input": "required name=search_term_string" } },
+  person,
+  ...jsonLd,
+]
 ---
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang={lang} data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{full}</title>
     <meta name="description" content={description} />
+    <meta name="author" content={SITE.author} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#07090d" />
+    <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/icon.png" />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
-    <link rel="alternate" type="application/rss+xml" title="MetaVault" href="/index.xml" />
-    <meta property="og:title" content={full} />
+    <link rel="alternate" type="application/rss+xml" title={SITE.name} href="/index.xml" />
+    <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title === "MetaVault" ? full : title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL("/og-image.png", Astro.site)} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === "uk" ? "uk_UA" : "en_US"} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt ?? title} />
+    {published && <meta property="article:published_time" content={published.toISOString()} />}
+    {type === "article" && <meta property="article:author" content={SITE.url} />}
+    {tags.map((t) => <meta property="article:tag" content={t} />)}
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content={SITE.twitter} />
+    <meta name="twitter:creator" content={SITE.twitter} />
+    <meta name="twitter:title" content={title === "MetaVault" ? full : title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={imageAlt ?? title} />
+    <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@graph": graph })} />
     <script is:inline defer data-domain="dmytrogladkyi.com" src="https://plausible.io/js/script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;750;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <script is:inline>
       try { const t = new URLSearchParams(location.search).get("theme") || localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t } catch {}
+      try { const l = new URLSearchParams(location.search).get("lang") ?? localStorage.getItem("langFilter"); if (l === "en" || l === "uk") document.documentElement.dataset.langFilter = l } catch {}
     </script>
   </head>
   <body>
@@ -39,6 +82,11 @@ const full = title === "MetaVault" ? "Dmytro Gladkyi · MetaVault" : `${title} �
       </nav>
       <div class="sp"></div>
       <button id="open-search" aria-label="Search">⌕ <span class="slabel">search</span> <kbd>ctrl k</kbd></button>
+      <div class="langsw mono" role="group" aria-label="Filter posts by language">
+        <button data-l="" title="All languages">all</button>
+        <button data-l="en" title="English posts only">en</button>
+        <button data-l="uk" title="Лише українською">ua</button>
+      </div>
       <button id="theme" aria-label="Toggle theme">◐</button>
       <span class="clock" id="clock"></span>
     </header>
@@ -52,6 +100,18 @@ const full = title === "MetaVault" ? "Dmytro Gladkyi · MetaVault" : `${title} �
     </footer>
     <Palette />
     <script is:inline>
+      const langBtns = document.querySelectorAll(".langsw button")
+      const markLang = () => langBtns.forEach((b) => b.classList.toggle("on", b.dataset.l === (document.documentElement.dataset.langFilter ?? "")))
+      langBtns.forEach((b) => (b.onclick = () => {
+        const r = document.documentElement
+        const l = b.dataset.l === r.dataset.langFilter ? "" : b.dataset.l // clicking the active one clears it
+        if (l) r.dataset.langFilter = l
+        else delete r.dataset.langFilter
+        try { localStorage.setItem("langFilter", l) } catch {}
+        markLang()
+        dispatchEvent(new Event("langfilter"))
+      }))
+      markLang()
       document.getElementById("theme").onclick = () => {
         const r = document.documentElement
         r.dataset.theme = r.dataset.theme === "light" ? "dark" : "light"

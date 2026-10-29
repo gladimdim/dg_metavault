@@ -10,7 +10,7 @@ export async function getStaticPaths() {
 const { label, notes, others } = Astro.props
 const { tag } = Astro.params
 ---
-<Base title={`#${label}`} active="tags">
+<Base title={`#${label} — articles and notes`} active="tags" image={`/og/tags/${tag}.png`} description={`${notes.length} ${notes.length === 1 ? "note" : "notes"} by Dmytro Gladkyi tagged #${label}: ${notes.slice(0, 3).map((n) => n.data.title).join(" · ")}`}>
   <div class="wrap">
     <Win n="1" path={`~/tags/<em>${label}</em>`} hint={`${notes.length} notes`} class="fade-in active">
       <div class="body">

@@ -1,5 +1,6 @@
 ---
 title: "Generation and Render of 2D Map with Terrain in Dart + Flutter. (De)Serialization of Generated Map. Part 4."
+description: "Part 4 of procedural map generation in Dart and Flutter: serializing the generated terrain map to JSON and restoring it so the game keeps the same world."
 date: 2020-09-14
 tags: ["flutter", "dart"]
 author: "Dmytro Gladkyi"

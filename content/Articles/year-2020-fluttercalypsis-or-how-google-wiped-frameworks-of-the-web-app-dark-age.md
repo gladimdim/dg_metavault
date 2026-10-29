@@ -1,5 +1,6 @@
 ---
 title: "Year 2020: Fluttercalypsis. Or How Google Wiped Frameworks of the Web App Dark Age."
+description: "A satirical prophecy from 2020: how Dart and Flutter could end the churn of JavaScript web frameworks, told as an epic from the 2009 Dart VM to Flutter Web."
 date: 2020-03-26
 tags: ["flutter", "prophecy", "epic"]
 author: "Dmytro Gladkyi"

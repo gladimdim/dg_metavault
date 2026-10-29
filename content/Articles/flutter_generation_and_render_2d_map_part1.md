@@ -1,5 +1,6 @@
 ---
 title: "Generation and Render of 2D Map with Terrain in Dart + Flutter. Part 1."
+description: "Part 1 of procedural 2D map generation in Dart and Flutter: OOP cells and a LinkedList to generate grass and a winding river for the Sloboda city builder."
 date: 2020-09-09
 tags: ["flutter", "dart", "gamedev"]
 author: "Dmytro Gladkyi"

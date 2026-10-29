@@ -1,5 +1,6 @@
 ---
 title: "Dart: How to handle exceptions raised inside Isolates"
+description: "Practical Dart guide to catching errors thrown inside Isolates: spawning workers, wiring onError and exit ports, and getting exceptions back to the main thread."
 date: 2021-12-13
 tags: ["dart", "flutter"]
 author: "Dmytro Gladkyi"
