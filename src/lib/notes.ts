@@ -78,7 +78,6 @@ export const SECTIONS = [
   { id: "Micro", label: "micro", href: "/Micro/" },
   { id: "Topics", label: "topics", href: "/Topics/" },
   { id: "Omarchy", label: "omarchy", href: "/Omarchy/" },
-  { id: "GladRoTools", label: "gladrotools", href: "/GladRoTools/" },
   { id: "tags", label: "tags", href: "/tags/" },
 ]
 
