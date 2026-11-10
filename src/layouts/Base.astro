@@ -74,8 +74,11 @@ const graph = [
         if (theme !== "light" && theme !== "dark") {
           try { theme = localStorage.getItem("theme") } catch {}
         }
-        document.documentElement.dataset.theme = theme === "dark" ? "dark" : "light"
-        document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#202224" : "#ffffff"
+        const preference = theme === "dark" || theme === "light" ? theme : "auto"
+        const resolved = preference === "auto" ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : preference
+        document.documentElement.dataset.themePreference = preference
+        document.documentElement.dataset.theme = resolved
+        document.querySelector('meta[name="theme-color"]').content = resolved === "dark" ? "#202224" : "#ffffff"
       })()
       try { const l = new URLSearchParams(location.search).get("lang") ?? localStorage.getItem("langFilter"); if (l === "en" || l === "uk") document.documentElement.dataset.langFilter = l } catch {}
     </script>
@@ -85,6 +88,9 @@ const graph = [
     <header class="masthead"><a href="/">Dmytro Gladkyi’s MetaVault</a><span>Notes, projects &amp; ideas</span></header>
     <div class="site-layout">
       <aside class="navigation" aria-label="Site navigation">
+        <details class="mobile-menu" open>
+          <summary>Menu &amp; catalogs</summary>
+          <div class="navigation-inner">
         <nav aria-label="Menu">
           <h2>Menu</h2>
           <ul>{SECTIONS.map((s) => <li><a href={s.href} aria-current={active === s.id ? "page" : undefined}>{s.label}</a></li>)}</ul>
@@ -106,6 +112,7 @@ const graph = [
           <button type="button" id="theme-toggle" class="theme-toggle" role="switch" aria-checked="false" aria-label="Dark theme">
             <span>White</span><span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span><span>Dark</span>
           </button>
+          <button type="button" id="theme-auto" class="theme-auto" aria-pressed="true">Use browser setting</button>
         </section>
         <nav aria-label="Elsewhere"><h2>Elsewhere</h2><ul>
           <li><a href="https://github.com/gladimdim">GitHub</a></li>
@@ -114,6 +121,17 @@ const graph = [
           <li><a href="https://apps.apple.com/us/app/gladrotools/id6765629252">Mac App Store</a></li>
           <li><a href="/index.xml">RSS feed</a></li>
         </ul></nav>
+          </div>
+        </details>
+        <script is:inline>
+          (() => {
+            const menu = document.querySelector(".mobile-menu")
+            const phone = matchMedia("(max-width: 760px)")
+            const updateMenu = () => { menu.open = !phone.matches }
+            updateMenu()
+            phone.addEventListener("change", updateMenu)
+          })()
+        </script>
       </aside>
       <main id="content" tabindex="-1"><slot /></main>
       <aside class="context" aria-label="Page information">
@@ -136,21 +154,35 @@ const graph = [
       }))
       markLang()
       const themeToggle = document.getElementById("theme-toggle")
-      const markTheme = () => themeToggle.setAttribute("aria-checked", String(document.documentElement.dataset.theme === "dark"))
-      themeToggle.addEventListener("click", () => {
-        const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark"
-        document.documentElement.dataset.theme = theme
+      const themeAuto = document.getElementById("theme-auto")
+      const browserTheme = matchMedia("(prefers-color-scheme: dark)")
+      const applyTheme = () => {
+        const root = document.documentElement
+        const automatic = root.dataset.themePreference === "auto"
+        const theme = automatic ? (browserTheme.matches ? "dark" : "light") : root.dataset.themePreference
+        root.dataset.theme = theme
         document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#202224" : "#ffffff"
-        try { localStorage.setItem("theme", theme) } catch {}
+        themeToggle.setAttribute("aria-checked", String(theme === "dark"))
+        themeAuto.setAttribute("aria-pressed", String(automatic))
+      }
+      const chooseTheme = (preference) => {
+        document.documentElement.dataset.themePreference = preference
+        try {
+          if (preference === "auto") localStorage.removeItem("theme")
+          else localStorage.setItem("theme", preference)
+        } catch {}
         // A preview query must not override an explicit choice on reload.
         const url = new URL(location.href)
         if (url.searchParams.has("theme")) {
           url.searchParams.delete("theme")
           history.replaceState(null, "", url)
         }
-        markTheme()
-      })
-      markTheme()
+        applyTheme()
+      }
+      themeToggle.addEventListener("click", () => chooseTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"))
+      themeAuto.addEventListener("click", () => chooseTheme("auto"))
+      browserTheme.addEventListener("change", applyTheme)
+      applyTheme()
     </script>
   </body>
 </html>

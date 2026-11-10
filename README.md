@@ -92,4 +92,6 @@ Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site and
 
 The layout uses a left menu and catalogs, central note content, and a right sidebar with tags, heading links, outgoing vault references, and backlinks. References are derived from rendered note links, using the existing Obsidian resolver. On narrow screens the sidebar moves below the content. Existing note, tag, media, and Markdown URLs are unchanged.
 
-The left menu offers White and Dark themes, remembered in browser storage. White is the default; `?theme=dark` or `?theme=light` previews a theme directly. Search, tables, and syntax highlighting follow the selected theme.
+The left menu offers White and Dark themes, remembered in browser storage. The browser’s color preference is the default and follows live changes; the switch saves a manual override, and “Use browser setting” restores automatic mode; `?theme=dark` or `?theme=light` previews a theme directly. Search, tables, and syntax highlighting follow the selected theme.
+
+On phones, Menu & catalogs collapses above the content; videos fit the reading column, and tables/code scroll within it.
