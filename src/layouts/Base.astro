@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css"
-import { SECTIONS } from "../lib/notes"
+import { SECTIONS, bySection, noteUrl } from "../lib/notes"
 import { SITE } from "../lib/site"
 import Palette from "../components/Palette.astro"
 interface Props {
@@ -17,6 +17,7 @@ interface Props {
   alternates?: { lang: string; href: string }[]
 }
 const { title, description = SITE.description, active = "", image = "/og/index.png", imageAlt, type = "website", published, tags = [], lang = "en", jsonLd = [], alternates = [] } = Astro.props
+const topics = await bySection("Topics")
 const full = title === "MetaVault" ? `${SITE.author} — ${SITE.tagline}` : `${title} · MetaVault`
 const canonical = new URL(Astro.url.pathname, Astro.site).href
 const ogImage = new URL(image, Astro.site).href
@@ -28,7 +29,7 @@ const graph = [
 ]
 ---
 <!doctype html>
-<html lang={lang} data-theme="dark">
+<html lang={lang} data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,7 +37,7 @@ const graph = [
     <meta name="description" content={description} />
     <meta name="author" content={SITE.author} />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-    <meta name="theme-color" content="#07090d" />
+    <meta name="theme-color" content="#ffffff" />
     <link rel="canonical" href={canonical} />
     {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
     <link rel="icon" href="/favicon.ico" />
@@ -66,44 +67,64 @@ const graph = [
     <meta name="twitter:image:alt" content={imageAlt ?? title} />
     <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@graph": graph })} />
     <script is:inline defer data-domain="dmytrogladkyi.com" src="https://plausible.io/js/script.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;750;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <script is:inline>
-      try { const t = new URLSearchParams(location.search).get("theme") || localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t } catch {}
+      // Apply before the body paints to avoid a white flash on dark pages.
+      (() => {
+        let theme = new URLSearchParams(location.search).get("theme")
+        if (theme !== "light" && theme !== "dark") {
+          try { theme = localStorage.getItem("theme") } catch {}
+        }
+        document.documentElement.dataset.theme = theme === "dark" ? "dark" : "light"
+        document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#202224" : "#ffffff"
+      })()
       try { const l = new URLSearchParams(location.search).get("lang") ?? localStorage.getItem("langFilter"); if (l === "en" || l === "uk") document.documentElement.dataset.langFilter = l } catch {}
     </script>
   </head>
   <body>
-    <header class="bar">
-      <a class="logo" href="/"><i></i><span class="slabel">gladimdim</span></a>
-      <nav class="ws">
-        {SECTIONS.map((s, i) => (
-          <a href={s.href} class={active === s.id ? "on" : ""}><b>{i + 1}</b><span>{s.label}</span></a>
-        ))}
-      </nav>
-      <div class="sp"></div>
-      <button id="open-search" aria-label="Search">⌕ <span class="slabel">search</span> <kbd>ctrl k</kbd></button>
-      <div class="langsw mono" role="group" aria-label="Filter posts by language">
-        <button data-l="" title="All languages">all</button>
-        <button data-l="en" title="English posts only">en</button>
-        <button data-l="uk" title="Лише українською">ua</button>
-      </div>
-      <button id="theme" aria-label="Toggle theme">◐</button>
-      <span class="clock" id="clock"></span>
-    </header>
-    <main class="desk"><slot /></main>
-    <footer class="foot">
-      <span>© Dmytro Gladkyi</span>
-      <a href="https://t.me/locadesertachumaki">telegram</a>
-      <a href="https://github.com/gladimdim">github</a>
-      <a href="https://gladimdim.github.io/LocaDesertaSciFi">loca deserta sci-fi</a>
-      <span style="margin-left:auto">built with astro · tiled in hyprland spirit · 🇺🇦</span>
-    </footer>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="masthead"><a href="/">Dmytro Gladkyi’s MetaVault</a><span>Notes, projects &amp; ideas</span></header>
+    <div class="site-layout">
+      <aside class="navigation" aria-label="Site navigation">
+        <nav aria-label="Menu">
+          <h2>Menu</h2>
+          <ul>{SECTIONS.map((s) => <li><a href={s.href} aria-current={active === s.id ? "page" : undefined}>{s.label}</a></li>)}</ul>
+        </nav>
+        <nav aria-label="Catalogs">
+          <h2>Catalogs</h2>
+          <ul>
+            <li><a href="/GladRoTools/">GladRoTools</a></li>
+            {topics.map((n) => <li><a href={noteUrl(n.id)}>{n.data.title}</a></li>)}
+          </ul>
+        </nav>
+        <section><h2>Search</h2><button id="open-search">Search the vault</button><small>Ctrl K or /</small><noscript>Browse the catalogs or <a href="/tags/">tags</a> without JavaScript.</noscript></section>
+        <section><h2>Language</h2>
+          <div class="langsw" role="group" aria-label="Filter posts by language">
+            <button data-l="">All</button><button data-l="en">EN</button><button data-l="uk">UA</button>
+          </div>
+        </section>
+        <section><h2>Theme</h2>
+          <button type="button" id="theme-toggle" class="theme-toggle" role="switch" aria-checked="false" aria-label="Dark theme">
+            <span>White</span><span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span><span>Dark</span>
+          </button>
+        </section>
+        <nav aria-label="Elsewhere"><h2>Elsewhere</h2><ul>
+          <li><a href="https://github.com/gladimdim">GitHub</a></li>
+          <li><a href="https://t.me/locadesertachumaki">Telegram</a></li>
+          <li><a href="https://gladimdim.github.io/LocaDesertaSciFi">Loca Deserta Sci-Fi</a></li>
+          <li><a href="https://apps.apple.com/us/app/gladrotools/id6765629252">Mac App Store</a></li>
+          <li><a href="/index.xml">RSS feed</a></li>
+        </ul></nav>
+      </aside>
+      <main id="content" tabindex="-1"><slot /></main>
+      <aside class="context" aria-label="Page information">
+        <slot name="sidebar"><section><h2>About this vault</h2><p>Notes on games, software and writing, by Dmytro Gladkyi.</p><p>Follow links between notes or browse the <a href="/tags/">tag index</a>.</p></section></slot>
+      </aside>
+    </div>
+    <footer class="foot">© Dmytro Gladkyi · <a href="/">Home</a> · <a href="/index.xml">RSS</a></footer>
     <Palette />
     <script is:inline>
       const langBtns = document.querySelectorAll(".langsw button")
-      const markLang = () => langBtns.forEach((b) => b.classList.toggle("on", b.dataset.l === (document.documentElement.dataset.langFilter ?? "")))
+      const markLang = () => langBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.l === (document.documentElement.dataset.langFilter ?? ""))))
       langBtns.forEach((b) => (b.onclick = () => {
         const r = document.documentElement
         const l = b.dataset.l === r.dataset.langFilter ? "" : b.dataset.l // clicking the active one clears it
@@ -114,14 +135,22 @@ const graph = [
         dispatchEvent(new Event("langfilter"))
       }))
       markLang()
-      document.getElementById("theme").onclick = () => {
-        const r = document.documentElement
-        r.dataset.theme = r.dataset.theme === "light" ? "dark" : "light"
-        try { localStorage.setItem("theme", r.dataset.theme) } catch {}
-      }
-      const c = document.getElementById("clock")
-      const tick = () => (c.textContent = new Date().toLocaleString("en-GB", { weekday: "short", day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }).replace(",", ""))
-      tick(); setInterval(tick, 20000)
+      const themeToggle = document.getElementById("theme-toggle")
+      const markTheme = () => themeToggle.setAttribute("aria-checked", String(document.documentElement.dataset.theme === "dark"))
+      themeToggle.addEventListener("click", () => {
+        const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark"
+        document.documentElement.dataset.theme = theme
+        document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#202224" : "#ffffff"
+        try { localStorage.setItem("theme", theme) } catch {}
+        // A preview query must not override an explicit choice on reload.
+        const url = new URL(location.href)
+        if (url.searchParams.has("theme")) {
+          url.searchParams.delete("theme")
+          history.replaceState(null, "", url)
+        }
+        markTheme()
+      })
+      markTheme()
     </script>
   </body>
 </html>

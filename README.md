@@ -59,7 +59,7 @@ Check a preview after deploying with the [Telegram bot @WebpageBot](https://t.me
 
 ## Language filter
 
-The `en | ua` switch in the top bar filters article cards and micro-posts on every page and is remembered in the browser; `?lang=en` / `?lang=uk` sets it from a link. Micro posts use the `language: "🇺🇸"` / `"🇺🇦"` frontmatter flag, other notes are detected from the text.
+The `en | ua` switch in the left menu filters article cards and micro-posts on every page and is remembered in the browser; `?lang=en` / `?lang=uk` sets it from a link. Micro posts use the `language: "🇺🇸"` / `"🇺🇦"` frontmatter flag, other notes are detected from the text.
 
 ## Translations
 
@@ -82,10 +82,14 @@ src/integrations/media.ts  serves/copies vault images under /media/
 src/pages/               home, note/section pages, tags, og/ images, llms.txt, .md twins, search.json, RSS, sitemap
 src/lib/site.ts          site identity, tagline and profiles used by meta tags and JSON-LD
 src/lib/og.ts            social preview card renderer
-src/components/, src/layouts/, src/styles/   the "tiling WM" design
+src/components/, src/layouts/, src/styles/   the classic three-column layout
 public/                  favicon, CNAME, robots.txt
 ```
 
 ## Deploy
 
 Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site and publishes `dist/` to GitHub Pages (custom domain `dmytrogladkyi.com`).
+
+The layout uses a left menu and catalogs, central note content, and a right sidebar with tags, heading links, outgoing vault references, and backlinks. References are derived from rendered note links, using the existing Obsidian resolver. On narrow screens the sidebar moves below the content. Existing note, tag, media, and Markdown URLs are unchanged.
+
+The left menu offers White and Dark themes, remembered in browser storage. White is the default; `?theme=dark` or `?theme=light` previews a theme directly. Search, tables, and syntax highlighting follow the selected theme.
