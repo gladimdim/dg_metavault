@@ -40,6 +40,7 @@ p { margin: 0 0 16px; }
 .masthead > a { color: var(--heading); font-weight: bold; font-size: 23px; text-decoration: none; }
 .masthead > span { color: var(--muted); font-size: 14px; }
 .site-layout { display: grid; grid-template-columns: 190px minmax(0, 1fr) 245px; max-width: 1440px; margin: auto; background: var(--panel); min-height: 80vh; }
+.site-layout-wide { grid-template-columns: 190px minmax(0, 1fr); }
 .navigation, .context { padding: 20px 18px; font: 14px/1.55 Verdana, Arial, sans-serif; overflow-wrap: anywhere; }
 .navigation { background: var(--nav); border-right: 1px solid var(--line); }
 .context { background: var(--aside); border-left: 1px solid var(--line); }

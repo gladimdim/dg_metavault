@@ -7,6 +7,7 @@ interface Props {
   title: string
   description?: string
   active?: string
+  wide?: boolean
   image?: string // og image path, defaults to the site card
   imageAlt?: string
   type?: "website" | "article" | "profile"
@@ -16,7 +17,7 @@ interface Props {
   jsonLd?: Record<string, unknown>[]
   alternates?: { lang: string; href: string }[]
 }
-const { title, description = SITE.description, active = "", image = "/og/index.png", imageAlt, type = "website", published, tags = [], lang = "en", jsonLd = [], alternates = [] } = Astro.props
+const { title, description = SITE.description, active = "", wide = false, image = "/og/index.png", imageAlt, type = "website", published, tags = [], lang = "en", jsonLd = [], alternates = [] } = Astro.props
 const topics = await bySection("Topics")
 const full = title === "MetaVault" ? `${SITE.author} — ${SITE.tagline}` : `${title} · MetaVault`
 const canonical = new URL(Astro.url.pathname, Astro.site).href
@@ -86,7 +87,7 @@ const graph = [
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
     <header class="masthead"><a href="/">Dmytro Gladkyi’s MetaVault</a><span>Notes, projects &amp; ideas</span></header>
-    <div class="site-layout">
+    <div class:list={["site-layout", { "site-layout-wide": wide }]}>
       <aside class="navigation" aria-label="Site navigation">
         <details class="mobile-menu" open>
           <summary>Menu &amp; catalogs</summary>
@@ -134,9 +135,9 @@ const graph = [
         </script>
       </aside>
       <main id="content" tabindex="-1"><slot /></main>
-      <aside class="context" aria-label="Page information">
+      {!wide && <aside class="context" aria-label="Page information">
         <slot name="sidebar"><section><h2>About this vault</h2><p>Notes on games, software and writing, by Dmytro Gladkyi.</p><p>Follow links between notes or browse the <a href="/tags/">tag index</a>.</p></section></slot>
-      </aside>
+      </aside>}
     </div>
     <footer class="foot">© Dmytro Gladkyi · <a href="/">Home</a> · <a href="/index.xml">RSS</a></footer>
     <Palette />

@@ -74,6 +74,7 @@ export async function related(n: Note, k = 3) {
 
 export const SECTIONS = [
   { id: "", label: "home", href: "/" },
+  { id: "games", label: "games", href: "/games/" },
   { id: "Articles", label: "articles", href: "/Articles/" },
   { id: "Micro", label: "micro", href: "/Micro/" },
   { id: "Topics", label: "topics", href: "/Topics/" },

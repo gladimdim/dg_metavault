@@ -1,0 +1,129 @@
+---
+import Base from "../layouts/Base.astro"
+import { gamesNewestFirst as games, gamesDescription } from "../data/games"
+import { SITE } from "../lib/site"
+import "../styles/games.css"
+const years = [...new Set(games.map((game) => game.year))]
+const jsonLd = [{
+  "@type": "CollectionPage", name: "Games by Dmytro Gladkyi", url: `${SITE.url}/games/`, description: gamesDescription,
+  mainEntity: { "@type": "ItemList", itemListElement: games.map((game, index) => ({
+    "@type": "ListItem", position: index + 1,
+    item: { "@type": "VideoGame", name: game.title, url: game.website, description: game.description,
+      image: `${SITE.url}${game.image}`, genre: game.genre, creator: { "@id": `${SITE.url}/#person` } },
+  })) },
+}]
+---
+<Base title="Games" description={gamesDescription} active="games" wide image="/og/games.png" jsonLd={jsonLd}>
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / Games</nav>
+  <header class="games-hero">
+    <div class="games-hero-copy">
+      <p class="games-eyebrow">Dmytro Gladkyi / Game developer</p>
+      <h1>A few ideas.<br />A whole <em>universe.</em></h1>
+      <p>From the first branching story to Cossack settlements, sabre duels and distant colonies. These are the games I’ve been building since 2019.</p>
+      <a class="games-button" href="#timeline">Explore the timeline <span aria-hidden="true">↓</span></a>
+      <div class="hero-facts"><span><strong>{games.length}</strong> games &amp; worlds</span><span><strong>2019—now</strong> made in Ukraine</span></div>
+    </div>
+    <figure class="games-hero-media">
+      <img src="/images/games/universe.webp" alt="A collage of gameplay from SICHA, DefendUS, Valka, Settlers and Odesa" width="1400" height="788" fetchpriority="high" />
+      <figcaption><span>One creator. Many ways to play.</span><a href="https://locadeserta.com/">Loca Deserta ↗</a></figcaption>
+    </figure>
+  </header>
+
+  <section class="game-archive" id="timeline" aria-labelledby="timeline-heading">
+    <div class="timeline-heading">
+      <div><p class="games-eyebrow">The game shelf</p><h2 id="timeline-heading">Every game is a new chapter.</h2></div>
+      <p>First releases, newest to oldest.<br />Unreleased projects appear under their development year.</p>
+    </div>
+    <nav class="year-nav" aria-label="Jump to a year">{years.map((year) => <a href={`#year-${year}`}>{year}</a>)}</nav>
+    <div class="game-controls" hidden>
+      <div role="group" aria-label="Filter games"><button type="button" data-filter="all" aria-pressed="true">All games <span>{games.length}</span></button><button type="button" data-filter="playable" aria-pressed="false">Available to play</button><button type="button" data-filter="development" aria-pressed="false">In development</button></div>
+      <p id="game-count" role="status" aria-live="polite">Showing all {games.length} games</p>
+    </div>
+    {years.map((year) => <section class="game-year" id={`year-${year}`} aria-labelledby={`heading-${year}`}>
+      <div class="year-label"><h3 id={`heading-${year}`}>{year}</h3><span aria-hidden="true">↘</span></div>
+      <div class="game-grid">
+        {games.filter((game) => game.year === year).map((game) => <article class="game-card" id={game.id} data-state={game.status === "Released" ? "playable" : "development"} aria-labelledby={`title-${game.id}`}>
+          <div class="game-media">
+            <img src={game.image} alt={game.imageAlt} loading="lazy" width="1400" height="788" />
+            {game.video && <button class="video-trigger" type="button" data-video={game.video} data-poster={game.image} data-title={game.title} aria-label={`Watch ${game.title} gameplay`} hidden><span aria-hidden="true">▶</span> Watch gameplay</button>}
+          </div>
+          <div class="game-body">
+            <div class="game-meta"><span>{game.genre}</span><span class:list={["game-status", { "status-development": game.status === "In development" || game.status === "Pre-registration" }]}>{game.status}</span></div>
+            <h4 id={`title-${game.id}`}>{game.title}</h4>
+            <p class="game-period">{game.period}</p>
+            <p class="game-description">{game.description}</p>
+            <ul class="game-platforms" aria-label="Platforms">{game.platforms.map((platform) => <li>{platform}</li>)}</ul>
+            <div class="game-actions"><a class="game-website" href={game.website}>Visit game site <span aria-hidden="true">↗</span></a>{game.play && <a href={game.play}>Play in browser ↗</a>}{game.trailer && <a href={game.trailer}>Watch trailer ↗</a>}</div>
+            {game.video && <noscript><p><a href={game.video}>Watch gameplay video ↗</a></p></noscript>}
+          </div>
+        </article>)}
+      </div>
+    </section>)}
+  </section>
+
+  <aside class="game-footnote">
+    <div><p class="games-eyebrow">Behind the worlds</p><h2>There’s a story behind the games, too.</h2><p>Design decisions, experiments and the things I learned along the way.</p><a href="/Topics/game-development/">Read my game development notes →</a></div>
+    <div><p class="games-eyebrow">Keep exploring</p><h2>The Loca Deserta universe</h2><p>Visit the main portal for game news, stores, books and the Star Hetmanate’s science-fiction world.</p><a href="https://locadeserta.com/">Explore Loca Deserta ↗</a></div>
+  </aside>
+  <p class="timeline-note">Early release dates follow the first App Store releases. Current projects and availability were checked against the <a href="https://locadeserta.com/">official catalog</a> in November 2026.</p>
+
+  <dialog class="game-video-dialog" aria-labelledby="video-title">
+    <div class="video-dialog-header"><h2 id="video-title">Gameplay</h2><form method="dialog"><button type="submit" aria-label="Close gameplay video">Close <span aria-hidden="true">×</span></button></form></div>
+    <div id="video-container"></div>
+    <p><a id="video-direct" href="https://locadeserta.com/">Open video directly ↗</a></p>
+  </dialog>
+  <script>
+    const controls = document.querySelector<HTMLElement>(".game-controls")!
+    controls.hidden = false
+    const cards = [...document.querySelectorAll<HTMLElement>(".game-card")]
+    const groups = [...document.querySelectorAll<HTMLElement>(".game-year")]
+    const filters = [...document.querySelectorAll<HTMLButtonElement>("[data-filter]")]
+    const filterGames = (filter: string) => {
+      cards.forEach((card) => { card.hidden = filter !== "all" && card.dataset.state !== filter })
+      groups.forEach((group) => { group.hidden = !group.querySelector(".game-card:not([hidden])") })
+      filters.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.filter === filter)))
+      document.querySelectorAll<HTMLAnchorElement>(".year-nav a").forEach((link) => {
+        link.hidden = document.querySelector<HTMLElement>(link.hash)?.hidden ?? false
+      })
+      const count = cards.filter((card) => !card.hidden).length
+      document.getElementById("game-count")!.textContent = filter === "all" ? `Showing all ${count} games` : `Showing ${count} games`
+    }
+    filters.forEach((button) => button.addEventListener("click", () => filterGames(button.dataset.filter!)))
+    // A direct game link should still work after changing filters.
+    window.addEventListener("hashchange", () => {
+      const card = cards.find((item) => `#${item.id}` === location.hash)
+      if (card?.hidden) { filterGames("all"); card.scrollIntoView() }
+    })
+    const dialog = document.querySelector<HTMLDialogElement>(".game-video-dialog")!
+    const container = document.getElementById("video-container")!
+    document.querySelectorAll<HTMLButtonElement>(".video-trigger").forEach((button) => {
+      button.hidden = false
+      button.addEventListener("click", () => {
+        const video = document.createElement("video")
+        video.src = button.dataset.video!
+        video.poster = button.dataset.poster!
+        video.controls = true
+        video.playsInline = true
+        video.preload = "metadata"
+        video.setAttribute("aria-label", `${button.dataset.title} gameplay`)
+        container.replaceChildren(video)
+        document.getElementById("video-title")!.textContent = `${button.dataset.title} — gameplay`
+        document.querySelector<HTMLAnchorElement>("#video-direct")!.href = video.src
+        dialog.showModal()
+        document.body.style.overflow = "hidden"
+        video.play().catch(() => { /* Native controls remain available if playback is blocked. */ })
+      })
+    })
+    dialog.addEventListener("close", () => {
+      const video = container.querySelector("video")
+      if (video) { video.pause(); video.removeAttribute("src"); video.load() }
+      container.replaceChildren()
+      document.body.style.overflow = ""
+    })
+    dialog.addEventListener("click", (event) => {
+      if (event.target !== dialog) return
+      const bounds = dialog.getBoundingClientRect()
+      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close()
+    })
+  </script>
+</Base>

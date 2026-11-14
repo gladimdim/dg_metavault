@@ -1,0 +1,37 @@
+---
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props
+---
+<section class:list={["omarchy-feature", { compact }]} aria-labelledby="omarchy-feature-title">
+  <div class="omarchy-copy">
+    <p class="project-eyebrow"><span aria-hidden="true">⌘</span> Built for Omarchy</p>
+    <h2 id="omarchy-feature-title">My desktop.<br />My workshop.</h2>
+    <p>I build tools that make Omarchy feel like home: SUPER DESKTOP for AI agents, Omakey for phone-to-PC input, AI quotas on your wrist, and plugins and themes for the everyday details.</p>
+    <a class="project-button" href="https://omarchy.dmytrogladkyi.com/">Explore my Omarchy work <span aria-hidden="true">↗</span></a>
+    <span class="omarchy-domain">omarchy.dmytrogladkyi.com</span>
+  </div>
+  <figure class="omarchy-preview">
+    <div class="window-chrome" aria-hidden="true"><span>● ● ●</span><span>SUPER DESKTOP / Omarchy</span></div>
+    <a href="https://omarchy.dmytrogladkyi.com/" aria-label="Explore Omarchy apps, plugins and themes"><img src="/images/omarchy-desktop.webp" alt="SUPER DESKTOP running on Omarchy with live AI terminal cards and sticky notes" width="1400" height="788" loading="lazy" /></a>
+    <figcaption>Apps, plugins, watch faces &amp; themes.</figcaption>
+  </figure>
+</section>
+<style>
+  .omarchy-feature { background: #152e2b; color: #eaf1e6; padding: clamp(22px, 4vw, 42px); display: grid; grid-template-columns: 1fr 1.1fr; gap: 30px; align-items: center; margin: 28px 0; border: 1px solid #3d5550; }
+  .project-eyebrow { font: 11px/1.5 Verdana, sans-serif; text-transform: uppercase; letter-spacing: .14em; color: #b9d2b1; margin-bottom: 20px; }
+  h2 { font: normal clamp(30px, 3.5vw, 48px)/1.06 Georgia, serif; color: #f3f3df; letter-spacing: -.035em; margin: 0 0 20px; }
+  .omarchy-copy > p:not(.project-eyebrow) { color: #d1dfd5; font-size: 16px; line-height: 1.65; }
+  .project-button, .project-button:visited { display: inline-flex; gap: 16px; align-items: center; padding: 12px 16px; background: #e3eabf; color: #152e2b; font: bold 12px/1.5 Verdana, sans-serif; text-decoration: none; }
+  .project-button:hover { background: #f6f7df; }
+  .project-button:focus-visible, .omarchy-preview a:focus-visible { outline-color: #f6f7df; }
+  .omarchy-domain { display: block; font: 11px/1.5 'Courier New', monospace; color: #b9d2b1; margin-top: 12px; overflow-wrap: anywhere; }
+  figure { margin: 0; min-width: 0; }
+  .window-chrome { display: flex; justify-content: space-between; gap: 12px; padding: 9px 12px; background: #0f211f; color: #b9d2b1; border: 1px solid #4b6258; border-bottom: 0; font: 10px/1.5 'Courier New', monospace; }
+  .window-chrome > span:first-child { letter-spacing: 3px; }
+  .omarchy-preview a { display: block; }
+  img { display: block; width: 100%; height: auto; border: 1px solid #4b6258; }
+  figcaption { font: 11px/1.5 Verdana, sans-serif; margin-top: 12px; color: #b9cbbb; }
+  .compact { grid-template-columns: 1fr; }
+  .compact .omarchy-preview { max-width: 650px; }
+  @media (max-width: 1150px) { .omarchy-feature { grid-template-columns: 1fr; } }
+</style>

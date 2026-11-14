@@ -27,7 +27,11 @@ Curated entry points for Flutter, Unity, Roblox, GladRoTools, and game developme
 
 ## Omarchy stuff
 
-Public [Omarchy](https://omarchy.org/) tools, plugins, watch apps and Loca Deserta themes I maintain — SUPER DESKTOP, config sync, hardware info, AI usage on your wrist (Wear OS, Galaxy Watch, Garmin), reminders, air-raid alerts, and desktop themes. [[Omarchy/index|See the list →]]
+Public [Omarchy](https://omarchy.org/) tools, plugins, watch apps and Loca Deserta themes I maintain — SUPER DESKTOP, Omakey, config sync, hardware info, AI usage on your wrist, reminders, air-raid alerts, and desktop themes. [Explore my Omarchy portfolio →](https://omarchy.dmytrogladkyi.com/) · [[Omarchy/index|Omarchy overview]]
+
+## [Games](/games/)
+
+My mobile and Steam games in chronological order: from the first Loca Deserta interactive stories to Sloboda, Chumaki, Odesa, SICHA and new worlds in development. [Explore the games, previews and videos →](/games/)
 
 ## [Всесвіт Loca Deserta Sci-Fi](https://gladimdim.github.io/LocaDesertaSciFi)
 

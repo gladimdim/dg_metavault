@@ -22,6 +22,8 @@ ${sections.map((n) => `- [${n.data.title}](${abs(n.id)}): ${summary(n)}`).join("
 
 ## Projects
 
+- [Games](${new URL("/games.md", site).href}): A chronological portfolio of Dmytro Gladkyi’s mobile and Steam games, with previews, gameplay videos and dedicated game sites.
+- [Omarchy portfolio](https://omarchy.dmytrogladkyi.com/): Apps, plugins, watch faces and themes for Omarchy.
 ${await list("Omarchy") || `- [Omarchy tools](${abs("Omarchy")}): SUPER DESKTOP, plugins, watch apps and themes for Omarchy.`}
 - [SUPER DESKTOP](https://superdesktop.dmytrogladkyi.com/): hidden overlay workspace for Hyprland/Omarchy with sticky notes and AI agent terminal cards (Claude Code, Codex), plus an Android app to drive agent sessions from a phone.
 - [GladRoTools](${abs("GladRoTools")}): native macOS companion app for Roblox Studio — asset audits, media tools, map renders.

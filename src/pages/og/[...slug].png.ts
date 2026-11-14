@@ -2,6 +2,7 @@ import type { APIRoute } from "astro"
 import { allNotes, fmtDate, imageOf, summary, tagIndex, visibleTags } from "../../lib/notes"
 import { renderCard, type Card } from "../../lib/og"
 import { SITE } from "../../lib/site"
+import { gamesDescription } from "../../data/games"
 
 export async function getStaticPaths() {
   const cards: { params: { slug: string }; props: Card }[] = []
@@ -22,6 +23,7 @@ export async function getStaticPaths() {
     })
   }
   const tags = await tagIndex()
+  cards.push({ params: { slug: "games" }, props: { path: "~/games/", title: "A few ideas. A whole universe.", kicker: "Games by Dmytro Gladkyi · 2019—now", description: gamesDescription, tags: ["games", "Loca Deserta", "Ukraine"] } })
   cards.push({ params: { slug: "tags" }, props: { path: "~/tags/", title: "Tags", kicker: `${tags.length} tags`, description: "Every topic on MetaVault: games, AI, Flutter, Unity, Roblox tools and more.", tags: tags.slice(0, 4).map(([, v]) => v.label) } })
   for (const [k, v] of tags)
     cards.push({ params: { slug: `tags/${k}` }, props: { path: `~/tags/${k}/`, title: `#${v.label}`, kicker: `${v.notes.length} notes`, description: v.notes.slice(0, 3).map((n) => n.data.title).join(" · ") } })

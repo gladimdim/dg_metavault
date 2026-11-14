@@ -4,6 +4,7 @@ export async function GET({ site }: { site: URL }) {
   const urls = [
     ...(await allNotes()).map((n) => noteUrl(n.id)),
     "/tags/",
+    "/games/",
     ...(await tagIndex()).map(([k]) => `/tags/${encodeURIComponent(k)}/`),
   ]
   const body = urls.map((u) => `<url><loc>${new URL(u, site).href}</loc></url>`).join("")

@@ -1,6 +1,8 @@
 ---
 import Base from "../layouts/Base.astro"
 import Card from "../components/Card.astro"
+import GamesFeature from "../components/GamesFeature.astro"
+import OmarchyFeature from "../components/OmarchyFeature.astro"
 import { bySection, tagIndex } from "../lib/notes"
 const articles = await bySection("Articles")
 const micro = await bySection("Micro")
@@ -9,7 +11,9 @@ const tags = await tagIndex()
 <Base title="MetaVault">
   <h1>Welcome to MetaVault</h1>
   <p>I’m Dmytro Gladkyi. This is my notebook on making games, building software, and writing science fiction.</p>
-  <p>Browse a catalog on the left, or start with a recent note below.</p>
+  <p>Explore the worlds I make and the tools I build, or settle in with a recent note.</p>
+  <GamesFeature />
+  <OmarchyFeature />
   <h2>Latest articles</h2>
   <div class="note-list">{articles.slice(0, 18).map((note) => <Card note={note} />)}</div>
   <p><a href="/Articles/">Browse all articles →</a></p>
@@ -19,6 +23,8 @@ const tags = await tagIndex()
   <Fragment slot="sidebar">
     <section><h2>Browse by tag</h2><ul>{tags.slice(0, 20).map(([slug, tag]) => <li><a href={`/tags/${slug}/`}>{tag.label}</a></li>)}</ul><a href="/tags/">All tags →</a></section>
     <section><h2>Projects &amp; writing</h2><ul>
+      <li><a href="/games/">Games: the full timeline</a></li>
+      <li><a href="https://omarchy.dmytrogladkyi.com/">My Omarchy portfolio ↗</a></li>
       <li><a href="/Omarchy/">Omarchy projects</a></li>
       <li><a href="/GladRoTools/">GladRoTools documentation</a></li>
       <li><a href="https://gladimdim.github.io/LocaDesertaSciFi">Loca Deserta Sci-Fi</a></li>

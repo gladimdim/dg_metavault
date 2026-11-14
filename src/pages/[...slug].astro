@@ -3,7 +3,8 @@ import { render } from "astro:content"
 import Base from "../layouts/Base.astro"
 import { connections } from "../lib/connections"
 import Card from "../components/Card.astro"
-import { allNotes, bySection, related, noteUrl, fmtDate, visibleTags, tagSlug, summary, ogUrl, langOf, counterpart, type Note } from "../lib/notes"
+import "../styles/omarchy.css"
+import { allNotes, bySection, related, noteUrl, fmtDate, visibleTags, tagIndex, tagSlug, summary, ogUrl, langOf, counterpart, type Note } from "../lib/notes"
 import { SITE } from "../lib/site"
 
 export async function getStaticPaths() {
@@ -15,6 +16,7 @@ const { note } = Astro.props as { note: Note }
 const { Content, headings } = await render(note)
 const d = note.data
 const section = d.section
+const isOmarchy = note.id === "Omarchy"
 const isSection = d.isIndex && note.id === section
 // Articles/Micro index bodies are hand-maintained tables — replaced by the generated listing below
 const listingOnly = isSection && (section === "Articles" || section === "Micro")
@@ -22,6 +24,8 @@ const children = isSection ? await bySection(section) : []
 const { outgoing, incoming } = await connections(note)
 const rel = d.isIndex ? [] : await related(note)
 const tags = visibleTags(note)
+// Index-only tags have no generated tag page; retain them as plain labels.
+const availableTags = new Set((await tagIndex()).map(([slug]) => slug))
 const firstH1 = headings.find((h) => h.depth === 1)
 const hideH1 = !!firstH1 && headings[0] === firstH1 && firstH1.text.trim() === d.title.trim()
 const toc = headings.filter((h) => h.depth <= 3 && !(hideH1 && h === firstH1))
@@ -59,19 +63,19 @@ const pageLd = isSection
       ...(twin ? { [d.translationOf ? "translationOfWork" : "workTranslation"]: { "@id": twinUrl } } : {}),
     }
 ---
-<Base title={d.title} description={desc} active={section} image={ogUrl(note.id)} imageAlt={`${d.title} — ${SITE.author}`} type={isSection || d.isIndex ? "website" : "article"} published={d.isIndex ? undefined : d.date} tags={tags} lang={lang} alternates={alternates} jsonLd={[pageLd, crumbLd]}>
+<Base title={d.title} description={desc} active={section} wide={isOmarchy} image={ogUrl(note.id)} imageAlt={`${d.title} — ${SITE.author}`} type={isSection || d.isIndex ? "website" : "article"} published={d.isIndex ? undefined : d.date} tags={tags} lang={lang} alternates={alternates} jsonLd={[pageLd, crumbLd]}>
   <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href={noteUrl(section || "index")}>{section || "Notes"}</a></nav>
-  <header class="article-header">
+  {!isOmarchy && <header class="article-header">
     <h1>{d.title}</h1>
     {!d.isIndex && d.date && <time datetime={d.date.toISOString()}>{fmtDate(d.date)}</time>}
     {d.description && <p>{d.description}</p>}
     {twin && <p><a href={noteUrl(twin.id)} hreflang={langOf(twin)} lang={langOf(twin)}>{langOf(twin) === "en" ? "Read in English" : "Читати українською"}</a></p>}
-  </header>
-  {!listingOnly && <article class:list={["prose", { "hide-h1": hideH1 }]}><Content /></article>}
+  </header>}
+  {!listingOnly && <article class:list={["prose", { "hide-h1": hideH1 && !isOmarchy, "omarchy-intro": isOmarchy }]}><Content /></article>}
   {children.length > 0 && <section><h2>{listingOnly ? "Notes" : "In this catalog"}</h2><div class="note-list">{children.map((n) => <Card note={n} />)}</div></section>}
   <Fragment slot="sidebar">
     {toc.length > 0 && !listingOnly && <section><h2>On this page</h2><nav class="toc" aria-label="Table of contents"><ul>{toc.map((h) => <li class={`depth-${h.depth}`}><a href={`#${h.slug}`}>{h.text}</a></li>)}</ul></nav></section>}
-    {tags.length > 0 && <section><h2>Tags</h2><ul>{tags.map((t) => <li><a href={`/tags/${tagSlug(t)}/`}>{t}</a></li>)}</ul></section>}
+    {tags.length > 0 && <section><h2>Tags</h2><ul>{tags.map((t) => <li>{availableTags.has(tagSlug(t)) ? <a href={`/tags/${tagSlug(t)}/`}>{t}</a> : t}</li>)}</ul></section>}
     <section><h2>References</h2>{outgoing.length ? <ul>{outgoing.map((n) => <li><a href={noteUrl(n.id)}>{n.data.title}</a></li>)}</ul> : <p>No links to other notes.</p>}</section>
     <section><h2>Linked from</h2>{incoming.length ? <ul>{incoming.map((n) => <li><a href={noteUrl(n.id)}>{n.data.title}</a></li>)}</ul> : <p>No other notes link here yet.</p>}</section>
     {rel.length > 0 && <section><h2>Related notes</h2><ul>{rel.map((n) => <li><a href={noteUrl(n.id)}>{n.data.title}</a></li>)}</ul></section>}

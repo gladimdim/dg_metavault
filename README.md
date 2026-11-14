@@ -74,6 +74,12 @@ Both pages then link to each other ("read in english" / "читати украї
 
 ## Layout
 
+The homepage features Games and Omarchy. `/games/` is a chronological portfolio of mobile and Steam games, maintained in `src/data/games.ts`. It includes released games and clearly labeled projects in development; Fortnite, Roblox and early prototypes are outside this catalog. Initial release years for the first six games were checked against Apple's lookup API; the official Loca Deserta catalog and individual game sites supply current project status.
+
+Game preview images in `public/images/games/` are optimized WebP copies of artwork from the author's Loca Deserta sites. The Settlers image comes from its official gameplay clip; the Omarchy image is a resized copy of the existing vault screenshot. Videos stream from the author's game sites only after a visitor chooses to play. Native controls, Escape-to-close and direct video links are available. The new catalog also feeds search, the sitemap, `/games.md`, AI discovery files and its social preview card.
+
+The Omarchy feature and `/Omarchy/` page link to [omarchy.dmytrogladkyi.com](https://omarchy.dmytrogladkyi.com/). The local page is a brief introduction with SUPER DESKTOP screenshots; the dedicated site holds the full project collection. The theme montage is copied from SUPER DESKTOP’s `docs/screenshots/readme-themes.webp`.
+
 ```
 content/                 Obsidian vault (the only thing you edit to publish)
 src/lib/obsidian.ts      Obsidian → Markdown conversion (links, embeds, frontmatter)

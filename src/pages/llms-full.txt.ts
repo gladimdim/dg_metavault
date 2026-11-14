@@ -1,5 +1,6 @@
 import { allNotes, noteUrl, fmtDate, summary, visibleTags } from "../lib/notes"
 import { SITE } from "../lib/site"
+import { gamesMarkdown } from "../lib/games-markdown"
 
 // every note as Markdown in one file, for AI assistants
 export async function GET({ site }: { site: URL }) {
@@ -18,6 +19,7 @@ export async function GET({ site }: { site: URL }) {
       .filter((l, i) => l !== "" || i === 1 || i === 6)
       .join("\n"),
   )
+  parts.push(gamesMarkdown())
   return new Response(`# ${SITE.name}\n\n> ${SITE.description}\n\n---\n\n${parts.join("\n\n---\n\n")}\n`, {
     headers: { "content-type": "text/plain; charset=utf-8" },
   })

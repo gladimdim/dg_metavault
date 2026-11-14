@@ -1,0 +1,30 @@
+.omarchy-intro .omarchy-portal,
+.omarchy-intro .omarchy-portal:visited {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 28px;
+  border: 1px solid #52624c;
+  border-left: 4px solid #e5cf8e;
+  background: #152e2b;
+  color: #f0f1dc;
+  text-decoration: none;
+}
+.omarchy-intro .omarchy-portal:hover { background: #203e37; color: #fff5d3; }
+.omarchy-intro .omarchy-portal:focus-visible { outline: 3px solid var(--c1); outline-offset: 4px; }
+.omarchy-portal-label { display: block; margin-bottom: 6px; color: #c5d6bd; font: 11px/1.5 Verdana, sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+.omarchy-portal strong { display: block; font: normal clamp(20px, 2.8vw, 32px)/1.3 Georgia, serif; overflow-wrap: anywhere; }
+.omarchy-portal-arrow { flex: 0 0 auto; color: #e5cf8e; font: 34px/1 Georgia, serif; }
+.prose.omarchy-intro h1 { font: normal clamp(32px, 4vw, 48px)/1.1 Georgia, serif; letter-spacing: -.03em; color: var(--heading); margin: 32px 0 18px; }
+.prose.omarchy-intro h2 { font: normal 26px/1.2 Georgia, serif; color: var(--heading); margin-top: 32px; }
+.omarchy-intro > p { max-width: 760px; color: var(--dim); }
+.omarchy-intro figure { margin: 24px 0 32px; }
+.omarchy-intro figure a { display: block; }
+.omarchy-intro figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+.omarchy-intro figcaption { margin-top: 10px; font: 12px/1.6 Verdana, sans-serif; color: var(--muted); }
+@media (max-width: 760px) {
+  .omarchy-intro .omarchy-portal { padding: 20px 18px; gap: 12px; }
+  .omarchy-portal-label { font-size: 10px; letter-spacing: .06em; }
+  .omarchy-portal-arrow { font-size: 27px; }
+}
