@@ -53,7 +53,7 @@ const jsonLd = [{
             <p class="game-period">{game.period}</p>
             <p class="game-description">{game.description}</p>
             <ul class="game-platforms" aria-label="Platforms">{game.platforms.map((platform) => <li>{platform}</li>)}</ul>
-            <div class="game-actions"><a class="game-website" href={game.website}>Visit game site <span aria-hidden="true">↗</span></a>{game.play && <a href={game.play}>Play in browser ↗</a>}{game.trailer && <a href={game.trailer}>Watch trailer ↗</a>}</div>
+            <div class="game-actions"><a class="game-website" href={game.website}>Visit game site <span aria-hidden="true">↗</span></a>{game.play && <a href={game.play}>Play in browser ↗</a>}{game.googlePlay && <a href={game.googlePlay}>Get it on Google Play ↗</a>}{game.trailer && <a href={game.trailer}>Watch trailer ↗</a>}</div>
             {game.video && <noscript><p><a href={game.video}>Watch gameplay video ↗</a></p></noscript>}
           </div>
         </article>)}

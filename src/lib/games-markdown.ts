@@ -16,5 +16,5 @@ ${game.description}
 
 Platforms: ${game.platforms.join(", ")}.
 
-[Official game site](${game.website})${game.play ? ` · [Play in browser](${game.play})` : ""}${game.video || game.trailer ? ` · [Watch gameplay](${game.video || game.trailer})` : ""}`).join("\n\n")}
+[Official game site](${game.website})${game.play ? ` · [Play in browser](${game.play})` : ""}${game.googlePlay ? ` · [Get it on Google Play](${game.googlePlay})` : ""}${game.video || game.trailer ? ` · [Watch gameplay](${game.video || game.trailer})` : ""}`).join("\n\n")}
 `

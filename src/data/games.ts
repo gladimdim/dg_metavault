@@ -11,6 +11,7 @@ export interface Game {
   website: string
   platforms: string[]
   play?: string
+  googlePlay?: string
   video?: string
   trailer?: string
 }
@@ -92,11 +93,11 @@ export const games: Game[] = [
     website: "https://sicha.locadeserta.com/", platforms: ["iOS", "Android"], video: "https://sicha.locadeserta.com/media/trailer-720.mp4",
   },
   {
-    id: "defendus", title: "DefendUS", year: 2026, period: "2026 · in development",
-    genre: "Air defence", status: "In development",
+    id: "defendus", title: "DefendUS", year: 2026, period: "November 2026",
+    genre: "Air defence", status: "Released",
     description: "Keep Ukrainian cities powered through the night. Position mobile fire teams, intercept drones and missiles, then use the dawn to strengthen your defences.",
     image: "/images/games/defendus.webp", imageAlt: "DefendUS pixel-art air-defence game artwork",
-    website: "https://defendus.locadeserta.com/", platforms: ["Android planned"], video: "https://defendus.locadeserta.com/assets/hero.mp4",
+    website: "https://defendus.locadeserta.com/", platforms: ["Android"], googlePlay: "https://play.google.com/store/apps/details?id=com.gladimdim.defendus", video: "https://defendus.locadeserta.com/assets/hero.mp4",
   },
 ]
 
