@@ -7,10 +7,11 @@ description: "Short notes, updates, and micro-posts by Dmytro Gladkyi."
 
 # Micro Posts
 
-22 short posts — war diary, thoughts, quick updates.
+23 short posts — war diary, thoughts, quick updates.
 
 | Post                              | Preview                                                                                              |
 | --------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| [[2026-11-24-001\|2026-11-24 🇺🇸]] | SUPER DESKTOP for iPhone and iPad is on the App Store                                                |
 | [[2022-04-12-001\|2022-04-12 🇺🇦]] | Власний досвід                                                                                       |
 | [[2022-03-26-001\|2022-03-26 🇺🇦]] | Telegram - новий інтернет.                                                                           |
 | [[2022-03-11-001\|2022-03-11 🇺🇦]] | Журнодно                                                                                             |

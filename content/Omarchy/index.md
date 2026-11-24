@@ -15,6 +15,8 @@ thumbnail: "Images/super-desktop-overlay.webp"
 
 I’ve built a lot for Omarchy: desktop apps, plugins, phone and watch companions, and themes. From SUPER DESKTOP and Omakey to config sync and AI usage tools, it’s all part of making this desktop my own. You’ll find the full collection on my dedicated Omarchy site above.
 
+**24 November 2026.** [SUPER DESKTOP for iPhone and iPad is on the App Store](https://apps.apple.com/us/developer/dmytro-gladkyi/id578141466). It reaches the same agents as the Android app: live terminals on your own PCs, paired with a QR code, with no account. [[Micro/2026-11-24-001|Read the note]] · [product site](https://superdesktop.dmytrogladkyi.com/#phone).
+
 ## SUPER DESKTOP in action
 
 My overlay workspace brings AI terminals and sticky notes together, one shortcut away. Here’s a look at it on the desktop and across Omarchy themes.

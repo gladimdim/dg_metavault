@@ -27,7 +27,7 @@ Curated entry points for Flutter, Unity, Roblox, GladRoTools, and game developme
 
 ## Omarchy stuff
 
-Public [Omarchy](https://omarchy.org/) tools, plugins, watch apps and Loca Deserta themes I maintain — SUPER DESKTOP, Omakey, config sync, hardware info, AI usage on your wrist, reminders, air-raid alerts, and desktop themes. [Explore my Omarchy portfolio →](https://omarchy.dmytrogladkyi.com/) · [[Omarchy/index|Omarchy overview]]
+Public [Omarchy](https://omarchy.org/) tools, plugins, watch apps and Loca Deserta themes I maintain — SUPER DESKTOP, Omakey, config sync, hardware info, AI usage on your wrist, reminders, air-raid alerts, and desktop themes. SUPER DESKTOP for iPhone and iPad is now on the App Store. [Explore my Omarchy portfolio →](https://omarchy.dmytrogladkyi.com/) · [[Omarchy/index|Omarchy overview]] · [[Micro/2026-11-24-001|the iOS release note]]
 
 ## [Games](/games/)
 
